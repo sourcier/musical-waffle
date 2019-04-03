@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Hero } from "../components/Hero";
 
 export class BlogList extends React.Component {
@@ -18,6 +19,16 @@ export class BlogList extends React.Component {
                     </p>
                     <p className="subtitle">Jeff Atwood</p>
                   </div>
+                  <footer class="card-footer">
+                    <div class="card-footer-item">
+                      <Link
+                        className="button is-primary"
+                        to="/blog/some-article"
+                      >
+                        Read more
+                      </Link>
+                    </div>
+                  </footer>
                 </div>
               </div>
               <div className="column">
@@ -29,6 +40,16 @@ export class BlogList extends React.Component {
                     </p>
                     <p className="subtitle">Jeff Atwood</p>
                   </div>
+                  <footer class="card-footer">
+                    <div class="card-footer-item">
+                      <Link
+                        className="button is-primary"
+                        to="/blog/some-article"
+                      >
+                        Read more
+                      </Link>
+                    </div>
+                  </footer>
                 </div>
               </div>
             </div>

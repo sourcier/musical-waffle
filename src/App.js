@@ -4,6 +4,7 @@ import { Masthead } from "./components/Masthead";
 import { Home } from "./pages/Home";
 import { BlogList } from "./pages/BlogList";
 import { NotFound } from "./pages/NotFound";
+import { BlogPost } from "./pages/BlogPost";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <Switch>
           <Route exact path={"/"} component={Home} />
           <Route exact path={"/blog"} component={BlogList} />
+          <Route exact path={"/blog/:slug"} component={BlogPost} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
