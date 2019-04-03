@@ -1,12 +1,11 @@
 import React from "react";
+import { Hero } from "../components/Hero";
 
 export class BlogListPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <header className="App-header">
-          <h1>Blog</h1>
-        </header>
+        <Hero title="Blog" />
       </React.Fragment>
     );
   }

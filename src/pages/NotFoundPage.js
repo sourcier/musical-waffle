@@ -1,13 +1,11 @@
 import React from "react";
+import { Hero } from "../components/Hero";
 
 export class NotFoundPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <header className="App-header">
-          <h1>Oops!</h1>
-          <p>The page could not be found.</p>
-        </header>
+        <Hero title="oops!" subTitle="Page could not be found" />
       </React.Fragment>
     );
   }
