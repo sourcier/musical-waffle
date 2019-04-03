@@ -1,32 +1,24 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
+import { HomePage } from "./pages/HomePage";
+import { BlogListPage } from "./pages/BlogListPage";
+import { Masthead } from "./components/Masthead";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="ui top fixed menu">
-          <div className="item">
-            <img src={logo} />
-          </div>
-          <a className="item">Blog</a>
-        </div>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <React.Fragment>
+        <BrowserRouter>
+          <Masthead />
+          <Switch>
+            <Route exact path={"/"} component={HomePage} />
+            <Route exact path={"/blog"} component={BlogListPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </BrowserRouter>
+      </React.Fragment>
     );
   }
 }
