@@ -1,7 +1,7 @@
 import React from "react";
 import { Hero } from "../components/Hero";
 
-export class BlogListPage extends React.Component {
+export class BlogList extends React.Component {
   render() {
     return (
       <React.Fragment>

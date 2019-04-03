@@ -1,7 +1,7 @@
 import React from "react";
 import { Hero } from "../components/Hero";
 
-export class NotFoundPage extends React.Component {
+export class NotFound extends React.Component {
   render() {
     return (
       <React.Fragment>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Hero } from "../components/Hero";
 
-export class HomePage extends React.Component {
+export class Home extends React.Component {
   render() {
     return (
       <React.Fragment>

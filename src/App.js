@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { HomePage } from "./pages/HomePage";
-import { BlogListPage } from "./pages/BlogListPage";
 import { Masthead } from "./components/Masthead";
-import { NotFoundPage } from "./pages/NotFoundPage";
+import { Home } from "./pages/Home";
+import { BlogList } from "./pages/BlogList";
+import { NotFound } from "./pages/NotFound";
 
 class App extends Component {
   render() {
@@ -11,9 +11,9 @@ class App extends Component {
       <BrowserRouter>
         <Masthead />
         <Switch>
-          <Route exact path={"/"} component={HomePage} />
-          <Route exact path={"/blog"} component={BlogListPage} />
-          <Route component={NotFoundPage} />
+          <Route exact path={"/"} component={Home} />
+          <Route exact path={"/blog"} component={BlogList} />
+          <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
     );
