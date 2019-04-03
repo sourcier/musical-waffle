@@ -5,16 +5,24 @@ import logo from "../logo.svg";
 export class Masthead extends React.Component {
   render() {
     return (
-      <React.Fragment>
-        <div className="ui top fixed menu">
-          <Link className="item" to="/">
-            <img src={logo} alt="logo" />
-          </Link>
-          <Link className="item" to="/blog">
-            Blog
+      <nav
+        className="navbar is-fixed-top is-light"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div className="navbar-brand">
+          <Link className="navbar-item" to="/">
+            <img src={logo} width="30" alt="logo" />
           </Link>
         </div>
-      </React.Fragment>
+        <div className="navbar-menu is-active">
+          <div className="navbar-start">
+            <Link className="navbar-item" to="/blog">
+              Blog
+            </Link>
+          </div>
+        </div>
+      </nav>
     );
   }
 }
