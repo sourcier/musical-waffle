@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Hero } from "../components/Hero";
+import { getPosts } from "../api/Posts";
 
 export class BlogList extends React.Component {
   constructor(props) {
@@ -14,14 +15,9 @@ export class BlogList extends React.Component {
     posts: []
   };
 
-  componentDidMount() {
-    this.setState({
-      posts: [
-        { title: "title1", body: "body1" },
-        { title: "title1", body: "body1" },
-        { title: "title1", body: "body1" }
-      ]
-    });
+  async componentDidMount() {
+    const posts = await getPosts();
+    this.setState({ posts });
   }
 
   renderPosts = () => {
