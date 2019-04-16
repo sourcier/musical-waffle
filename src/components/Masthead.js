@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import classnames from 'classnames'
-import logo from '../logo.svg'
+import React from "react"
+import { Link } from "react-router-dom"
+import classnames from "classnames"
+import logo from "../logo.svg"
 
 export class Masthead extends React.Component {
     state = {
@@ -28,18 +28,18 @@ export class Masthead extends React.Component {
                     <span className="navbar-toggler-icon" />
                 </button>
                 <div
-                    className={classnames('navbar-collapse', {
+                    className={classnames("navbar-collapse", {
                         collapse: !isActive,
                     })}>
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link
                                 className="nav-link"
                                 to="/"
                                 onClick={this.closeMenu}>
                                 Home
                             </Link>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <Link
                                 className="nav-link"
