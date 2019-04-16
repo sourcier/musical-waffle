@@ -31,7 +31,7 @@ export class BlogList extends React.Component {
             <h1 className="card-title">{post.title}</h1>
             <hr />
             <ReactMarkdown source={post.content} />
-            <Link to="/blog/some-article" className="card-link">
+            <Link to={`/blog/${post.slug}`} className="btn btn-primary">
               View
             </Link>
           </div>
