@@ -1,10 +1,15 @@
-import React from 'react'
-import ReactMarkdown from 'react-markdown'
-import { Hero } from '../components/Hero'
-import { Spinner } from '../components/Spinner'
-import { getPostBySlug } from '../api/Posts'
+import React from "react"
+import ReactMarkdown from "react-markdown"
+import PropTypes from "prop-types"
+import { Hero } from "../components/Hero"
+import { Spinner } from "../components/Spinner"
+import { getPostBySlug } from "../api/Posts"
 
 export class BlogPost extends React.Component {
+    static propTypes = {
+        match: PropTypes.object.isRequired,
+        post: PropTypes.object.isRequired,
+    }
     state = {
         loading: true,
         post: null,
@@ -33,7 +38,7 @@ export class BlogPost extends React.Component {
     }
 
     render() {
-        const { loading, post } = this.state
+        const { loading } = this.state
         return (
             <React.Fragment>
                 {loading ? <Spinner /> : this.renderPost()}

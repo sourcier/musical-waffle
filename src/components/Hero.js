@@ -1,6 +1,12 @@
-import React from 'react'
+import React from "react"
+import PropTypes from "react"
 
 export class Hero extends React.Component {
+    static propTypes = {
+        title: PropTypes.string.isRequired,
+        subTitle: PropTypes.string,
+    }
+
     render() {
         const { title, subTitle } = this.props
         return (
