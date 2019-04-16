@@ -8,5 +8,12 @@
                 "distDir": "build"
             }
         }
-    ]
+    ],
+    "build": {
+        "env": {
+            "REACT_APP_PARSE_URL": "@musical-waffle-parse-url",
+            "REACT_APP_PARSE_ID": "@musical-waffle-parse-id",
+            "REACT_APP_PARSE_KEY": "@musical-waffle-parse-key"
+        }
+    }
 }
