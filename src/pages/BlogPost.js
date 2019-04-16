@@ -8,7 +8,7 @@ import { getPostBySlug } from "../api/Posts"
 export class BlogPost extends React.Component {
     static propTypes = {
         match: PropTypes.object.isRequired,
-        post: PropTypes.object.isRequired,
+        post: PropTypes.object,
     }
     state = {
         loading: true,
