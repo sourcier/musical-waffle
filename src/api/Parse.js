@@ -1,4 +1,4 @@
-import Parse from 'parse'
+import Parse from "parse/node"
 
 Parse.initialize(
     process.env.REACT_APP_PARSE_ID,
