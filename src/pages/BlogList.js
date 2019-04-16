@@ -1,4 +1,5 @@
 import React from "react";
+import { isEmpty } from "lodash";
 import { Link } from "react-router-dom";
 import { Hero } from "../components/Hero";
 import { getPosts } from "../api/Posts";
@@ -7,6 +8,7 @@ export class BlogList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       posts: props.posts
     };
   }
@@ -17,49 +19,64 @@ export class BlogList extends React.Component {
 
   async componentDidMount() {
     const posts = await getPosts();
-    this.setState({ posts });
+    this.setState({ posts, loading: false });
   }
 
   renderPosts = () => {
     return this.state.posts.map((post, key) => (
-      <div className="column is-half" key={key}>
-        <div className="card">
-          <div className="card-content">
-            <p className="title">{post.title}</p>
-            <p>{post.body}</p>
-            {/* <p className="subtitle">Jeff Atwood</p> */}
+      <div className="col-12 col-sm-6">
+        <div className="card mb-3" key={key}>
+          <div className="card-body">
+            <h5 className="card-title">{post.objectId}</h5>
+            <p className="card-text">{post.content}</p>
+            <Link to="/blog/some-article" className="card-link">
+              View
+            </Link>
           </div>
-          <footer className="card-footer">
-            <div className="card-footer-item">
-              <Link className="button is-primary" to="/blog/some-article">
-                Read more
-              </Link>
-            </div>
-          </footer>
         </div>
       </div>
     ));
   };
 
+  renderEmpty = () => {
+    return (
+      <div className="col-12">
+        <div className="card bg-light text-center">
+          <div className="card-body">
+            <h5 className="card-title">There are no posts yet.</h5>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  renderLoading = () => {
+    return (
+      <div className="col-12">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-grow" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   render() {
-    const { posts } = this.state;
+    const { posts, loading } = this.state;
+
     return (
       <React.Fragment>
         <Hero title="Blog" />
-        <section className="section">
-          <div className="container">
-            <div className="columns is-multiline">
-              {!posts.length && (
-                <div className="column">
-                  <div className="notification">
-                    <p>There are no posts to display</p>
-                  </div>
-                </div>
-              )}
-              {posts.length && this.renderPosts()}
-            </div>
+        <div className="container">
+          <div className="row">
+            {loading
+              ? this.renderLoading()
+              : isEmpty(posts)
+              ? this.renderEmpty()
+              : this.renderPosts()}
           </div>
-        </section>
+        </div>
       </React.Fragment>
     );
   }

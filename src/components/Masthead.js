@@ -17,37 +17,34 @@ export class Masthead extends React.Component {
   render() {
     const { isActive } = this.state;
     return (
-      <nav className="navbar is-fixed-top" role="navigation">
-        <div className="navbar-brand">
-          <Link className="navbar-item" to="/">
-            <img src={logo} width="30" alt="Sourcier" />
-          </Link>
-          <button
-            className={classnames(
-              "navbar-burger",
-              "button",
-              "is-white",
-              "is-radiusless",
-              {
-                "is-active": isActive
-              }
-            )}
-            onClick={this.toggleMenu}
-          >
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-          </button>
-        </div>
-        <div className={classnames("navbar-menu", { "is-active": isActive })}>
-          <div className="navbar-start">
-            <Link className="navbar-item" to="/" onClick={this.closeMenu}>
-              Home
-            </Link>
-            <Link className="navbar-item" to="/blog" onClick={this.closeMenu}>
-              Blog
-            </Link>
-          </div>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <Link className="navbar-brand" to="/">
+          <img src={logo} width="48" alt="Sourcier" />
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          onClick={this.toggleMenu}
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
+        <div
+          className={classnames("navbar-collapse", {
+            collapse: !isActive
+          })}
+        >
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Link className="nav-link" to="/" onClick={this.closeMenu}>
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/blog" onClick={this.closeMenu}>
+                Blog
+              </Link>
+            </li>
+          </ul>
         </div>
       </nav>
     );
