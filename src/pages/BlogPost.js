@@ -1,47 +1,42 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import { Hero } from "../components/Hero";
+import { Spinner } from "../components/Spinner";
+import { getPostBySlug } from "../api/Posts";
 
 export class BlogPost extends React.Component {
-  render() {
+  state = {
+    loading: true,
+    post: null
+  };
+
+  async componentDidMount() {
+    const { match } = this.props;
+    const post = await getPostBySlug(match.params.slug);
+    this.setState({ post, loading: false });
+  }
+
+  renderPost = () => {
+    const { post } = this.state;
     return (
       <React.Fragment>
-        <Hero title="Blog Post" />
-        <section className="section">
-          <div className="container">
-            <div className="columns">
-              <div className="column content is-medium">
-                <h1>Hello World</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                  accumsan, metus ultrices eleifend gravida, nulla nunc varius
-                  lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper
-                  dui. Fusce erat odio, sollicitudin vel erat vel, interdum
-                  mattis neque.
-                </p>
-                <h2>Second level</h2>
-                <p>
-                  Curabitur accumsan turpis pharetra augue tincidunt blandit.
-                  Quisque condimentum maximus mi, sit amet commodo arcu rutrum
-                  id. Proin pretium urna vel cursus venenatis. Suspendisse
-                  potenti. Etiam mattis sem rhoncus lacus dapibus facilisis.
-                  Donec at dignissim dui. Ut et neque nisl.
-                </p>
-                <ul>
-                  <li>
-                    In fermentum leo eu lectus mollis, quis dictum mi aliquet.
-                  </li>
-                  <li>
-                    Morbi eu nulla lobortis, lobortis est in, fringilla felis.
-                  </li>
-                  <li>
-                    Aliquam nec felis in sapien venenatis viverra fermentum
-                  </li>
-                  <li>nec lectus. Ut non enim metus.</li>
-                </ul>
-              </div>
+        <Hero title={post.title} />
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <ReactMarkdown source={post.content} />
             </div>
           </div>
-        </section>
+        </div>
+      </React.Fragment>
+    );
+  };
+
+  render() {
+    const { loading, post } = this.state;
+    return (
+      <React.Fragment>
+        {loading ? <Spinner /> : this.renderPost()}
       </React.Fragment>
     );
   }

@@ -18,7 +18,7 @@ export class Masthead extends React.Component {
     const { isActive } = this.state;
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/" onClick={this.closeMenu}>
           <img src={logo} width="48" alt="Sourcier" />
         </Link>
         <button
@@ -34,11 +34,11 @@ export class Masthead extends React.Component {
           })}
         >
           <ul className="navbar-nav mr-auto">
-            {/* <li className="nav-item">
+            <li className="nav-item">
               <Link className="nav-link" to="/" onClick={this.closeMenu}>
                 Home
               </Link>
-            </li> */}
+            </li>
             <li className="nav-item">
               <Link className="nav-link" to="/blog" onClick={this.closeMenu}>
                 Blog

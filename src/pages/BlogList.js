@@ -3,18 +3,12 @@ import { isEmpty } from "lodash";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { Hero } from "../components/Hero";
+import { Spinner } from "../components/Spinner";
 import { getPosts } from "../api/Posts";
 
 export class BlogList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-      posts: props.posts
-    };
-  }
-
-  static defaultProps = {
+  state = {
+    loading: true,
     posts: []
   };
 
@@ -52,18 +46,6 @@ export class BlogList extends React.Component {
     );
   };
 
-  renderLoading = () => {
-    return (
-      <div className="col-12">
-        <div className="d-flex justify-content-center">
-          <div className="spinner-grow" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   render() {
     const { posts, loading } = this.state;
 
@@ -72,11 +54,13 @@ export class BlogList extends React.Component {
         <Hero title="Blog" />
         <div className="container">
           <div className="row">
-            {loading
-              ? this.renderLoading()
-              : isEmpty(posts)
-              ? this.renderEmpty()
-              : this.renderPosts()}
+            {loading ? (
+              <Spinner />
+            ) : isEmpty(posts) ? (
+              this.renderEmpty()
+            ) : (
+              this.renderPosts()
+            )}
           </div>
         </div>
       </React.Fragment>

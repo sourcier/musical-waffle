@@ -7,3 +7,10 @@ export const getPosts = async () => {
   const posts = await query.find();
   return posts.map(post => post.toJSON());
 };
+
+export const getPostBySlug = async slug => {
+  const query = new Parse.Query(Post);
+  query.equalTo("slug", slug);
+  const post = await query.first();
+  return post.toJSON();
+};
