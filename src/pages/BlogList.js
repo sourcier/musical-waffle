@@ -1,5 +1,6 @@
 import React from "react";
 import { isEmpty } from "lodash";
+import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { Hero } from "../components/Hero";
 import { getPosts } from "../api/Posts";
@@ -24,11 +25,12 @@ export class BlogList extends React.Component {
 
   renderPosts = () => {
     return this.state.posts.map((post, key) => (
-      <div className="col-12 col-sm-6">
-        <div className="card mb-3" key={key}>
+      <div className="col-12 col-sm-6" key={key}>
+        <div className="card mb-3">
           <div className="card-body">
-            <h5 className="card-title">{post.objectId}</h5>
-            <p className="card-text">{post.content}</p>
+            <h1 className="card-title">{post.title}</h1>
+            <hr />
+            <ReactMarkdown source={post.content} />
             <Link to="/blog/some-article" className="card-link">
               View
             </Link>
@@ -53,9 +55,9 @@ export class BlogList extends React.Component {
   renderLoading = () => {
     return (
       <div className="col-12">
-        <div class="d-flex justify-content-center">
-          <div class="spinner-grow" role="status">
-            <span class="sr-only">Loading...</span>
+        <div className="d-flex justify-content-center">
+          <div className="spinner-grow" role="status">
+            <span className="sr-only">Loading...</span>
           </div>
         </div>
       </div>
