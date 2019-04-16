@@ -16,5 +16,6 @@
             "REACT_APP_PARSE_ID": "@musical-waffle-parse-id",
             "REACT_APP_PARSE_KEY": "@musical-waffle-parse-key"
         }
-    }
+    },
+    "regions": ["lhr1"]
 }
