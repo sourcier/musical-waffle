@@ -43,6 +43,14 @@ export class Masthead extends React.Component {
                         <li className="nav-item">
                             <Link
                                 className="nav-link"
+                                to="/about"
+                                onClick={this.closeMenu}>
+                                About
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link
+                                className="nav-link"
                                 to="/blog"
                                 onClick={this.closeMenu}>
                                 Blog
