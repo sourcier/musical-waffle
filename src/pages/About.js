@@ -18,7 +18,12 @@ export class About extends React.Component {
                                     EC2A 4NE
                                 </p>
                                 <p>
-                                    <strong>Email:</strong> info@sourcier.uk
+                                    <strong>Email:</strong>{" "}
+                                    <a
+                                        href="mailto:info@sourcier.uk?Subject=Hello"
+                                        target="_top">
+                                        info@sourcier.uk
+                                    </a>
                                 </p>
                             </div>
                         </div>
