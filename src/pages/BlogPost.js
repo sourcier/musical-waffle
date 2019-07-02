@@ -1,9 +1,11 @@
 import React from "react"
 import ReactMarkdown from "react-markdown"
 import PropTypes from "prop-types"
+
 import { Hero } from "../components/Hero"
 import { Spinner } from "../components/Spinner"
 import { getPostBySlug } from "../api/Posts"
+import { Meta } from "../components/Meta"
 
 export class BlogPost extends React.Component {
     static propTypes = {
@@ -25,6 +27,7 @@ export class BlogPost extends React.Component {
         const { post } = this.state
         return (
             <React.Fragment>
+                <Meta title={post.title} />
                 <Hero title={post.title} />
                 <div className="container">
                     <div className="row">

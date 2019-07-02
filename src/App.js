@@ -1,15 +1,18 @@
 import React, { Component } from "react"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
+
 import { BlogList } from "./pages/BlogList"
 import { NotFound } from "./pages/NotFound"
 import { BlogPost } from "./pages/BlogPost"
 import { Masthead } from "./components/Masthead"
 import { Contact } from "./pages/Contact"
+import { Meta } from "./components/Meta"
 
 class App extends Component {
     render() {
         return (
             <BrowserRouter>
+                <Meta />
                 <Masthead />
                 <Switch>
                     <Route exact path={"/"} component={BlogList} />

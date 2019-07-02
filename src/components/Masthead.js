@@ -18,7 +18,7 @@ export class Masthead extends React.Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <Link className="navbar-brand" to="/" onClick={this.closeMenu}>
-                    sourcier.uk
+                    Sourcier
                 </Link>
                 <button
                     className="navbar-toggler"
@@ -31,14 +31,14 @@ export class Masthead extends React.Component {
                         collapse: !isActive,
                     })}>
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link
                                 className="nav-link"
                                 to="/"
                                 onClick={this.closeMenu}>
                                 Home
                             </Link>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <Link
                                 className="nav-link"

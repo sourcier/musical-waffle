@@ -1,10 +1,12 @@
-import React from 'react'
-import { isEmpty } from 'lodash'
-import ReactMarkdown from 'react-markdown'
-import { Link } from 'react-router-dom'
-import { Hero } from '../components/Hero'
-import { Spinner } from '../components/Spinner'
-import { getPosts } from '../api/Posts'
+import React from "react"
+import { isEmpty } from "lodash"
+import ReactMarkdown from "react-markdown"
+import { Link } from "react-router-dom"
+
+import { Hero } from "../components/Hero"
+import { Spinner } from "../components/Spinner"
+import { getPosts } from "../api/Posts"
+import { Meta } from "../components/Meta"
 
 export class BlogList extends React.Component {
     state = {
@@ -53,6 +55,7 @@ export class BlogList extends React.Component {
 
         return (
             <React.Fragment>
+                <Meta title="Blog" />
                 <Hero title="Blog" />
                 <div className="container">
                     <div className="row">

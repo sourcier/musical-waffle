@@ -1,10 +1,13 @@
 import React from "react"
+
 import { Hero } from "../components/Hero"
+import { Meta } from "../components/Meta"
 
 export class Contact extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <Meta title="Get in touch" />
                 <Hero title="Get in touch" />
                 <div className="container">
                     <div className="row">
