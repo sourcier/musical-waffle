@@ -1,7 +1,7 @@
 import React from "react"
 import { Hero } from "../components/Hero"
 
-export class About extends React.Component {
+export class Contact extends React.Component {
     render() {
         return (
             <React.Fragment>

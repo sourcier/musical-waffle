@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import classnames from "classnames"
-import logo from "../logo.svg"
 
 export class Masthead extends React.Component {
     state = {
@@ -19,7 +18,7 @@ export class Masthead extends React.Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <Link className="navbar-brand" to="/" onClick={this.closeMenu}>
-                    <img src={logo} width="48" alt="Sourcier" />
+                    sourcier.uk
                 </Link>
                 <button
                     className="navbar-toggler"
@@ -32,20 +31,12 @@ export class Masthead extends React.Component {
                         collapse: !isActive,
                     })}>
                     <ul className="navbar-nav mr-auto">
-                        {/* <li className="nav-item">
+                        <li className="nav-item">
                             <Link
                                 className="nav-link"
                                 to="/"
                                 onClick={this.closeMenu}>
                                 Home
-                            </Link>
-                        </li> */}
-                        <li className="nav-item">
-                            <Link
-                                className="nav-link"
-                                to="/about"
-                                onClick={this.closeMenu}>
-                                About
                             </Link>
                         </li>
                         <li className="nav-item">
@@ -54,6 +45,14 @@ export class Masthead extends React.Component {
                                 to="/blog"
                                 onClick={this.closeMenu}>
                                 Blog
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link
+                                className="nav-link"
+                                to="/contact"
+                                onClick={this.closeMenu}>
+                                Contact
                             </Link>
                         </li>
                     </ul>
