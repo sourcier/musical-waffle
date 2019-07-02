@@ -17,5 +17,12 @@
             "REACT_APP_PARSE_KEY": "@musical-waffle-parse-key"
         }
     },
-    "regions": ["lhr1"]
+    "regions": ["lhr1"],
+    "routes": [
+        { "handle": "filesystem" },
+        {
+            "src": "^/(.*)",
+            "dest": "/index.html"
+        }
+    ]
 }
