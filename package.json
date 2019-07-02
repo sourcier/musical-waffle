@@ -29,7 +29,8 @@
         "eject": "react-scripts eject",
         "precommit": "NODE_ENV=production lint-staged",
         "lint": "eslint ./src",
-        "now-build": "yarn build"
+        "now-build": "yarn build",
+        "now-dev": "yarn start"
     },
     "eslintConfig": {
         "extends": "react-app"
