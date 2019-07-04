@@ -7,12 +7,13 @@ deploy:
   skip_cleanup: true
   on:
     branch: master
-  after_success: yarn now-rm
+after_deploy:
+  - yarn now-rm
 notifications:
-  email:
-    recipients:
-      - roger@sourcier.uk
-    on_success: never
-    on_failure: always
+    email:
+        recipients:
+            - roger@sourcier.uk
+        on_success: never
+        on_failure: always
 git:
-  depth: 1
+    depth: 1
