@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet"
 
 export class Meta extends React.Component {
     static propTypes = {
-        title: PropTypes.string.isRequired,
+        title: PropTypes.string,
     }
 
     render() {
