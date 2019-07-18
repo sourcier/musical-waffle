@@ -37,7 +37,7 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "precommit": "NODE_ENV=production lint-staged",
+        "precommit": "CI=true yarn test; NODE_ENV=production lint-staged",
         "lint": "eslint ./src",
         "now-build": "yarn build",
         "now-dev": "yarn start",
