@@ -1,11 +1,11 @@
 {
     "name": "musical-waffle",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "private": true,
     "dependencies": {
         "bootstrap": "^4.3.1",
         "classnames": "^2.2.6",
-        "lodash": "^4.17.11",
+        "lodash": "^4.17.14",
         "parse": "^2.3.2",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
