@@ -27,6 +27,11 @@ exports[`renders without crashing 1`] = `
     />
     <Route
       component={[Function]}
+      exact={true}
+      path="/login"
+    />
+    <Route
+      component={[Function]}
     />
   </Switch>
 </BrowserRouter>
