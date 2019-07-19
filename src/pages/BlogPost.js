@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 
 import { Hero } from "../components/Hero"
 import { Spinner } from "../components/Spinner"
-// import { getPostBySlug } from "../api/Posts"
+import { getPostBySlug } from "../api/Posts"
 import { Meta } from "../components/Meta"
 
 export class BlogPost extends React.Component {
@@ -17,11 +17,11 @@ export class BlogPost extends React.Component {
         post: null,
     }
 
-    // async componentDidMount() {
-    //     const { match } = this.props
-    //     const post = await getPostBySlug(match.params.slug)
-    //     this.setState({ post, loading: false })
-    // }
+    componentDidMount() {
+        getPostBySlug(this.props.match.params.slug).then((post) => {
+            this.setState({ post, loading: false })
+        })
+    }
 
     renderPost = () => {
         const { post } = this.state
