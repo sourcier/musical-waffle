@@ -41,9 +41,7 @@
         "eject": "react-scripts eject",
         "precommit": "CI=true yarn test; NODE_ENV=production lint-staged",
         "lint": "eslint ./src",
-        "now-build": "yarn build",
-        "now-dev": "yarn start",
-        "now-deploy": "now --target production -e NODE_ENV=production --token $NOW_TOKEN",
+        "now-deploy": "now --target production -e NODE_ENV=production --token $NOW_TOKEN build",
         "now-rm": "now rm musical-waffle --token $NOW_TOKEN --safe --yes"
     },
     "eslintConfig": {
