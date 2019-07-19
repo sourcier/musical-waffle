@@ -28,6 +28,7 @@
         "now": "^15.6.2",
         "prettier": "^1.17.0",
         "pretty-quick": "^1.10.0",
+        "react-snap": "^1.23.0",
         "redux-devtools-extension": "^2.13.8",
         "serve": "^11.1.0"
     },
@@ -35,6 +36,7 @@
         "start": "react-scripts start",
         "start:prod": "serve -s build",
         "build": "react-scripts build",
+        "postbuild": "react-snap",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "precommit": "CI=true yarn test; NODE_ENV=production lint-staged",

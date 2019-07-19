@@ -1,14 +1,19 @@
 language: node_js
 node_js: 8
+addons:
+    chrome: stable
 cache: yarn
+script:
+    - yarn test
+    - yarn build
 deploy:
-  provider: script
-  script: yarn now-deploy
-  skip_cleanup: true
-  on:
-    branch: master
+    provider: script
+    script: yarn now-deploy
+    skip_cleanup: true
+    on:
+        branch: master
 after_deploy:
-  - yarn now-rm
+    - yarn now-rm
 notifications:
     email:
         recipients:
