@@ -1,16 +1,16 @@
-import Parse from './Parse'
+import Parse from "./Parse"
 
-const Post = Parse.Object.extend('Post')
+const Post = Parse.Object.extend("Post")
 
-export const getPosts = async () => {
-    const query = new Parse.Query(Post)
-    const posts = await query.find()
-    return posts.map((post) => post.toJSON())
+export const getPosts = () => {
+    return new Parse.Query(Post)
+        .find()
+        .then((posts) => posts.map((post) => post.toJSON()))
 }
 
-export const getPostBySlug = async (slug) => {
-    const query = new Parse.Query(Post)
-    query.equalTo('slug', slug)
-    const post = await query.first()
-    return post.toJSON()
+export const getPostBySlug = (slug) => {
+    return new Parse.Query(Post)
+        .equalTo("slug", slug)
+        .first()
+        .then((post) => post.toJSON())
 }

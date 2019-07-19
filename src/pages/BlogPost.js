@@ -17,10 +17,10 @@ export class BlogPost extends React.Component {
         post: null,
     }
 
-    async componentDidMount() {
-        const { match } = this.props
-        const post = await getPostBySlug(match.params.slug)
-        this.setState({ post, loading: false })
+    componentDidMount() {
+        getPostBySlug(this.props.match.params.slug).then((post) => {
+            this.setState({ post, loading: false })
+        })
     }
 
     renderPost = () => {

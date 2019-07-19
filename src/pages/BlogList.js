@@ -14,9 +14,10 @@ export class BlogList extends React.Component {
         posts: [],
     }
 
-    async componentDidMount() {
-        const posts = await getPosts()
-        this.setState({ posts, loading: false })
+    componentDidMount() {
+        getPosts().then((posts) => {
+            this.setState({ posts, loading: false })
+        })
     }
 
     renderPosts = () => {

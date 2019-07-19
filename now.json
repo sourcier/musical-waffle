@@ -1,28 +1,26 @@
 {
     "version": 2,
     "alias": "sourcier.uk",
-    "builds": [
-        {
-            "src": "package.json",
-            "use": "@now/static-build",
-            "config": {
-                "distDir": "build"
-            }
-        }
-    ],
-    "build": {
-        "env": {
-            "REACT_APP_PARSE_URL": "@musical-waffle-parse-url",
-            "REACT_APP_PARSE_ID": "@musical-waffle-parse-id",
-            "REACT_APP_PARSE_KEY": "@musical-waffle-parse-key"
-        }
+    "env": {
+        "REACT_APP_PARSE_URL": "@musical-waffle-parse-url",
+        "REACT_APP_PARSE_ID": "@musical-waffle-parse-id",
+        "REACT_APP_PARSE_KEY": "@musical-waffle-parse-key"
     },
-    "regions": ["lhr1"],
+    "regions": [
+        "lhr1"
+    ],
     "routes": [
-        { "handle": "filesystem" },
         {
             "src": "^/(.*)",
-            "dest": "/index.html"
+            "dest": "/$1"
+        },
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "^/(.*)",
+            "status": 404,
+            "dest": "/404.html"
         }
     ],
     "github": {
