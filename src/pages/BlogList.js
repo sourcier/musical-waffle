@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 import { Hero } from "../components/Hero"
 import { Spinner } from "../components/Spinner"
-import { getPosts } from "../api/Posts"
+// import { getPosts } from "../api/Posts"
 import { Meta } from "../components/Meta"
 
 export class BlogList extends React.Component {
@@ -14,10 +14,10 @@ export class BlogList extends React.Component {
         posts: [],
     }
 
-    async componentDidMount() {
-        const posts = await getPosts()
-        this.setState({ posts, loading: false })
-    }
+    // async componentDidMount() {
+    //     const posts = await getPosts()
+    //     this.setState({ posts, loading: false })
+    // }
 
     renderPosts = () => {
         return this.state.posts.map((post, key) => (
