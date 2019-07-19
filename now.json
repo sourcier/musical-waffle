@@ -1,5 +1,6 @@
 {
     "version": 2,
+    "name": "musical-waffle",
     "alias": "sourcier.uk",
     "env": {
         "REACT_APP_PARSE_URL": "@musical-waffle-parse-url",
