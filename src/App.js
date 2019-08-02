@@ -1,9 +1,5 @@
 import React, { Component } from "react"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
-import { compose } from "redux"
-import { connect } from "react-redux"
-import PropTypes from "prop-types"
-import { restoreSession } from "./store/reducers/session"
 import { BlogList } from "./pages/BlogList"
 import { NotFound } from "./pages/NotFound"
 import { BlogPost } from "./pages/BlogPost"
@@ -14,15 +10,7 @@ import { Meta } from "./components/Meta"
 import SignUp from "./pages/SignUp"
 import Logout from "./pages/Logout"
 
-export class App extends Component {
-    static propTypes = {
-        restoreSession: PropTypes.func.isRequired,
-    }
-
-    componentDidMount() {
-        this.props.restoreSession()
-    }
-
+export default class App extends Component {
     render() {
         return (
             <BrowserRouter>
@@ -42,12 +30,3 @@ export class App extends Component {
         )
     }
 }
-
-const mapDispatchToProps = { restoreSession }
-
-export default compose(
-    connect(
-        null,
-        mapDispatchToProps
-    )
-)(App)

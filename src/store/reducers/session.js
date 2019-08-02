@@ -11,10 +11,6 @@ const actions = {
     LOGOUT: "logout",
     LOGOUT_SUCCESS: "logout/success",
     LOGOUT_FAILURE: "logout/failure",
-    RESTORE: "restore",
-    RESTORE_SUCCESS: "restore/success",
-    RESTORE_EMPTY: "restore/empty",
-    RESTORE_FAILURE: "restore/failure",
 }
 
 export const signUp = ({ email, password }) => (dispatch) =>
@@ -61,22 +57,16 @@ export const logout = () => (dispatch) =>
             dispatch({ type: actions.LOGOUT_FAILURE, payload: error })
         })
 
-export const restoreSession = () => (dispatch) =>
-    Promise.resolve()
-        .then(() => {
-            dispatch({ type: actions.RESTORE })
-        })
-        .then(() => {
-            const user = Parse.User.current()
-            if (!isEmpty(user)) {
-                dispatch({ type: actions.RESTORE_SUCCESS, payload: user })
-            } else {
-                dispatch({ type: actions.RESTORE_FAILURE })
-            }
-        })
-        .catch((error) => {
-            dispatch({ type: actions.RESTORE_FAILURE, payload: error })
-        })
+export const restoreUserSession = () => {
+    return Promise.resolve().then(() => {
+        const user = Parse.User.current()
+        if (!isEmpty(user)) {
+            return { user, isAuthenticated: true }
+        } else {
+            return { isAuthenticated: false }
+        }
+    })
+}
 
 export default (state = { isAuthenticated: false }, { type, payload }) => {
     switch (type) {
@@ -90,12 +80,6 @@ export default (state = { isAuthenticated: false }, { type, payload }) => {
         return {
             ...without(state, "user"),
             isAuthenticated: false,
-        }
-    case actions.RESTORE_SUCCESS:
-        return {
-            ...state,
-            user: payload,
-            isAuthenticated: true,
         }
     default:
         return { ...state }
