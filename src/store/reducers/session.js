@@ -1,3 +1,4 @@
+import { without } from "lodash"
 import Parse from "../../api/Parse"
 
 const actions = {
@@ -7,6 +8,9 @@ const actions = {
     LOGIN: "login",
     LOGIN_SUCCESS: "login/success",
     LOGIN_FAILURE: "login/failure",
+    LOGOUT: "logout",
+    LOGOUT_SUCCESS: "logout/success",
+    LOGOUT_FAILURE: "logout/failure",
 }
 
 export const signUp = ({ email, password }) => (dispatch) =>
@@ -40,6 +44,19 @@ export const login = ({ email, password }) => (dispatch) =>
             dispatch({ type: actions.LOGIN_FAILURE, payload: error })
         })
 
+export const logout = () => (dispatch) =>
+    Promise.resolve()
+        .then(() => {
+            dispatch({ type: actions.LOGOUT })
+        })
+        .then(() => Parse.User.logOut())
+        .then(() => {
+            dispatch({ type: actions.LOGOUT_SUCCESS })
+        })
+        .catch((error) => {
+            dispatch({ type: actions.LOGOUT_FAILURE, payload: error })
+        })
+
 export default (state = { isAuthenticated: false }, { type, payload }) => {
     switch (type) {
     case actions.LOGIN_SUCCESS:
@@ -47,6 +64,11 @@ export default (state = { isAuthenticated: false }, { type, payload }) => {
             ...state,
             isAuthenticated: true,
             user: payload,
+        }
+    case actions.LOGOUT_SUCCESS:
+        return {
+            ...without(state, "user"),
+            isAuthenticated: false,
         }
     default:
         return { ...state }

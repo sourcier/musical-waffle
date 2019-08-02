@@ -44,6 +44,19 @@ exports[`renders without crashing 1`] = `
           "$$typeof": Symbol(react.memo),
           "WrappedComponent": [Function],
           "compare": null,
+          "displayName": "Connect(Logout)",
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/logout"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
           "displayName": "Connect(SignUp)",
           "type": [Function],
         }

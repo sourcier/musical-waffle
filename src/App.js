@@ -9,6 +9,7 @@ import { Contact } from "./pages/Contact"
 import Login from "./pages/Login"
 import { Meta } from "./components/Meta"
 import SignUp from "./pages/SignUp"
+import Logout from "./pages/Logout"
 
 class App extends Component {
     render() {
@@ -22,6 +23,7 @@ class App extends Component {
                     <Route exact path={"/blog"} component={BlogList} />
                     <Route exact path={"/blog/:slug"} component={BlogPost} />
                     <Route exact path={"/login"} component={Login} />
+                    <Route exact path={"/logout"} component={Logout} />
                     <Route exact path={"/signup"} component={SignUp} />
                     <Route component={NotFound} />
                 </Switch>
