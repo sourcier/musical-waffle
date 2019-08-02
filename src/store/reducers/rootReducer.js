@@ -1,8 +1,8 @@
 import { combineReducers } from "redux"
-import blogReducer from "./blogReducer"
-import sessionReducer from "./sessionReducer"
+import blog from "./blog"
+import session from "./session"
 
 export default combineReducers({
-    blog: blogReducer,
-    session: sessionReducer,
+    blog,
+    session,
 })

@@ -31,6 +31,19 @@ exports[`renders without crashing 1`] = `
       path="/login"
     />
     <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(SignUp)",
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/signup"
+    />
+    <Route
       component={[Function]}
     />
   </Switch>
