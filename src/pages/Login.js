@@ -3,20 +3,22 @@ import { compose } from "redux"
 import { connect } from "react-redux"
 import { isEmpty } from "lodash"
 import PropTypes from "prop-types"
+import { Redirect } from "react-router"
 import { Hero } from "../components/Hero"
 import { login } from "../store/reducers/session"
 
 export class Login extends React.Component {
+    static propTypes = {
+        login: PropTypes.func.isRequired,
+        isAuthenticated: PropTypes.bool,
+    }
+
     constructor(props) {
         super(props)
         this.state = { email: "", password: "", disabled: true }
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-    }
-
-    static propTypes = {
-        login: PropTypes.func.isRequired,
     }
 
     handleChange(event) {
@@ -38,6 +40,11 @@ export class Login extends React.Component {
 
     render() {
         const { email, password, disabled } = this.state
+        const { isAuthenticated } = this.props
+
+        if (isAuthenticated) {
+            return <Redirect to="/" />
+        }
 
         return (
             <React.Fragment>
@@ -85,9 +92,13 @@ export class Login extends React.Component {
 
 const mapDispatchToProps = { login }
 
+const mapStateToProps = ({ session: { isAuthenticated } }) => ({
+    isAuthenticated,
+})
+
 export default compose(
     connect(
-        null,
+        mapStateToProps,
         mapDispatchToProps
     )
 )(Login)
