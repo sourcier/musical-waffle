@@ -9,17 +9,17 @@ import { Link } from "react-router-dom"
 import { Hero } from "../components/Hero"
 import { Spinner } from "../components/Spinner"
 import { Meta } from "../components/Meta"
-import { getPosts } from "../store/reducers/blog"
+import { getBlogList } from "../store/reducers/blog"
 
 export class BlogList extends React.Component {
     static propTypes = {
-        getPosts: PropTypes.func.isRequired,
+        getBlogList: PropTypes.func.isRequired,
         state: PropTypes.string,
         posts: PropTypes.array,
     }
 
     componentDidMount() {
-        this.props.getPosts()
+        this.props.getBlogList()
     }
 
     renderPosts = () => {
@@ -76,12 +76,16 @@ export class BlogList extends React.Component {
     }
 }
 
-const mapStateToProps = ({ blog: { posts, state } }) => ({
+const mapStateToProps = ({
+    blog: {
+        blogList: { state, posts },
+    },
+}) => ({
     posts,
     state,
 })
 
-const mapDispatchToProps = { getPosts }
+const mapDispatchToProps = { getBlogList }
 
 export default compose(
     connect(

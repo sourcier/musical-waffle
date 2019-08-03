@@ -1,30 +1,28 @@
 import React from "react"
+import { compose } from "redux"
+import { connect } from "react-redux"
 import ReactMarkdown from "react-markdown"
 import PropTypes from "prop-types"
 
 import { Hero } from "../components/Hero"
 import { Spinner } from "../components/Spinner"
-import { getPostBySlug } from "../api/Posts"
 import { Meta } from "../components/Meta"
+import { getBlogPost } from "../store/reducers/blog"
 
 export class BlogPost extends React.Component {
     static propTypes = {
         match: PropTypes.object.isRequired,
+        getBlogPost: PropTypes.func.isRequired,
+        state: PropTypes.string,
         post: PropTypes.object,
-    }
-    state = {
-        loading: true,
-        post: null,
     }
 
     componentDidMount() {
-        getPostBySlug(this.props.match.params.slug).then((post) => {
-            this.setState({ post, loading: false })
-        })
+        this.props.getBlogPost(this.props.match.params.slug)
     }
 
     renderPost = () => {
-        const { post } = this.state
+        const { post } = this.props
         return (
             <React.Fragment>
                 <Meta title={post.title} />
@@ -41,11 +39,29 @@ export class BlogPost extends React.Component {
     }
 
     render() {
-        const { loading } = this.state
+        const { state } = this.props
         return (
             <React.Fragment>
-                {loading ? <Spinner /> : this.renderPost()}
+                {"fetching" === state ? <Spinner /> : this.renderPost()}
             </React.Fragment>
         )
     }
 }
+
+const mapStateToProps = ({
+    blog: {
+        blogPost: { state, post },
+    },
+}) => ({
+    post,
+    state,
+})
+
+const mapDispatchToProps = { getBlogPost }
+
+export default compose(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )
+)(BlogPost)
