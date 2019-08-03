@@ -1,4 +1,4 @@
-import Parse from "./Parse"
+import Parse from "../lib/Parse"
 
 const Post = Parse.Object.extend("Post")
 

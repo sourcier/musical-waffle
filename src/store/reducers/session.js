@@ -1,5 +1,5 @@
 import { without, isEmpty } from "lodash"
-import Parse from "../../api/Parse"
+import Parse from "../../lib/Parse"
 
 const actions = {
     SIGNUP: "signup",

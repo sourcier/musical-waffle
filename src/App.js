@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
-import { BlogList } from "./pages/BlogList"
+import BlogList from "./pages/BlogList"
 import { NotFound } from "./pages/NotFound"
 import { BlogPost } from "./pages/BlogPost"
 import { Masthead } from "./components/Masthead"
