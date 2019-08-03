@@ -6,7 +6,15 @@ exports[`renders without crashing 1`] = `
   <Masthead />
   <Switch>
     <Route
-      component={[Function]}
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(BlogList)",
+          "type": [Function],
+        }
+      }
       exact={true}
       path="/"
     />
@@ -16,12 +24,28 @@ exports[`renders without crashing 1`] = `
       path="/contact"
     />
     <Route
-      component={[Function]}
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(BlogList)",
+          "type": [Function],
+        }
+      }
       exact={true}
       path="/blog"
     />
     <Route
-      component={[Function]}
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(BlogPost)",
+          "type": [Function],
+        }
+      }
       exact={true}
       path="/blog/:slug"
     />
