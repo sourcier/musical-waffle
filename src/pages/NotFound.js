@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react'
 
-import { Hero } from "../components/Hero"
-import { Meta } from "../components/Meta"
+import { Hero } from '../components/Hero'
+import { Meta } from '../components/Meta'
 
 export class NotFound extends React.Component {
     render() {
