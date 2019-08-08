@@ -1,6 +1,6 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import classnames from "classnames"
+import React from 'react'
+import { Link } from 'react-router-dom'
+import classnames from 'classnames'
 
 export class Masthead extends React.Component {
     state = {
@@ -27,7 +27,7 @@ export class Masthead extends React.Component {
                     <span className="navbar-toggler-icon" />
                 </button>
                 <div
-                    className={classnames("navbar-collapse", {
+                    className={classnames('navbar-collapse', {
                         collapse: !isActive,
                     })}>
                     <ul className="navbar-nav mr-auto">

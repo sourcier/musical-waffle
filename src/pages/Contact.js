@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react'
 
-import { Hero } from "../components/Hero"
-import { Meta } from "../components/Meta"
+import { Hero } from '../components/Hero'
+import { Meta } from '../components/Meta'
 
 export class Contact extends React.Component {
     render() {
@@ -21,7 +21,7 @@ export class Contact extends React.Component {
                                     EC2A 4NE
                                 </p>
                                 <p>
-                                    <strong>Email:</strong>{" "}
+                                    <strong>Email:</strong>{' '}
                                     <a
                                         href="mailto:info@sourcier.uk?Subject=Hello"
                                         target="_top">

@@ -1,7 +1,7 @@
-import React from "react"
-import { Route, Redirect } from "react-router-dom"
-import { connect } from "react-redux"
-import PropTypes from "prop-types"
+import React from 'react'
+import { Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 class PrivateRoute extends React.Component {
     static propTypes = {
@@ -20,7 +20,7 @@ class PrivateRoute extends React.Component {
                     ) : (
                         <Redirect
                             to={{
-                                pathname: "/login",
+                                pathname: '/login',
                                 state: { from: props.location },
                             }}
                         />

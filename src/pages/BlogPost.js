@@ -1,13 +1,13 @@
-import React from "react"
-import { compose } from "redux"
-import { connect } from "react-redux"
-import ReactMarkdown from "react-markdown"
-import PropTypes from "prop-types"
+import React from 'react'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import ReactMarkdown from 'react-markdown'
+import PropTypes from 'prop-types'
 
-import { Hero } from "../components/Hero"
-import { Spinner } from "../components/Spinner"
-import { Meta } from "../components/Meta"
-import { getBlogPost } from "../store/reducers/blog"
+import { Hero } from '../components/Hero'
+import { Spinner } from '../components/Spinner'
+import { Meta } from '../components/Meta'
+import { getBlogPost } from '../store/reducers/blog'
 
 export class BlogPost extends React.Component {
     static propTypes = {
@@ -42,7 +42,7 @@ export class BlogPost extends React.Component {
         const { state } = this.props
         return (
             <React.Fragment>
-                {"fetching" === state ? <Spinner /> : this.renderPost()}
+                {'fetching' === state ? <Spinner /> : this.renderPost()}
             </React.Fragment>
         )
     }

@@ -1,9 +1,9 @@
-import parseNode from "parse/node"
-import parse from "parse"
+import parseNode from 'parse/node'
+import parse from 'parse'
 
 const Parse =
-    navigator.userAgent.includes("Node.js") ||
-    navigator.userAgent.includes("jsdom")
+    navigator.userAgent.includes('Node.js') ||
+    navigator.userAgent.includes('jsdom')
         ? parseNode
         : parse
 

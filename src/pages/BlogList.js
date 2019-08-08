@@ -1,15 +1,15 @@
-import React from "react"
-import { compose } from "redux"
-import { connect } from "react-redux"
-import { isEmpty } from "lodash"
-import PropTypes from "prop-types"
-import ReactMarkdown from "react-markdown"
-import { Link } from "react-router-dom"
+import React from 'react'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import { isEmpty } from 'lodash'
+import PropTypes from 'prop-types'
+import ReactMarkdown from 'react-markdown'
+import { Link } from 'react-router-dom'
 
-import { Hero } from "../components/Hero"
-import { Spinner } from "../components/Spinner"
-import { Meta } from "../components/Meta"
-import { getBlogList } from "../store/reducers/blog"
+import { Hero } from '../components/Hero'
+import { Spinner } from '../components/Spinner'
+import { Meta } from '../components/Meta'
+import { getBlogList } from '../store/reducers/blog'
 
 export class BlogList extends React.Component {
     static propTypes = {
@@ -25,7 +25,7 @@ export class BlogList extends React.Component {
     renderPosts = () => {
         const { posts, state } = this.props
 
-        if ("fetched" === state) {
+        if ('fetched' === state) {
             if (isEmpty(posts)) {
                 return this.renderEmpty()
             } else {

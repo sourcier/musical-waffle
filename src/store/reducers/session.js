@@ -1,16 +1,16 @@
-import { without, isEmpty } from "lodash"
-import Parse from "../../lib/Parse"
+import { without, isEmpty } from 'lodash'
+import Parse from '../../lib/Parse'
 
 const actions = {
-    SIGNUP: "signup",
-    SIGNUP_SUCCESS: "signup/success",
-    SIGNUP_FAILURE: "signup/failure",
-    LOGIN: "login",
-    LOGIN_SUCCESS: "login/success",
-    LOGIN_FAILURE: "login/failure",
-    LOGOUT: "logout",
-    LOGOUT_SUCCESS: "logout/success",
-    LOGOUT_FAILURE: "logout/failure",
+    SIGNUP: 'signup',
+    SIGNUP_SUCCESS: 'signup/success',
+    SIGNUP_FAILURE: 'signup/failure',
+    LOGIN: 'login',
+    LOGIN_SUCCESS: 'login/success',
+    LOGIN_FAILURE: 'login/failure',
+    LOGOUT: 'logout',
+    LOGOUT_SUCCESS: 'logout/success',
+    LOGOUT_FAILURE: 'logout/failure',
 }
 
 export const signUp = ({ email, password }) => (dispatch) =>
@@ -20,8 +20,8 @@ export const signUp = ({ email, password }) => (dispatch) =>
         })
         .then(() =>
             new Parse.User()
-                .set("username", email)
-                .set("password", password)
+                .set('username', email)
+                .set('password', password)
                 .signUp()
         )
         .then((data) => {
@@ -70,18 +70,18 @@ export const restoreUserSession = () => {
 
 export default (state = { isAuthenticated: false }, { type, payload }) => {
     switch (type) {
-    case actions.LOGIN_SUCCESS:
-        return {
-            ...state,
-            isAuthenticated: true,
-            user: payload,
-        }
-    case actions.LOGOUT_SUCCESS:
-        return {
-            ...without(state, "user"),
-            isAuthenticated: false,
-        }
-    default:
-        return { ...state }
+        case actions.LOGIN_SUCCESS:
+            return {
+                ...state,
+                isAuthenticated: true,
+                user: payload,
+            }
+        case actions.LOGOUT_SUCCESS:
+            return {
+                ...without(state, 'user'),
+                isAuthenticated: false,
+            }
+        default:
+            return { ...state }
     }
 }

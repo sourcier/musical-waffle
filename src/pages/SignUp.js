@@ -1,11 +1,11 @@
-import React from "react"
-import { compose } from "redux"
-import { connect } from "react-redux"
-import { isEmpty } from "lodash"
-import PropTypes from "prop-types"
-import { Redirect } from "react-router"
-import { Hero } from "../components/Hero"
-import { signUp } from "../store/reducers/session"
+import React from 'react'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import { isEmpty } from 'lodash'
+import PropTypes from 'prop-types'
+import { Redirect } from 'react-router'
+import { Hero } from '../components/Hero'
+import { signUp } from '../store/reducers/session'
 
 export class SignUp extends React.Component {
     static propTypes = {
@@ -15,7 +15,7 @@ export class SignUp extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = { email: "", password: "", disabled: true }
+        this.state = { email: '', password: '', disabled: true }
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
