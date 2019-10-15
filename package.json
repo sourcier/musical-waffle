@@ -7,8 +7,8 @@
         "classnames": "^2.2.6",
         "lodash": "^4.17.15",
         "parse": "^2.3.2",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
+        "react": "^16.10.2",
+        "react-dom": "^16.10.2",
         "react-helmet": "^5.2.1",
         "react-markdown": "^4.0.8",
         "react-redux": "^7.1.0",
@@ -18,25 +18,40 @@
         "redux-thunk": "^2.3.0"
     },
     "devDependencies": {
+        "@babel/core": "^7.6.4",
+        "@babel/plugin-proposal-class-properties": "^7.5.5",
+        "@babel/preset-env": "^7.6.3",
+        "@babel/preset-react": "^7.6.3",
+        "babel-loader": "^8.0.6",
+        "css-loader": "^3.2.0",
+        "dotenv-webpack": "^1.7.0",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.14.0",
         "enzyme-to-json": "^3.3.5",
+        "file-loader": "^4.2.0",
+        "html-webpack-plugin": "^3.2.0",
         "husky": "^3.0.2",
+        "jest": "^24.9.0",
         "lint-staged": "^9.2.1",
-        "now": "^15.6.2",
+        "mini-css-extract-plugin": "^0.8.0",
+        "node-sass": "^4.12.0",
+        "now": "^16.3.1",
         "prettier": "^1.18.2",
         "react-snap": "^1.23.0",
-        "redux-devtools-extension": "^2.13.8"
+        "redux-devtools-extension": "^2.13.8",
+        "sass-loader": "^8.0.0",
+        "standard": "^14.3.1",
+        "webpack": "^4.41.1",
+        "webpack-cli": "^3.3.9",
+        "webpack-dev-server": "^3.8.2"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "start-prod": "now dev",
-        "build": "react-scripts build",
-        "postbuild": "react-snap",
-        "test": "react-scripts test",
-        "lint": "eslint ./src",
-        "lint-fix": "prettier --single-quote --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
-        "eject": "react-scripts eject",
+        "start": "webpack-dev-server --mode development",
+        "start-prod": "now dev build --listen 8080",
+        "build": "webpack --mode production",
+        "test": "jest",
+        "lint": "standard",
+        "lint-fix": "standard --fix",
         "now-deploy": "now --target production -e NODE_ENV=production --token $NOW_TOKEN",
         "now-rm": "now rm musical-waffle --token $NOW_TOKEN --safe --yes"
     },
@@ -46,21 +61,13 @@
         "not ie <= 11",
         "not op_mini all"
     ],
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-            "prettier --single-quote --write",
-            "git add"
-        ]
-    },
     "engines": {
         "node": "^8"
     },
     "jest": {
+        "setupFilesAfterEnv": [
+            "./src/setupTests.js"
+        ],
         "snapshotSerializers": [
             "enzyme-to-json/serializer"
         ]
