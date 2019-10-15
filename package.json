@@ -22,12 +22,18 @@
         "@babel/plugin-proposal-class-properties": "^7.5.5",
         "@babel/preset-env": "^7.6.3",
         "@babel/preset-react": "^7.6.3",
+        "babel-eslint": "^10.0.3",
         "babel-loader": "^8.0.6",
         "css-loader": "^3.2.0",
         "dotenv-webpack": "^1.7.0",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.14.0",
         "enzyme-to-json": "^3.3.5",
+        "eslint": "^6.5.1",
+        "eslint-config-react-app": "^5.0.2",
+        "eslint-plugin-flowtype": "^4.3.0",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-react-hooks": "^2.1.2",
         "file-loader": "^4.2.0",
         "html-webpack-plugin": "^3.2.0",
         "husky": "^3.0.2",
@@ -50,8 +56,8 @@
         "start-prod": "now dev build --listen 8080",
         "build": "webpack --mode production",
         "test": "jest",
-        "lint": "standard",
-        "lint-fix": "standard --fix",
+        "lint": "eslint ./src",
+        "lint-fix": "prettier --single-quote --write './src/**/*.{js,jsx,json,css,scss,md}'",
         "now-deploy": "now --target production -e NODE_ENV=production --token $NOW_TOKEN",
         "now-rm": "now rm musical-waffle --token $NOW_TOKEN --safe --yes"
     },
@@ -63,6 +69,17 @@
     ],
     "engines": {
         "node": "^8"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+            "prettier --single-quote --write",
+            "git add"
+        ]
     },
     "jest": {
         "setupFilesAfterEnv": [
