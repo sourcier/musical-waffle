@@ -40,7 +40,7 @@ module.exports = {
     new DefinePlugin({
       'process.env.REACT_APP_PARSE_URL': `'${process.env.REACT_APP_PARSE_URL || ''}'`,
       'process.env.REACT_APP_PARSE_ID': `'${process.env.REACT_APP_PARSE_ID || ''}'`,
-      'process.env.REACT_APP_PARSE_KEY': `'${process.env.REACT_APP_PARSE_ID || ''}'`
+      'process.env.REACT_APP_PARSE_KEY': `'${process.env.REACT_APP_PARSE_KEY || ''}'`
     }),
     new DotenvPlugin({
       path: `./${process.env.ENV_FILE || '.env'}`
