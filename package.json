@@ -58,6 +58,7 @@
         "start-prod": "now dev build --listen 8080",
         "build": "webpack --mode production",
         "test": "jest",
+        "test-watch": "jest --watch",
         "eslint": "eslint ./src",
         "eslint-fix": "eslint ./src --fix --ignore-path .gitignore",
         "prettier": "prettier --single-quote --write './src/**/*.{js,jsx,json,css,scss,md}'",
@@ -75,7 +76,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "yarn eslint && yarn lint-staged"
+            "pre-commit": "yarn test && yarn eslint && yarn lint-staged"
         }
     },
     "lint-staged": {
