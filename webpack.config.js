@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { DefinePlugin } = require('webpack')
 const DotenvPlugin = require('dotenv-webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: path.join(__dirname, "src", "index.js"),
@@ -53,5 +54,6 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css"
     }),
+    new CopyWebpackPlugin([{ from: path.join(__dirname, "assets"), to: path.join(__dirname, "build") }])
   ]
 };

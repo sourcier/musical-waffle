@@ -24,6 +24,7 @@
         "@babel/preset-react": "^7.6.3",
         "babel-eslint": "^10.0.3",
         "babel-loader": "^8.0.6",
+        "copy-webpack-plugin": "^5.0.4",
         "css-loader": "^3.2.0",
         "depcheck": "^0.8.3",
         "dotenv-webpack": "^1.7.0",
@@ -57,7 +58,7 @@
         "test": "jest",
         "lint": "eslint ./src",
         "lint-fix": "prettier --single-quote --write './src/**/*.{js,jsx,json,css,scss,md}'",
-        "now-deploy": "now --target production -e NODE_ENV=production --token $NOW_TOKEN",
+        "now-deploy": "now --prod -e NODE_ENV=production --token $NOW_TOKEN",
         "now-rm": "now rm musical-waffle --token $NOW_TOKEN --safe --yes"
     },
     "browserslist": [
