@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { DefinePlugin } = require('webpack')
 const DotenvPlugin = require('dotenv-webpack')
 
 module.exports = {
@@ -36,6 +37,14 @@ module.exports = {
     ]
   },
   plugins: [
+    new DefinePlugin({
+      'process.env.REACT_APP_PARSE_URL': `'${process.env.REACT_APP_PARSE_URL || ''}'`,
+      'process.env.REACT_APP_PARSE_ID': `'${process.env.REACT_APP_PARSE_ID || ''}'`,
+      'process.env.REACT_APP_PARSE_KEY': `'${process.env.REACT_APP_PARSE_ID || ''}'`
+    }),
+    new DotenvPlugin({
+      path: `./${process.env.ENV_FILE || '.env'}`
+    }),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: path.join(__dirname, "src", "index.html")
@@ -43,9 +52,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
-    }),
-    new DotenvPlugin({
-      path: `./${process.env.ENV_FILE || '.env'}`
     }),
   ]
 };
