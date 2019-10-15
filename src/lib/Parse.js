@@ -1,11 +1,4 @@
-import parseNode from 'parse/node'
-import parse from 'parse'
-
-const Parse =
-    navigator.userAgent.includes('Node.js') ||
-    navigator.userAgent.includes('jsdom')
-        ? parseNode
-        : parse
+import Parse from 'parse'
 
 Parse.initialize(
     process.env.REACT_APP_PARSE_ID,
