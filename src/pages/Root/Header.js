@@ -5,17 +5,19 @@ export const Header = () => (
         <div id="topbar">
             <div className="container">
                 <div className="social-links">
-                    <a href="#" className="twitter">
+                    <a
+                        href="https://twitter.com/sourcier"
+                        className="twitter"
+                        target="_blank"
+                        rel="noopener noreferrer">
                         <i className="fa fa-twitter"></i>
                     </a>
-                    <a href="#" className="facebook">
-                        <i className="fa fa-facebook"></i>
-                    </a>
-                    <a href="#" className="linkedin">
-                        <i className="fa fa-linkedin"></i>
-                    </a>
-                    <a href="#" className="instagram">
-                        <i className="fa fa-instagram"></i>
+                    <a
+                        href="https://github.com/sourcier/"
+                        className="github"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <i className="fa fa-github"></i>
                     </a>
                 </div>
             </div>
