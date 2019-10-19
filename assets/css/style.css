@@ -1241,6 +1241,12 @@ h6 {
   text-transform: uppercase;
 }
 
+#footer .footer-top .footer-info h3 a,
+#footer .footer-top .footer-info h3 a:hover {
+  color: #413e66;
+  text-decoration: none;
+}
+
 #footer .footer-top .footer-info p {
   font-size: 13px;
   line-height: 24px;

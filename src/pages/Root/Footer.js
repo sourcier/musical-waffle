@@ -11,7 +11,11 @@ export const Footer = ({ children }) => (
                         <div className="row">
                             <div className="col-sm-6">
                                 <div className="footer-info">
-                                    <h3>Sourcier</h3>
+                                    <h3>
+                                        <a href="/" className="scrollto">
+                                            Sourcier
+                                        </a>
+                                    </h3>
                                 </div>
                             </div>
 

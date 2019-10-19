@@ -61,7 +61,7 @@ export class Header extends React.Component {
                     <div className="container">
                         <div className="logo float-left">
                             <h1 className="text-light">
-                                <a href="#intro" className="scrollto">
+                                <a href="/" className="scrollto">
                                     <span>Sourcier</span>
                                 </a>
                             </h1>
