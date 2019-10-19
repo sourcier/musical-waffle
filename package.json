@@ -56,14 +56,14 @@
     },
     "scripts": {
         "start": "webpack-dev-server --mode development",
-        "start-prod": "now dev build --listen 8080",
+        "start-prod": "cd build; now dev --listen 8080",
         "build": "webpack --mode production",
         "test": "jest",
         "test-watch": "jest --watch",
         "eslint": "eslint ./src",
         "eslint-fix": "eslint ./src --fix --ignore-path .gitignore",
         "prettier": "prettier --single-quote --write './src/**/*.{js,jsx,json,css,scss,md}'",
-        "now-deploy": "now --prod -e NODE_ENV=production --token $NOW_TOKEN",
+        "now-deploy": "cd build; now --prod -e NODE_ENV=production --token $NOW_TOKEN",
         "now-rm": "now rm musical-waffle --token $NOW_TOKEN --safe --yes"
     },
     "browserslist": [
