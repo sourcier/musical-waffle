@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 import { Spinner } from '../components/Spinner'
 import { Meta } from '../components/Meta'
 import { getBlogList } from '../store/reducers/blog'
+import './BlogList.css'
 
 export class BlogList extends React.Component {
     static propTypes = {
@@ -28,6 +29,7 @@ export class BlogList extends React.Component {
             } else {
                 return posts.map((post, key) => (
                     <div
+                        key={key}
                         className="col-md-6 col-lg-4 wow bounceInUp"
                         data-wow-duration="1.4s">
                         <div className="box">
@@ -60,7 +62,7 @@ export class BlogList extends React.Component {
         return (
             <React.Fragment>
                 <Meta title="Blog" />
-                <section id="blog">
+                <section id="blog" className="section-bg">
                     <div className="container">
                         <header className="section-header">
                             <h3>Blog</h3>
@@ -69,6 +71,7 @@ export class BlogList extends React.Component {
                         <div className="row">{this.renderPosts()}</div>
                     </div>
                 </section>
+                <section id="call-to-action" />
             </React.Fragment>
         )
     }

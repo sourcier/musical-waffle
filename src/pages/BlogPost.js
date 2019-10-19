@@ -4,10 +4,11 @@ import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 import PropTypes from 'prop-types'
 
-import { Hero } from '../components/Hero'
 import { Spinner } from '../components/Spinner'
 import { Meta } from '../components/Meta'
 import { getBlogPost } from '../store/reducers/blog'
+
+import './BlogPost.css'
 
 export class BlogPost extends React.Component {
     static propTypes = {
@@ -26,14 +27,23 @@ export class BlogPost extends React.Component {
         return (
             <React.Fragment>
                 <Meta title={post.title} />
-                <Hero title={post.title} />
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <ReactMarkdown source={post.content} />
+                <section id="blog-post">
+                    <div className="container">
+                        <div className="row feature-item">
+                            <div className="col-lg-6 wow fadeInUp">
+                                <img
+                                    src="/img/features-1.svg"
+                                    className="img-fluid"
+                                    alt=""
+                                />
+                            </div>
+                            <div className="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+                                <h4>{post.title}</h4>
+                                <ReactMarkdown source={post.content} />
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </React.Fragment>
         )
     }

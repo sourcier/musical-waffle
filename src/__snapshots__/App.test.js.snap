@@ -14,7 +14,20 @@ exports[`renders without crashing 1`] = `
             "type": [Function],
           }
         }
+        exact={true}
         path="/blog"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(BlogPost)",
+            "type": [Function],
+          }
+        }
+        path="/blog/:slug"
       />
     </Switch>
   </Root>
