@@ -6,15 +6,15 @@ export const Hero = () => (
             <div className="row justify-content-center align-self-center">
                 <div className="col-md-6 intro-info order-md-first order-last">
                     <h2>
-                        Rapid Solutions
+                        Digital Solutions
                         <br />
-                        for Your <span>Business!</span>
+                        for Your <span>Business</span>
                     </h2>
-                    <div>
+                    {/* <div>
                         <a href="#about" className="btn-get-started scrollto">
                             Get Started
                         </a>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="col-md-6 intro-img order-md-last order-first">
                     <img src="img/intro-img.svg" alt="" className="img-fluid" />

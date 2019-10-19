@@ -24,13 +24,17 @@ export const Footer = ({ children }) => (
                                 <div className="footer-links">
                                     <h4>Contact Us</h4>
                                     <p>
-                                        A108 Adam Street <br />
-                                        New York, NY 535022
+                                        Sourcer Ltd. <br />
+                                        86-90 Paul Street <br />
+                                        London
                                         <br />
-                                        United States <br />
-                                        <strong>Phone:</strong> +1 5589 55488 55
-                                        <br />
-                                        <strong>Email:</strong> info@example.com
+                                        United Kingdom <br />
+                                        {/* <strong>Phone:</strong> +1 5589 55488 55 */}
+                                        {/* <br /> */}
+                                        <strong>Email:</strong>{' '}
+                                        <a href="mailto:info@soucier.uk">
+                                            info@soucier.uk
+                                        </a>
                                         <br />
                                     </p>
                                 </div>
@@ -42,14 +46,9 @@ export const Footer = ({ children }) => (
                         </div>
                     </div>
 
-                    <div className="col-lg-6">
+                    {/* <div className="col-lg-6">
                         <div className="form">
                             <h4>Send us a message</h4>
-                            <p>
-                                Eos ipsa est voluptates. Nostrum nam libero ipsa
-                                vero. Debitis quasi sit eaque numquam similique
-                                commodi harum aut temporibus.
-                            </p>
                             <form
                                 action=""
                                 method="post"
@@ -114,14 +113,14 @@ export const Footer = ({ children }) => (
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
 
         <div className="container">
             <div className="copyright">
-                &copy; Copyright <strong>Rapid</strong>. All Rights Reserved
+                &copy; Copyright <strong>Sourcier</strong>. All Rights Reserved
             </div>
         </div>
     </footer>
