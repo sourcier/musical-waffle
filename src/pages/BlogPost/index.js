@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 import PropTypes from 'prop-types'
 
-import { Spinner } from '../components/Spinner'
-import { Meta } from '../components/Meta'
-import { getBlogPost } from '../store/reducers/blog'
-import { Hero } from '../components/Hero'
+import { Spinner } from '../../components/Spinner'
+import { Meta } from '../../components/Meta'
+import { getBlogPost } from '../../store/reducers/blog'
+import Hero from '../../components/Hero'
 
 import './BlogPost.css'
 

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { Root } from './pages/Root'
+import Root from './pages/Root'
 import BlogList from './pages/BlogList'
 import BlogPost from './pages/BlogPost'
-import { Home } from './pages/Home'
-import { NotFound } from './pages/NotFound'
+import Home from './pages/Home'
+import NotFound from './pages/NotFound'
 
 export default class App extends Component {
     render() {

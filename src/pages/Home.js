@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Hero } from '../components/Hero'
+import Hero from '../components/Hero'
 import { Meta } from '../components/Meta'
 
 export const Home = () => (
@@ -15,3 +15,5 @@ export const Home = () => (
         </Hero>
     </React.Fragment>
 )
+
+export default Home

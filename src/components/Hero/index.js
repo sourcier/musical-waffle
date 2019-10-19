@@ -1,5 +1,8 @@
 import React from 'react'
 
+import './Hero.css'
+import intoImage from './intro-img.svg'
+
 export const Hero = ({ children }) => (
     <section id="intro" className="clearfix">
         <div className="container d-flex h-100">
@@ -9,7 +12,7 @@ export const Hero = ({ children }) => (
                 </div>
                 <div className="col-md-6 intro-img order-md-last order-first">
                     <img
-                        src="/img/intro-img.svg"
+                        src={intoImage}
                         alt=""
                         className="img-fluid"
                     />
@@ -18,3 +21,5 @@ export const Hero = ({ children }) => (
         </div>
     </section>
 )
+
+export default Hero

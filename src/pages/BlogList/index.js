@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import { isEmpty } from 'lodash'
 import PropTypes from 'prop-types'
 
-import { Spinner } from '../components/Spinner'
-import { Meta } from '../components/Meta'
-import { getBlogList } from '../store/reducers/blog'
-import { Hero } from '../components/Hero'
+import { Spinner } from '../../components/Spinner'
+import { Meta } from '../../components/Meta'
+import { getBlogList } from '../../store/reducers/blog'
+import Hero from '../../components/Hero'
 
 import './BlogList.css'
 

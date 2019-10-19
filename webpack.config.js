@@ -12,6 +12,9 @@ module.exports = {
     filename: "bundle.js",
     publicPath: '/'
   },
+  resolve: {
+    mainFiles: ['index']
+  },
   module: {
     rules: [
       {
