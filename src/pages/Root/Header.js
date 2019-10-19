@@ -12,10 +12,10 @@ export class Header extends React.Component {
 
     links = [
         { label: 'Home', href: '#intro' },
-        { label: 'About Us', href: '#about' },
-        { label: 'Services', href: '#services' },
-        { label: 'Portfolio', href: '#portfolio' },
-        { label: 'Team', href: '#team' },
+        // { label: 'About Us', href: '#about' },
+        // { label: 'Services', href: '#services' },
+        // { label: 'Portfolio', href: '#portfolio' },
+        // { label: 'Team', href: '#team' },
         { label: 'Contact Us', href: '#footer' },
     ]
 
