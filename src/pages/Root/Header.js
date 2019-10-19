@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
-import { lowerCase } from 'lodash'
+import { Navigation } from './Navigation'
+import { Socials } from './Socials'
 
 export class Header extends React.Component {
     constructor(props) {
@@ -9,20 +10,6 @@ export class Header extends React.Component {
             isMobileNavActive: false,
         }
     }
-
-    links = [
-        { label: 'Home', href: '#intro' },
-        // { label: 'About Us', href: '#about' },
-        // { label: 'Services', href: '#services' },
-        // { label: 'Portfolio', href: '#portfolio' },
-        // { label: 'Team', href: '#team' },
-        { label: 'Contact Us', href: '#footer' },
-    ]
-
-    socials = [
-        { label: 'Twitter', href: 'https://twitter.com/sourcier' },
-        { label: 'Github', href: 'https://github.com/sourcier/' },
-    ]
 
     componentDidMount() {
         document.addEventListener('click', this.closeMobileMenu)
@@ -43,22 +30,6 @@ export class Header extends React.Component {
                 document.body.classList.remove('mobile-nav-active')
             }
         }
-    }
-
-    renderLinks = ({ links, onClick }) => {
-        const props = onClick ? { onClick } : {}
-
-        return (
-            <ul>
-                {links.map(({ href, label }, key) => (
-                    <li key={key}>
-                        <a href={href} {...props}>
-                            {label}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        )
     }
 
     render() {
@@ -83,19 +54,7 @@ export class Header extends React.Component {
                     <div id="topbar">
                         <div className="container">
                             <div className="social-links">
-                                {this.socials.map(({ label, href }, key) => (
-                                    <a
-                                        key={key}
-                                        href={href}
-                                        className={lowerCase(label)}
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        <i
-                                            className={`fa fa-${lowerCase(
-                                                label
-                                            )}`}></i>
-                                    </a>
-                                ))}
+                                <Socials />
                             </div>
                         </div>
                     </div>
@@ -108,17 +67,14 @@ export class Header extends React.Component {
                             </h1>
                         </div>
                         <nav className="main-nav float-right d-none d-lg-block">
-                            {this.renderLinks({ links: this.links })}
+                            <Navigation />
                         </nav>
                     </div>
                 </header>
                 <nav
                     className="mobile-nav d-lg-none"
                     ref={(el) => (this.mobileNav = el)}>
-                    {this.renderLinks({
-                        links: [...this.links],
-                        onClick: this.toggleMobileNav,
-                    })}
+                    <Navigation onClick={this.toggleMobileNav} />
                 </nav>
                 <div
                     className="mobile-nav-overly"

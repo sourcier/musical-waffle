@@ -1,4 +1,6 @@
 import React from 'react'
+import { Socials } from './Socials'
+import { Navigation } from './Navigation'
 
 export const Footer = ({ children }) => (
     <footer id="footer" className="section-bg">
@@ -9,56 +11,14 @@ export const Footer = ({ children }) => (
                         <div className="row">
                             <div className="col-sm-6">
                                 <div className="footer-info">
-                                    <h3>Rapid</h3>
-                                    <p>
-                                        Cras fermentum odio eu feugiat lide par
-                                        naso tierra. Justo eget nada terra videa
-                                        magna derita valies darta donna mare
-                                        fermentum iaculis eu non diam phasellus.
-                                        Scelerisque felis imperdiet proin
-                                        fermentum leo. Amet volutpat consequat
-                                        mauris nunc congue.
-                                    </p>
-                                </div>
-
-                                <div className="footer-newsletter">
-                                    <h4>Our Newsletter</h4>
-                                    <p>
-                                        Tamen quem nulla quae legam multos aute
-                                        sint culpa legam noster magna veniam
-                                        enim veniam illum dolore legam minim
-                                        quorum culpa amet magna export quem.
-                                    </p>
-                                    <form action="" method="post">
-                                        <input type="email" name="email" />
-                                        <input
-                                            type="submit"
-                                            value="Subscribe"
-                                        />
-                                    </form>
+                                    <h3>Sourcier</h3>
                                 </div>
                             </div>
 
                             <div className="col-sm-6">
                                 <div className="footer-links">
                                     <h4>Useful Links</h4>
-                                    <ul>
-                                        <li>
-                                            <a href="#">Home</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">About us</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Services</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Terms of service</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Privacy policy</a>
-                                        </li>
-                                    </ul>
+                                    <Navigation omit={['Contact Us']} />
                                 </div>
 
                                 <div className="footer-links">
@@ -76,18 +36,7 @@ export const Footer = ({ children }) => (
                                 </div>
 
                                 <div className="social-links">
-                                    <a href="#" className="twitter">
-                                        <i className="fa fa-twitter"></i>
-                                    </a>
-                                    <a href="#" className="facebook">
-                                        <i className="fa fa-facebook"></i>
-                                    </a>
-                                    <a href="#" className="instagram">
-                                        <i className="fa fa-instagram"></i>
-                                    </a>
-                                    <a href="#" className="linkedin">
-                                        <i className="fa fa-linkedin"></i>
-                                    </a>
+                                    <Socials />
                                 </div>
                             </div>
                         </div>
