@@ -55,5 +55,8 @@ module.exports = {
       chunkFilename: "[id].css"
     }),
     new CopyWebpackPlugin([{ from: path.join(__dirname, "assets"), to: path.join(__dirname, "build") }])
-  ]
+  ],
+  devServer: {
+    historyApiFallback: true,
+  }
 };
