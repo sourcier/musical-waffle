@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 import { Spinner } from '../components/Spinner'
 import { Meta } from '../components/Meta'
 import { getBlogPost } from '../store/reducers/blog'
+import { Hero } from '../components/Hero'
 
 import './BlogPost.css'
 
@@ -27,6 +28,9 @@ export class BlogPost extends React.Component {
         return (
             <React.Fragment>
                 <Meta title={post.title} />
+                <Hero>
+                    <h2>{post.title}</h2>
+                </Hero>
                 <section id="blog-post">
                     <div className="container">
                         <div className="row feature-item">
@@ -38,7 +42,6 @@ export class BlogPost extends React.Component {
                                 />
                             </div>
                             <div className="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
-                                <h4>{post.title}</h4>
                                 <ReactMarkdown source={post.content} />
                             </div>
                         </div>

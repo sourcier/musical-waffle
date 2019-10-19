@@ -5,6 +5,11 @@ exports[`renders without crashing 1`] = `
   <Root>
     <Switch>
       <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
         component={
           Object {
             "$$typeof": Symbol(react.memo),

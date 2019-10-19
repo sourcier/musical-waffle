@@ -7,6 +7,8 @@ import PropTypes from 'prop-types'
 import { Spinner } from '../components/Spinner'
 import { Meta } from '../components/Meta'
 import { getBlogList } from '../store/reducers/blog'
+import { Hero } from '../components/Hero'
+
 import './BlogList.css'
 
 export class BlogList extends React.Component {
@@ -28,20 +30,15 @@ export class BlogList extends React.Component {
                 return this.renderEmpty()
             } else {
                 return posts.map((post, key) => (
-                    <div
-                        key={key}
-                        className="col-md-6 col-lg-4 wow bounceInUp"
-                        data-wow-duration="1.4s">
-                        <div className="box">
-                            <h4 className="title">
-                                <a href={`/blog/${post.slug}`}>{post.title}</a>
-                            </h4>
-                            <a
-                                href={`/blog/${post.slug}`}
-                                className="btn btn-primary">
-                                Read Now
-                            </a>
-                        </div>
+                    <div className="box" key={key}>
+                        <h4 className="title">
+                            <a href={`/blog/${post.slug}`}>{post.title}</a>
+                        </h4>
+                        <a
+                            href={`/blog/${post.slug}`}
+                            className="btn btn-primary">
+                            Read Now
+                        </a>
                     </div>
                 ))
             }
@@ -62,12 +59,11 @@ export class BlogList extends React.Component {
         return (
             <React.Fragment>
                 <Meta title="Blog" />
+                <Hero>
+                    <h2>Blog</h2>
+                </Hero>
                 <section id="blog" className="section-bg">
                     <div className="container">
-                        <header className="section-header">
-                            <h3>Blog</h3>
-                        </header>
-
                         <div className="row">{this.renderPosts()}</div>
                     </div>
                 </section>

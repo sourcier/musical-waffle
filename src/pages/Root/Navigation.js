@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const links = [
-    { label: 'Home', href: '#intro' },
+    { label: 'Home', href: '/#intro' },
     // { label: 'About Us', href: '#about' },
     // { label: 'Services', href: '#services' },
     // { label: 'Portfolio', href: '#portfolio' },
