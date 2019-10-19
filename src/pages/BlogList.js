@@ -3,13 +3,13 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { isEmpty } from 'lodash'
 import PropTypes from 'prop-types'
-import ReactMarkdown from 'react-markdown'
-import { Link } from 'react-router-dom'
 
-import { Hero } from '../components/Hero'
 import { Spinner } from '../components/Spinner'
 import { Meta } from '../components/Meta'
 import { getBlogList } from '../store/reducers/blog'
+import { Hero } from '../components/Hero'
+
+import './BlogList.css'
 
 export class BlogList extends React.Component {
     static propTypes = {
@@ -30,19 +30,15 @@ export class BlogList extends React.Component {
                 return this.renderEmpty()
             } else {
                 return posts.map((post, key) => (
-                    <div className="col-12 col-sm-6" key={key}>
-                        <div className="card mb-3">
-                            <div className="card-body">
-                                <h1 className="card-title">{post.title}</h1>
-                                <hr />
-                                <ReactMarkdown source={post.content} />
-                                <Link
-                                    to={`/blog/${post.slug}`}
-                                    className="btn btn-primary">
-                                    View
-                                </Link>
-                            </div>
-                        </div>
+                    <div className="box" key={key}>
+                        <h4 className="title">
+                            <a href={`/blog/${post.slug}`}>{post.title}</a>
+                        </h4>
+                        <a
+                            href={`/blog/${post.slug}`}
+                            className="btn btn-primary">
+                            Read Now
+                        </a>
                     </div>
                 ))
             }
@@ -53,12 +49,8 @@ export class BlogList extends React.Component {
 
     renderEmpty = () => {
         return (
-            <div className="col-12">
-                <div className="card bg-light text-center">
-                    <div className="card-body">
-                        <h5 className="card-title">There are no posts yet.</h5>
-                    </div>
-                </div>
+            <div className="box">
+                <h4 className="title">There are no posts yet.</h4>
             </div>
         )
     }
@@ -67,10 +59,15 @@ export class BlogList extends React.Component {
         return (
             <React.Fragment>
                 <Meta title="Blog" />
-                <Hero title="Blog" />
-                <div className="container">
-                    <div className="row">{this.renderPosts()}</div>
-                </div>
+                <Hero>
+                    <h2>Blog</h2>
+                </Hero>
+                <section id="blog" className="section-bg">
+                    <div className="container">
+                        <div className="row">{this.renderPosts()}</div>
+                    </div>
+                </section>
+                <section id="call-to-action" />
             </React.Fragment>
         )
     }
