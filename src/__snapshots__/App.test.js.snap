@@ -2,11 +2,21 @@
 
 exports[`renders without crashing 1`] = `
 <BrowserRouter>
-  <Switch>
-    <Route
-      component={[Function]}
-      path="/"
-    />
-  </Switch>
+  <Root>
+    <Switch>
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(BlogList)",
+            "type": [Function],
+          }
+        }
+        path="/blog"
+      />
+    </Switch>
+  </Root>
 </BrowserRouter>
 `;
