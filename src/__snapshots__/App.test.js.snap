@@ -32,7 +32,11 @@ exports[`renders without crashing 1`] = `
             "type": [Function],
           }
         }
+        exact={true}
         path="/blog/:slug"
+      />
+      <Route
+        component={[Function]}
       />
     </Switch>
   </Root>

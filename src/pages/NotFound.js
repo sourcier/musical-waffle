@@ -8,14 +8,9 @@ export class NotFound extends React.Component {
         return (
             <React.Fragment>
                 <Meta title="Page not found" />
-                <Hero title="Oops!" />
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            The page you were looking for could not be found.
-                        </div>
-                    </div>
-                </div>
+                <Hero>
+                    <h2>The page you were looking for could not be found.</h2>
+                </Hero>
             </React.Fragment>
         )
     }
