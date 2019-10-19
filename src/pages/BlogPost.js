@@ -34,14 +34,7 @@ export class BlogPost extends React.Component {
                 <section id="blog-post">
                     <div className="container">
                         <div className="row feature-item">
-                            <div className="col-lg-6 wow fadeInUp">
-                                <img
-                                    src="/img/features-1.svg"
-                                    className="img-fluid"
-                                    alt=""
-                                />
-                            </div>
-                            <div className="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+                            <div className="col-lg-12 wow fadeInUp pt-lg-0">
                                 <ReactMarkdown source={post.content} />
                             </div>
                         </div>
