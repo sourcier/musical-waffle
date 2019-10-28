@@ -124,7 +124,10 @@ export const Footer = ({ children }) => (
 
         <div className="container">
             <div className="copyright">
-                &copy; Copyright <strong>Sourcier</strong>. All Rights Reserved
+                &copy; Copyright <strong>Sourcier Ltd</strong>. All Rights
+                Reserved <br />
+                Sourcier Ltd. is registered in England and Wales company number
+                8086280
             </div>
         </div>
     </footer>
