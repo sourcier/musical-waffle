@@ -10,7 +10,7 @@ deploy:
       script: yarn now-deploy
       skip_cleanup: true
       on:
-        all_branches: true
+        branch: develop
     - provider: script
       script: yarn now-deploy-prod
       skip_cleanup: true
