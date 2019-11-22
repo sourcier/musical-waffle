@@ -6,10 +6,15 @@ script:
     - yarn test
     - yarn build
 deploy:
-    provider: script
-    script: yarn now-deploy
-    skip_cleanup: true
-    on:
+    - provider: script
+      script: yarn now-deploy
+      skip_cleanup: true
+      on:
+        all_branches: true
+    - provider: script
+      script: yarn now-deploy-prod
+      skip_cleanup: true
+      on:
         branch: master
 after_deploy:
     - yarn now-rm
