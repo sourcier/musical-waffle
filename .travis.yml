@@ -16,8 +16,6 @@ deploy:
       skip_cleanup: true
       on:
         branch: master
-after_deploy:
-    - yarn now-rm
 notifications:
     email:
         recipients:
