@@ -10,14 +10,11 @@
     "regions": [
         "lhr1"
     ],
-    "builds": [
-        {"src": "**/*","use": "@now/static"}
-    ],
-    "routes": [
-        {"handle": "filesystem"},
-        { "src": "/.*", "dest": "/index.html" }
-    ],
     "github": {
         "enabled": false
-    }
+    },
+    "routes": [
+        { "handle": "filesystem" },
+        { "src": "/(?!(api)).*", "dest": "/index.html" }
+      ]
 }

@@ -60,8 +60,9 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: path.join(__dirname, "assets"), to: path.join(__dirname, "build") },
-      { from: path.join(__dirname, "now.json"), to: path.join(__dirname, "build") },
+      { from: path.join(__dirname, "api"), to: path.join(__dirname, "build", "api") },
       { from: path.join(__dirname, ".env"), to: path.join(__dirname, "build") },
+      { from: path.join(__dirname, "now.json"), to: path.join(__dirname, "build") }
     ])
   ],
   devServer: {
