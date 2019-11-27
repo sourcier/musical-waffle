@@ -1,0 +1,15 @@
+{
+    "develop": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-musical-waffle-develop-173311-authRole",
+            "UnauthRoleArn": "arn:aws:iam::561381207426:role/amplify-musical-waffle-develop-173311-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::561381207426:role/amplify-musical-waffle-develop-173311-authRole",
+            "Region": "eu-west-2",
+            "DeploymentBucketName": "amplify-musical-waffle-develop-173311-deployment",
+            "UnauthRoleName": "amplify-musical-waffle-develop-173311-unauthRole",
+            "StackName": "amplify-musical-waffle-develop-173311",
+            "StackId": "arn:aws:cloudformation:eu-west-2:561381207426:stack/amplify-musical-waffle-develop-173311/fd09c500-113b-11ea-82d2-02317fefc7aa",
+            "AmplifyAppId": "d647torcuzgrv"
+        }
+    }
+}
