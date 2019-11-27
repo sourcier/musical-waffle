@@ -65,6 +65,7 @@
         "prettier": "prettier --single-quote --write './src/**/*.{js,jsx,json,css,scss,md}'",
         "now-deploy": "cd build; now -e NODE_ENV=production --token $NOW_TOKEN",
         "now-deploy-prod": "cd build; now --prod -e NODE_ENV=production --token $NOW_TOKEN",
+        "amplify-deploy": "curl -X POST \"https://webhooks.amplify.eu-west-2.amazonaws.com/prod/webhooks?id=$AMPLIFY_DEVELOP_BUILD_ID&token=$AMPLIFY_DEVELOP_BUILD_TOKEN&operation=startbuild\"",
         "now-rm": "now rm musical-waffle --token $NOW_TOKEN --safe --yes"
     },
     "browserslist": [

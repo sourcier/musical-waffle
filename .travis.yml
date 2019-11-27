@@ -4,10 +4,9 @@ cache: yarn
 script:
     - yarn eslint
     - yarn test
-    - yarn build
 deploy:
     - provider: script
-      script: yarn now-deploy
+      script: yarn amplify-deploy
       skip_cleanup: true
       on:
         branch: develop
