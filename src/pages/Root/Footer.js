@@ -28,7 +28,7 @@ export const Footer = ({ children }) => (
                                 <div className="footer-links">
                                     <h4>Contact Us</h4>
                                     <p>
-                                        Sourcer Ltd. <br />
+                                        Sourcier Ltd. <br />
                                         86-90 Paul Street <br />
                                         London
                                         <br />
