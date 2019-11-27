@@ -59,8 +59,7 @@ module.exports = {
       chunkFilename: "[id].css"
     }),
     new CopyWebpackPlugin([
-      { from: path.join(__dirname, "assets"), to: path.join(__dirname, "build") },
-      { from: path.join(__dirname, "api"), to: path.join(__dirname, "build", "api") },
+      { from: path.join(__dirname, "assets"), to: path.join(__dirname, "build") }
     ])
   ],
   devServer: {
