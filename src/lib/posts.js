@@ -19,7 +19,7 @@ export const getPostBySlug = (slug) =>
         .then(() =>
             API.graphql({
                 query: queries.listPosts,
-                variables: { $filter: { slug: { eg: slug } } },
+                variables: { filter: { slug: { eq: slug } } },
                 authMode: 'API_KEY',
             })
         )
