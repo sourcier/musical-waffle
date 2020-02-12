@@ -11,5 +11,18 @@
             "StackId": "arn:aws:cloudformation:eu-west-2:561381207426:stack/amplify-musical-waffle-develop-173311/fd09c500-113b-11ea-82d2-02317fefc7aa",
             "AmplifyAppId": "d647torcuzgrv"
         }
+    },
+    "master": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-musical-waffle-master-191617-authRole",
+            "UnauthRoleArn": "arn:aws:iam::561381207426:role/amplify-musical-waffle-master-191617-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::561381207426:role/amplify-musical-waffle-master-191617-authRole",
+            "Region": "eu-west-2",
+            "DeploymentBucketName": "amplify-musical-waffle-master-191617-deployment",
+            "UnauthRoleName": "amplify-musical-waffle-master-191617-unauthRole",
+            "StackName": "amplify-musical-waffle-master-191617",
+            "StackId": "arn:aws:cloudformation:eu-west-2:561381207426:stack/amplify-musical-waffle-master-191617/250e6930-4dcc-11ea-b42d-060395953c4e",
+            "AmplifyAppId": "d647torcuzgrv"
+        }
     }
 }
