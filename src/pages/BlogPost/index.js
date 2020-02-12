@@ -35,7 +35,7 @@ export class BlogPost extends React.Component {
                     <div className="container">
                         <div className="row feature-item">
                             <div className="col-lg-12 wow fadeInUp pt-lg-0">
-                                <ReactMarkdown source={post.content} />
+                                <ReactMarkdown source={post.body} />
                             </div>
                         </div>
                     </div>

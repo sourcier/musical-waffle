@@ -1,0 +1,5 @@
+{
+    "AppSyncApiName": "musicalwaffleposts",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false"
+}

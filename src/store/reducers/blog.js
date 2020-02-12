@@ -1,6 +1,4 @@
-import Parse from '../../lib/Parse'
-
-const Post = Parse.Object.extend('Post')
+import { getAllPosts, getPostBySlug } from '../../lib/posts'
 
 const actions = {
     FETCH_POSTS: 'fetch/posts',
@@ -14,8 +12,7 @@ const actions = {
 export const getBlogList = () => (dispatch) => {
     return Promise.resolve()
         .then(() => dispatch({ type: actions.FETCH_POSTS }))
-        .then(() => new Parse.Query(Post).find())
-        .then((posts) => posts.map((post) => post.toJSON()))
+        .then(() => getAllPosts())
         .then((posts) =>
             dispatch({ type: actions.FETCH_POSTS_SUCCESS, payload: posts })
         )
@@ -27,8 +24,7 @@ export const getBlogList = () => (dispatch) => {
 export const getBlogPost = (slug) => (dispatch) => {
     return Promise.resolve()
         .then(() => dispatch({ type: actions.FETCH_POST }))
-        .then(() => new Parse.Query(Post).equalTo('slug', slug).first())
-        .then((post) => post.toJSON())
+        .then(() => getPostBySlug(slug))
         .then((post) =>
             dispatch({ type: actions.FETCH_POST_SUCCESS, payload: post })
         )
