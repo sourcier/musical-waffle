@@ -10,6 +10,8 @@ frontend:
       commands:
         - nvm use $VERSION_NODE_12
         - yarn install
+        - yarn eslint
+        - yarn test
     build:
       commands:
         - nvm use $VERSION_NODE_12
