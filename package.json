@@ -72,7 +72,7 @@
         "not op_mini all"
     ],
     "engines": {
-        "node": "^10"
+        "node": "^12"
     },
     "husky": {
         "hooks": {
