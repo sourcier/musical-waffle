@@ -1,5 +1,11 @@
 {
     "AppSyncApiName": "musicalwaffleposts",
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": "false"
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authmusicalwaffle02b66dc4",
+            "Outputs.UserPoolId"
+        ]
+    }
 }

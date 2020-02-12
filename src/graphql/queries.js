@@ -9,6 +9,7 @@ export const getPost = /* GraphQL */ `
             title
             body
             createdAt
+            owner
         }
     }
 `
@@ -25,6 +26,7 @@ export const listPosts = /* GraphQL */ `
                 title
                 body
                 createdAt
+                owner
             }
             nextToken
         }

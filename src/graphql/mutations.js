@@ -12,6 +12,7 @@ export const createPost = /* GraphQL */ `
             title
             body
             createdAt
+            owner
         }
     }
 `
@@ -26,6 +27,7 @@ export const updatePost = /* GraphQL */ `
             title
             body
             createdAt
+            owner
         }
     }
 `
@@ -40,6 +42,7 @@ export const deletePost = /* GraphQL */ `
             title
             body
             createdAt
+            owner
         }
     }
 `
