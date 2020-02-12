@@ -28,6 +28,11 @@
             "StackName": "amplify-musical-waffle-master-191617",
             "StackId": "arn:aws:cloudformation:eu-west-2:561381207426:stack/amplify-musical-waffle-master-191617/250e6930-4dcc-11ea-b42d-060395953c4e",
             "AmplifyAppId": "d647torcuzgrv"
+        },
+        "categories": {
+            "auth": {
+                "musicalwaffle02b66dc4": {}
+            }
         }
     }
 }
