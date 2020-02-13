@@ -1,6 +1,5 @@
 import React from 'react'
 
-import './Hero.css'
 import intoImage from './intro-img.svg'
 
 export const Hero = ({ children }) => (
@@ -11,11 +10,7 @@ export const Hero = ({ children }) => (
                     {children}
                 </div>
                 <div className="col-md-6 intro-img order-md-last order-first">
-                    <img
-                        src={intoImage}
-                        alt=""
-                        className="img-fluid"
-                    />
+                    <img src={intoImage} alt="" className="img-fluid" />
                 </div>
             </div>
         </div>

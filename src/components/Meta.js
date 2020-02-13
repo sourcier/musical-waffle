@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet-async'
+import Head from 'next/head'
 
 export class Meta extends React.Component {
     static propTypes = {
@@ -10,9 +10,9 @@ export class Meta extends React.Component {
     render() {
         const { title } = this.props
         return (
-            <Helmet>
+            <Head>
                 <title>{title ? `${title} - ` : ``}Sourcier</title>
-            </Helmet>
+            </Head>
         )
     }
 }

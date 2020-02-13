@@ -1,9 +1,8 @@
 import React from 'react'
-
 import Hero from '../components/Hero'
 import { Meta } from '../components/Meta'
 
-export const Home = () => (
+const HomePage = () => (
     <React.Fragment>
         <Meta />
         <Hero>
@@ -16,4 +15,4 @@ export const Home = () => (
     </React.Fragment>
 )
 
-export default Home
+export default HomePage

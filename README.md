@@ -11,5 +11,5 @@
 
 ```bash
 $ yarn
-$ yarn start
+$ yarn dev
 ```

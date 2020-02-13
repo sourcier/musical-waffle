@@ -9,7 +9,7 @@ const actions = {
     FETCH_POST_FAILURE: 'fetch/post/failure',
 }
 
-export const getBlogList = () => (dispatch) => {
+export const getBlogList = (dispatch) => {
     return Promise.resolve()
         .then(() => dispatch({ type: actions.FETCH_POSTS }))
         .then(() => getAllPosts())
@@ -34,8 +34,8 @@ export const getBlogPost = (slug) => (dispatch) => {
 }
 
 const initialState = {
-    blogList: { state: 'fetching' },
-    blogPost: { state: 'fetching' },
+    blogList: { state: 'fetching', posts: [] },
+    blogPost: { state: 'fetching', post: {} },
 }
 
 export default (state = initialState, { type, payload }) => {

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<Fragment>
+  <Meta />
+  <Hero>
+    <h2>
+      Digital Solutions
+      <br />
+      for Your 
+      <span>
+        Business
+      </span>
+    </h2>
+  </Hero>
+</Fragment>
+`;
