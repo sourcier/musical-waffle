@@ -16,9 +16,8 @@ frontend:
       commands:
         - nvm use $VERSION_NODE_12
         - yarn run build
-        - yarn run export
   artifacts:
-    baseDirectory: out
+    baseDirectory: build
     files:
       - '**/*'
   cache:
