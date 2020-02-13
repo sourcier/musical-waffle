@@ -14,7 +14,8 @@
         "react-markdown": "^4.0.8",
         "react-redux": "^7.1.0",
         "redux": "^4.0.4",
-        "redux-thunk": "^2.3.0"
+        "redux-thunk": "^2.3.0",
+        "trim-right": "^1.0.1"
     },
     "devDependencies": {
         "babel-eslint": "^10.0.3",
@@ -39,6 +40,7 @@
         "dev": "next",
         "start": "next start",
         "build": "next build",
+        "export": "next export",
         "test": "jest",
         "test-watch": "jest --watch",
         "eslint": "eslint ./src",
@@ -79,6 +81,10 @@
         "moduleNameMapper": {
             "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js",
             "\\.(css|less|scss)$": "identity-obj-proxy"
-        }
+        },
+        "testPathIgnorePatterns": [
+            "/node_modules/",
+            "/.next/"
+        ]
     }
 }

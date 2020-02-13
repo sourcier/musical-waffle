@@ -42,3 +42,4 @@ amplifyxc.config
 
 # next
 .next/
+out/
