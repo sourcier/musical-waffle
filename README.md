@@ -5,7 +5,7 @@
 ## Links
 
 - [Production](https://sourcier.uk/)
-- [Staging](https://musical-waffle.sourcier.now.sh)
+- [Staging](https://develop.d647torcuzgrv.amplifyapp.com)
 
 ## Dev
 

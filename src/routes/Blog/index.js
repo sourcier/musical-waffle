@@ -1,33 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { isEmpty } from 'lodash'
-import PropTypes from 'prop-types'
 
 import { Spinner } from '../../components/Spinner'
 import { Meta } from '../../components/Meta'
 import { getBlogList } from '../../store/reducers/blog'
 import Hero from '../../components/Hero'
 
-import './BlogList.css'
+import './style.css'
 
-export class BlogList extends React.Component {
-    static propTypes = {
-        getBlogList: PropTypes.func.isRequired,
-        state: PropTypes.string,
-        posts: PropTypes.array,
-    }
+const BlogList = ({ posts, state, getBlogList }) => {
 
-    componentDidMount() {
-        this.props.getBlogList()
-    }
-
-    renderPosts = () => {
-        const { posts, state } = this.props
-
+    const renderPosts = () => {
         if ('fetched' === state) {
             if (isEmpty(posts)) {
-                return this.renderEmpty()
+                return renderEmpty()
             } else {
                 return posts.map((post, key) => (
                     <div className="box" key={key}>
@@ -47,7 +35,7 @@ export class BlogList extends React.Component {
         }
     }
 
-    renderEmpty = () => {
+    const renderEmpty = () => {
         return (
             <div className="box">
                 <h4 className="title">There are no posts yet.</h4>
@@ -55,22 +43,24 @@ export class BlogList extends React.Component {
         )
     }
 
-    render() {
-        return (
-            <React.Fragment>
-                <Meta title="Blog" />
-                <Hero>
-                    <h2>Blog</h2>
-                </Hero>
-                <section id="blog" className="section-bg">
-                    <div className="container">
-                        <div className="row">{this.renderPosts()}</div>
-                    </div>
-                </section>
-                <section id="call-to-action" />
-            </React.Fragment>
-        )
-    }
+    useEffect(() => {
+        getBlogList()
+    }, [])
+
+    return (
+        <React.Fragment>
+            <Meta title="Blog" />
+            <Hero>
+                <h2>Blog</h2>
+            </Hero>
+            <section id="blog" className="section-bg">
+                <div className="container">
+                    <div className="row">{renderPosts()}</div>
+                </div>
+            </section>
+            <section id="call-to-action" />
+        </React.Fragment>
+    )
 }
 
 const mapStateToProps = ({

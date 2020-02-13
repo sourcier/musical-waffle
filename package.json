@@ -58,8 +58,8 @@
         "build": "webpack --mode production",
         "test": "jest",
         "test-watch": "jest --watch",
-        "eslint": "eslint ./src",
-        "eslint-fix": "eslint ./src --fix --ignore-path .gitignore",
+        "lint": "eslint ./src",
+        "lint-fix": "eslint ./src --fix --ignore-path .gitignore",
         "prettier": "prettier --single-quote --write './src/**/*.{js,jsx,json,css,scss,md}'",
         "amplify-deploy": "curl -X POST \"https://webhooks.amplify.eu-west-2.amazonaws.com/prod/webhooks?id=$AMPLIFY_DEVELOP_BUILD_ID&token=$AMPLIFY_DEVELOP_BUILD_TOKEN&operation=startbuild\"",
         "amplify-deploy-prod": "curl -X POST \"https://webhooks.amplify.eu-west-2.amazonaws.com/prod/webhooks?id=$AMPLIFY_MASTER_BUILD_ID&token=$AMPLIFY_MASTER_BUILD_TOKEN&operation=startbuild\""

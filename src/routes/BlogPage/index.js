@@ -1,30 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
-import PropTypes from 'prop-types'
 
 import { Spinner } from '../../components/Spinner'
 import { Meta } from '../../components/Meta'
 import { getBlogPost } from '../../store/reducers/blog'
 import Hero from '../../components/Hero'
 
-import './BlogPost.css'
+import './style.css'
 
-export class BlogPost extends React.Component {
-    static propTypes = {
-        match: PropTypes.object.isRequired,
-        getBlogPost: PropTypes.func.isRequired,
-        state: PropTypes.string,
-        post: PropTypes.object,
-    }
+export const BlogPage = ({post, state, getBlogPost, match: { params: {slug} }}) => {
 
-    componentDidMount() {
-        this.props.getBlogPost(this.props.match.params.slug)
-    }
-
-    renderPost = () => {
-        const { post } = this.props
+    const renderPost = () => {
         return (
             <React.Fragment>
                 <Meta title={post.title} />
@@ -44,14 +32,15 @@ export class BlogPost extends React.Component {
         )
     }
 
-    render() {
-        const { state } = this.props
-        return (
-            <React.Fragment>
-                {'fetching' === state ? <Spinner /> : this.renderPost()}
-            </React.Fragment>
-        )
-    }
+    useEffect(() => {
+        getBlogPost(slug)
+    }, [])
+
+    return (
+        <React.Fragment>
+            {'fetching' === state ? <Spinner /> : renderPost()}
+        </React.Fragment>
+    )
 }
 
 const mapStateToProps = ({
@@ -70,4 +59,4 @@ export default compose(
         mapStateToProps,
         mapDispatchToProps
     )
-)(BlogPost)
+)(BlogPage)
