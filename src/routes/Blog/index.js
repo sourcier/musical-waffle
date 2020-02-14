@@ -2,6 +2,12 @@ import React, { useEffect } from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { isEmpty } from 'lodash'
+import Card from 'react-bootstrap/Card'
+import CardColumns from 'react-bootstrap/CardColumns'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 
 import { Spinner } from '../../components/Spinner'
 import { Meta } from '../../components/Meta'
@@ -11,23 +17,23 @@ import Hero from '../../components/Hero'
 import './style.css'
 
 const BlogList = ({ posts, state, getBlogList }) => {
-
     const renderPosts = () => {
         if ('fetched' === state) {
             if (isEmpty(posts)) {
                 return renderEmpty()
             } else {
                 return posts.map((post, key) => (
-                    <div className="box" key={key}>
-                        <h4 className="title">
-                            <a href={`/blog/${post.slug}`}>{post.title}</a>
-                        </h4>
-                        <a
-                            href={`/blog/${post.slug}`}
-                            className="btn btn-primary">
-                            Read Now
-                        </a>
-                    </div>
+                    <Card key={key}>
+                        <Card.Body>
+                            <Card.Title>{post.title}</Card.Title>
+                            <Card.Text>{post.title}</Card.Text>
+                            <Button
+                                variant="primary"
+                                href={`/blog/${post.slug}`}>
+                                View
+                            </Button>
+                        </Card.Body>
+                    </Card>
                 ))
             }
         } else {
@@ -37,9 +43,11 @@ const BlogList = ({ posts, state, getBlogList }) => {
 
     const renderEmpty = () => {
         return (
-            <div className="box">
-                <h4 className="title">There are no posts yet.</h4>
-            </div>
+            <Card>
+                <Card.Body>
+                    <Card.Text>There are no posts yet.</Card.Text>
+                </Card.Body>
+            </Card>
         )
     }
 
@@ -53,12 +61,13 @@ const BlogList = ({ posts, state, getBlogList }) => {
             <Hero>
                 <h2>Blog</h2>
             </Hero>
-            <section id="blog" className="section-bg">
-                <div className="container">
-                    <div className="row">{renderPosts()}</div>
-                </div>
-            </section>
-            <section id="call-to-action" />
+            <Container className="my-5">
+                <Row>
+                    <Col>
+                        <CardColumns>{renderPosts()}</CardColumns>
+                    </Col>
+                </Row>
+            </Container>
         </React.Fragment>
     )
 }
