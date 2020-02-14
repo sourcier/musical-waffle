@@ -40,6 +40,11 @@ exports[`renders without crashing 1`] = `
         />
         <Route
           component={[Function]}
+          exact={true}
+          path="/admin"
+        />
+        <Route
+          component={[Function]}
         />
       </Switch>
     </Root>
