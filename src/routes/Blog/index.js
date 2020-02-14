@@ -14,7 +14,7 @@ import { Meta } from '../../components/Meta'
 import { getBlogList } from '../../store/reducers/blog'
 import Hero from '../../components/Hero'
 
-import './style.css'
+import './styles.css'
 
 const BlogList = ({ posts, state, getBlogList }) => {
     const renderPosts = () => {
