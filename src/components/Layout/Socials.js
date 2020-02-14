@@ -8,16 +8,30 @@ export const socials = [
 ]
 
 export const Socials = () => (
-    <Nav className="ml-auto d-none d-md-flex">
-        {socials.map(({ href, label }, key) => (
-            <Nav.Link
-                href={href}
-                key={key}
-                className={lowerCase(label)}
-                target="_blank"
-                rel="noopener noreferrer">
-                <i className={`fab fa-${lowerCase(label)} fa-2x`}></i>
-            </Nav.Link>
-        ))}
-    </Nav>
+    <>
+        <Nav className="ml-auto d-none d-md-flex">
+            {socials.map(({ href, label }, key) => (
+                <Nav.Link
+                    href={href}
+                    key={key}
+                    className={lowerCase(label)}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <i className={`fab fa-${lowerCase(label)} fa-2x`}></i>
+                </Nav.Link>
+            ))}
+        </Nav>
+        <Nav className="ml-auto d-sm-none">
+            {socials.map(({ href, label }, key) => (
+                <Nav.Link
+                    href={href}
+                    key={key}
+                    className={lowerCase(label)}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    {label}
+                </Nav.Link>
+            ))}
+        </Nav>
+    </>
 )
