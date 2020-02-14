@@ -2,13 +2,14 @@ import React, { useEffect } from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 import { Spinner } from '../../components/Spinner'
 import { Meta } from '../../components/Meta'
 import { getBlogPost } from '../../store/reducers/blog'
 import Hero from '../../components/Hero'
-
-import './style.css'
 
 export const BlogPage = ({
     post,
@@ -25,15 +26,18 @@ export const BlogPage = ({
                 <Hero>
                     <h2>{post.title}</h2>
                 </Hero>
-                <section id="blog-post">
-                    <div className="container">
-                        <div className="row feature-item">
-                            <div className="col-lg-12 wow fadeInUp pt-lg-0">
+                <Container className="my-5">
+                    <Row>
+                        <Col>
+                            <div className="blog-post">
+                                <h2 className="blog-post-title">
+                                    {post.title}
+                                </h2>
                                 <ReactMarkdown source={post.body} />
                             </div>
-                        </div>
-                    </div>
-                </section>
+                        </Col>
+                    </Row>
+                </Container>
             </React.Fragment>
         )
     }

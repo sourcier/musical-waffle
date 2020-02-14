@@ -6,6 +6,7 @@ import configureStore from './store/configureStore'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
+import './style.css'
 
 const rootElement = document.getElementById('root')
 
