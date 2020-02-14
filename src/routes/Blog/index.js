@@ -12,7 +12,6 @@ import Button from 'react-bootstrap/Button'
 import { Spinner } from '../../components/Spinner'
 import { Meta } from '../../components/Meta'
 import { getBlogList } from '../../store/reducers/blog'
-import Hero from '../../components/Hero'
 
 import './styles.css'
 
@@ -58,11 +57,13 @@ const BlogList = ({ posts, state, getBlogList }) => {
     return (
         <React.Fragment>
             <Meta title="Blog" />
-            <Hero>
-                <h2>Blog</h2>
-            </Hero>
             <Container className="my-5">
                 <Row>
+                    <Col>
+                        <h1 className="display-4">Blog</h1>
+                    </Col>
+                </Row>
+                <Row className="my-5">
                     <Col>
                         <CardColumns>{renderPosts()}</CardColumns>
                     </Col>

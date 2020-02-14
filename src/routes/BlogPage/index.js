@@ -9,7 +9,6 @@ import Col from 'react-bootstrap/Col'
 import { Spinner } from '../../components/Spinner'
 import { Meta } from '../../components/Meta'
 import { getBlogPost } from '../../store/reducers/blog'
-import Hero from '../../components/Hero'
 
 export const BlogPage = ({
     post,
@@ -23,9 +22,6 @@ export const BlogPage = ({
         return (
             <React.Fragment>
                 <Meta title={post.title} />
-                <Hero>
-                    <h2>{post.title}</h2>
-                </Hero>
                 <Container className="my-5">
                     <Row>
                         <Col>
