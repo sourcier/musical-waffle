@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from 'react-bootstrap/Nav'
+import classnames from 'classnames'
 
 export const links = [
     { label: 'Home', href: '/#intro' },
@@ -11,9 +12,9 @@ export const links = [
     { label: 'Contact Us', href: '#footer' },
 ]
 
-export const Navigation = ({ omit = [] }) => {
+export const Navigation = ({ omit = [], vertical = false }) => {
     return (
-        <Nav>
+        <Nav className={classnames({ 'flex-column': vertical })}>
             {links
                 .filter((link) => !omit.includes(link.label))
                 .map(({ href, label }, key) => (
