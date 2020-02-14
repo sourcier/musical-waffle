@@ -1,4 +1,5 @@
 import React from 'react'
+import Nav from 'react-bootstrap/Nav'
 
 export const links = [
     { label: 'Home', href: '/#intro' },
@@ -10,20 +11,16 @@ export const links = [
     { label: 'Contact Us', href: '#footer' },
 ]
 
-export const Navigation = ({ onClick, omit = [] }) => {
-    const props = onClick ? { onClick } : {}
-
+export const Navigation = ({ omit = [] }) => {
     return (
-        <ul>
+        <Nav>
             {links
                 .filter((link) => !omit.includes(link.label))
                 .map(({ href, label }, key) => (
-                    <li key={key}>
-                        <a href={href} {...props}>
-                            {label}
-                        </a>
-                    </li>
+                    <Nav.Link href={href} key={key}>
+                        {label}
+                    </Nav.Link>
                 ))}
-        </ul>
+        </Nav>
     )
 }

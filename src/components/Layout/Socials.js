@@ -1,5 +1,6 @@
 import React from 'react'
 import { lowerCase } from 'lodash'
+import Nav from 'react-bootstrap/Nav'
 
 export const socials = [
     { label: 'Twitter', href: 'https://twitter.com/sourcier' },
@@ -7,16 +8,16 @@ export const socials = [
 ]
 
 export const Socials = () => (
-    <React.Fragment>
+    <Nav className="ml-auto d-none d-md-flex">
         {socials.map(({ href, label }, key) => (
-            <a
-                key={key}
+            <Nav.Link
                 href={href}
+                key={key}
                 className={lowerCase(label)}
                 target="_blank"
                 rel="noopener noreferrer">
-                <i className={`fa fa-${lowerCase(label)}`}></i>
-            </a>
+                <i className={`fab fa-${lowerCase(label)} fa-2x`}></i>
+            </Nav.Link>
         ))}
-    </React.Fragment>
+    </Nav>
 )
