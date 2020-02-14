@@ -2,29 +2,29 @@ import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 
-import Root from './pages/Root'
-import BlogList from './pages/BlogList'
-import BlogPost from './pages/BlogPost'
-import Home from './pages/Home'
-import NotFound from './pages/NotFound'
+import Layout from './components/Layout'
+import Blog from './routes/Blog'
+import BlogPage from './routes/BlogPage'
+import Home from './routes/Home'
+import NotFound from './routes/NotFound'
 
 export default class App extends Component {
     render() {
         return (
             <BrowserRouter>
                 <HelmetProvider>
-                    <Root>
+                    <Layout>
                         <Switch>
                             <Route path="/" exact component={Home} />
-                            <Route path="/blog" exact component={BlogList} />
+                            <Route path="/blog" exact component={Blog} />
                             <Route
                                 path="/blog/:slug"
                                 exact
-                                component={BlogPost}
+                                component={BlogPage}
                             />
                             <Route component={NotFound} />
                         </Switch>
-                    </Root>
+                    </Layout>
                 </HelmetProvider>
             </BrowserRouter>
         )

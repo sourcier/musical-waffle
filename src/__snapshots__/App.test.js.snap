@@ -31,7 +31,7 @@ exports[`renders without crashing 1`] = `
               "$$typeof": Symbol(react.memo),
               "WrappedComponent": [Function],
               "compare": null,
-              "displayName": "Connect(BlogPost)",
+              "displayName": "Connect(BlogPage)",
               "type": [Function],
             }
           }
