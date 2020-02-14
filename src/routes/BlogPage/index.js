@@ -10,8 +10,14 @@ import Hero from '../../components/Hero'
 
 import './style.css'
 
-export const BlogPage = ({post, state, getBlogPost, match: { params: {slug} }}) => {
-
+export const BlogPage = ({
+    post,
+    state,
+    getBlogPost,
+    match: {
+        params: { slug },
+    },
+}) => {
     const renderPost = () => {
         return (
             <React.Fragment>

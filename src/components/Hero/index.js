@@ -11,11 +11,7 @@ export const Hero = ({ children }) => (
                     {children}
                 </div>
                 <div className="col-md-6 intro-img order-md-last order-first">
-                    <img
-                        src={intoImage}
-                        alt=""
-                        className="img-fluid"
-                    />
+                    <img src={intoImage} alt="" className="img-fluid" />
                 </div>
             </div>
         </div>
