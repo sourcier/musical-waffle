@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { isEmpty } from 'lodash'
+import moment from 'moment'
 import Card from 'react-bootstrap/Card'
 import CardColumns from 'react-bootstrap/CardColumns'
 import Container from 'react-bootstrap/Container'
@@ -22,16 +23,21 @@ const BlogList = ({ posts, state, getBlogList }) => {
                 return renderEmpty()
             } else {
                 return posts.map((post, key) => (
-                    <Card key={key}>
+                    <Card key={post.id}>
                         <Card.Body>
                             <Card.Title>{post.title}</Card.Title>
-                            <Card.Text>{post.title}</Card.Text>
+                            <Card.Text>{post.summary}</Card.Text>
                             <Button
                                 variant="primary"
                                 href={`/blog/${post.slug}`}>
                                 View
                             </Button>
                         </Card.Body>
+                        <Card.Footer>
+                            <small>
+                                Last updated {moment(post.updatedAt).fromNow()}
+                            </small>
+                        </Card.Footer>
                     </Card>
                 ))
             }

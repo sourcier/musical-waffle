@@ -9,12 +9,20 @@ export const STATUS = {
     DELETED: 'DELETED',
 }
 
+export const SORT = {
+    ASC: 'ASC',
+    DESC: 'DESC',
+}
+
 export const getPostsByStatus = () =>
     Promise.resolve()
         .then(() =>
             client.graphql({
                 query: queries.listPostsByStatus,
-                variables: { status: STATUS.PUBLISHED },
+                variables: {
+                    status: STATUS.PUBLISHED,
+                    sortDirection: SORT.DESC,
+                },
                 authMode: AUTH_MODE.API_KEY,
             })
         )
