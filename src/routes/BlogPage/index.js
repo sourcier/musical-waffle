@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
+import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -25,10 +26,14 @@ export const BlogPage = ({
                 <Container className="my-5">
                     <Row>
                         <Col>
-                            <div className="blog-post">
-                                <h2 className="blog-post-title">
-                                    {post.title}
-                                </h2>
+                            <div>
+                                <h2>{post.title}</h2>
+                                <p className="text-muted">
+                                    Last updated{' '}
+                                    {moment(post.updatedAt).fromNow()}
+                                </p>
+                                <ReactMarkdown source={post.summary} />
+                                <hr />
                                 <ReactMarkdown source={post.body} />
                             </div>
                         </Col>

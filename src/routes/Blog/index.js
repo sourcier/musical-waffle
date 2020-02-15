@@ -3,6 +3,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { isEmpty } from 'lodash'
 import moment from 'moment'
+import ReactMarkdown from 'react-markdown'
 import Card from 'react-bootstrap/Card'
 import CardColumns from 'react-bootstrap/CardColumns'
 import Container from 'react-bootstrap/Container'
@@ -26,7 +27,9 @@ const BlogList = ({ posts, state, getBlogList }) => {
                     <Card key={post.id}>
                         <Card.Body>
                             <Card.Title>{post.title}</Card.Title>
-                            <Card.Text>{post.summary}</Card.Text>
+                            <Card.Text>
+                                <ReactMarkdown>{post.summary}</ReactMarkdown>
+                            </Card.Text>
                             <Button
                                 variant="primary"
                                 href={`/blog/${post.slug}`}>
