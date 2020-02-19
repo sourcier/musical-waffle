@@ -5,7 +5,7 @@ type Post
     @versioned
     @auth (rules: [
         { allow: owner },
-        { allow: public, provider: apiKey, operations: [read] }
+        { allow: public, provider: iam, operations: [read] }
     ]) {
         id: ID!
         slug: String!
