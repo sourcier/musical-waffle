@@ -17,7 +17,7 @@ export const Socials = () => (
                     className={lowerCase(label)}
                     target="_blank"
                     rel="noopener noreferrer">
-                    <i className={`fab fa-${lowerCase(label)} fa-2x`}></i>
+                    <i className={`fab fa-${lowerCase(label)} fa-lg`}></i>
                 </Nav.Link>
             ))}
         </Nav>

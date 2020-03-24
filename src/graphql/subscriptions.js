@@ -8,7 +8,12 @@ export const onCreatePost = /* GraphQL */ `
             slug
             title
             body
+            summary
+            status
+            version
             createdAt
+            updatedAt
+            deletedAt
             owner
         }
     }
@@ -20,7 +25,12 @@ export const onUpdatePost = /* GraphQL */ `
             slug
             title
             body
+            summary
+            status
+            version
             createdAt
+            updatedAt
+            deletedAt
             owner
         }
     }
@@ -32,7 +42,12 @@ export const onDeletePost = /* GraphQL */ `
             slug
             title
             body
+            summary
+            status
+            version
             createdAt
+            updatedAt
+            deletedAt
             owner
         }
     }

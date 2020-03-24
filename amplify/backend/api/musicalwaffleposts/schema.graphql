@@ -1,10 +1,26 @@
-type Post @model @auth (rules: [
-    { allow: owner },
-    { allow: public, provider: apiKey, operations: [read] }
-]) {
-    id: ID!
-    slug: String!
-    title: String!
-    body:String!
-    createdAt:String!
+type Post
+    @model
+    @key(name: "bySlug", fields: ["slug"], queryField: "getPostBySlug")
+    @key(name: "byStatus", fields: ["status", "createdAt"], queryField: "listPostsByStatus")
+    @versioned
+    @auth (rules: [
+        { allow: owner },
+        { allow: public, provider: iam, operations: [read] }
+    ]) {
+        id: ID!
+        slug: String!
+        title: String!
+        body:String!
+        summary: String!
+        status: String!
+        version: Int!
+        createdAt: AWSDateTime
+        updatedAt: AWSDateTime
+        deletedAt: AWSDateTime
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  DELETED
 }

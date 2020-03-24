@@ -1,6 +1,6 @@
 {
     "identityPoolName": "musicalwaffle02b66dc4_identitypool_02b66dc4",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "musica02b66dc4",
     "userPoolName": "musicalwaffle02b66dc4_userpool_02b66dc4",
     "autoVerifiedAttributes": [
@@ -44,7 +44,16 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
+    "useDefault": "manual",
     "userPoolGroupList": [],
-    "dependsOn": []
+    "dependsOn": [],
+    "thirdPartyAuth": false,
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": "{}",
+    "hostedUI": false,
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": []
 }
