@@ -7,6 +7,7 @@ import Blog from './routes/Blog'
 import BlogPage from './routes/BlogPage'
 import Home from './routes/Home'
 import NotFound from './routes/NotFound'
+import Admin from './routes/Admin'
 
 export default class App extends Component {
     render() {
@@ -22,6 +23,7 @@ export default class App extends Component {
                                 exact
                                 component={BlogPage}
                             />
+                            <Route path="/admin" exact component={Admin} />
                             <Route component={NotFound} />
                         </Switch>
                     </Layout>
