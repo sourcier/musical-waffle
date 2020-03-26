@@ -3,6 +3,7 @@ backend:
   phases:
     build:
       commands:
+        - envCache --set stackInfo
         - amplifyPush --simple
 frontend:
   phases:
