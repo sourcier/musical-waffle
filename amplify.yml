@@ -3,6 +3,7 @@ backend:
   phases:
     build:
       commands:
+        - envCache --set stackInfo
         - amplifyPush --simple
 frontend:
   phases:
@@ -10,7 +11,7 @@ frontend:
       commands:
         - nvm use $VERSION_NODE_12
         - yarn install
-        - yarn eslint
+        - yarn lint
         - yarn test
     build:
       commands:
