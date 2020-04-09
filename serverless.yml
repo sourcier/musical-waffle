@@ -1,0 +1,19 @@
+service: musical-waffle
+
+plugins:
+  - fullstack-serverless
+
+custom:
+  fullstack:
+    bucketName: frontend
+    distributionFolder: build
+    clientCommand: npm run build
+    errorDocument: index.html
+    noConfirm: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage}
+  region: eu-west-2
+  profile: serverless
