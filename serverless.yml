@@ -10,10 +10,12 @@ custom:
     clientCommand: npm run build
     errorDocument: index.html
     noConfirm: true
+    domain: sourcier.uk
+    certificate: arn:aws:acm:us-east-1:561381207426:certificate/d8f786c1-c7a4-4191-9e79-a5654cc45365
 
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: ${opt:stage}
+  stage: dev
   region: eu-west-2
   profile: serverless
