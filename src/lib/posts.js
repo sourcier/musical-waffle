@@ -1,7 +1,8 @@
 import { get } from 'lodash'
 
 import client, { AUTH_MODE } from './amplify'
-import * as queries from '../graphql/queries'
+
+const queries = {}
 
 export const STATUS = {
     DRAFT: 'DRAFT',

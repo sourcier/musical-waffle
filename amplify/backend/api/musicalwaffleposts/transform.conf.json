@@ -1,7 +1,0 @@
-{
-    "Version": 5,
-    "StackMapping": {
-        "QuerygetPostBySlugResolver": "Post",
-        "QuerylistPostsByStatusResolver": "Post"
-    }
-}
