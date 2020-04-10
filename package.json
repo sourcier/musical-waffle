@@ -56,7 +56,8 @@
         "serverless": "^1.67.3",
         "webpack": "^4.41.1",
         "webpack-cli": "^3.3.9",
-        "webpack-dev-server": "^3.8.2"
+        "webpack-dev-server": "^3.8.2",
+        "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin"
     },
     "scripts": {
         "start": "webpack-dev-server --mode development",
@@ -65,9 +66,7 @@
         "test-watch": "jest --watch",
         "lint": "eslint ./src",
         "lint-fix": "eslint ./src --fix --ignore-path .gitignore",
-        "prettier": "prettier --single-quote --write './src/**/*.{js,jsx,json,css,scss,md}'",
-        "deploy": "serverless deploy -s dev",
-        "deploy-prod": "serverless deploy -s prod"
+        "prettier": "prettier --single-quote --write './src/**/*.{js,jsx,json,css,scss,md}'"
     },
     "browserslist": [
         ">0.2%",

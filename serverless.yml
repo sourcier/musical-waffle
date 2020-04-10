@@ -1,28 +1,77 @@
 service: musical-waffle
 
 plugins:
-  - fullstack-serverless
+  - serverless-single-page-app-plugin
 
 custom:
   stage: ${opt:stage, self:provider.stage}
-  domain:
-    dev: ~
-    prod: sourcier.uk
-  certificate:
-    dev: ~
-    prod: arn:aws:acm:us-east-1:561381207426:certificate/d8f786c1-c7a4-4191-9e79-a5654cc45365
-  fullstack:
-    bucketName: frontend
-    distributionFolder: build
-    clientCommand: npm run build
-    errorDocument: index.html
-    noConfirm: true
-    domain: "${self:custom.domain.${self:custom.stage}}"
-    certificate: "${self:custom.certificate.${self:custom.stage}}"
-    minimumProtocolVersion: TLSv1.2_2018
+  s3Bucket: ${self:service}-${self:custom.stage}-frontend
 
 provider:
   name: aws
   runtime: nodejs12.x
   stage: dev
   region: eu-west-2
+
+resources:
+  Resources:
+    WebAppS3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.s3Bucket}
+        AccessControl: PublicRead
+        WebsiteConfiguration:
+          IndexDocument: index.html
+          ErrorDocument: index.html
+    WebAppS3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket:
+          Ref: WebAppS3Bucket
+        PolicyDocument:
+          Statement:
+              Effect: Allow
+              Principal: "*"
+              Action:
+              - s3:GetObject
+              Resource: arn:aws:s3:::${self:custom.s3Bucket}/*
+    WebAppCloudFrontDistribution:
+      Type: AWS::CloudFront::Distribution
+      Properties:
+        DistributionConfig:
+          Origins:
+            - DomainName: ${self:custom.s3Bucket}.s3.amazonaws.com
+              Id: WebApp
+              CustomOriginConfig:
+                HTTPPort: 80
+                HTTPSPort: 443
+                OriginProtocolPolicy: https-only
+          Enabled: true
+          DefaultRootObject: index.html
+          CustomErrorResponses:
+            - ErrorCode: 404
+              ResponseCode: 200
+              ResponsePagePath: /index.html
+          DefaultCacheBehavior:
+            AllowedMethods:
+              - DELETE
+              - GET
+              - HEAD
+              - OPTIONS
+              - PATCH
+              - POST
+              - PUT
+            TargetOriginId: WebApp
+            ForwardedValues:
+              QueryString: false
+              Cookies:
+                Forward: none
+            ViewerProtocolPolicy: redirect-to-https
+          ViewerCertificate:
+            CloudFrontDefaultCertificate: true
+            MinimumProtocolVersion: TLSv1.2_2018
+
+  Outputs:
+    WebAppCloudFrontDistributionOutput:
+      Value:
+        'Fn::GetAtt': [ WebAppCloudFrontDistribution, DomainName ]
