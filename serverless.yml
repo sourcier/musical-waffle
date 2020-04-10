@@ -4,18 +4,25 @@ plugins:
   - fullstack-serverless
 
 custom:
+  stage: ${opt:stage, self:provider.stage}
+  domain:
+    dev: ~
+    prod: sourcier.uk
+  certificate:
+    dev: ~
+    prod: arn:aws:acm:us-east-1:561381207426:certificate/d8f786c1-c7a4-4191-9e79-a5654cc45365
   fullstack:
     bucketName: frontend
     distributionFolder: build
     clientCommand: npm run build
     errorDocument: index.html
     noConfirm: true
-    domain: sourcier.uk
-    certificate: arn:aws:acm:us-east-1:561381207426:certificate/d8f786c1-c7a4-4191-9e79-a5654cc45365
+    domain: "${self:custom.domain.${self:custom.stage}}"
+    certificate: "${self:custom.certificate.${self:custom.stage}}"
+    minimumProtocolVersion: TLSv1.2_2018
 
 provider:
   name: aws
   runtime: nodejs12.x
   stage: dev
   region: eu-west-2
-  profile: serverless
