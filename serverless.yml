@@ -40,8 +40,9 @@ resources:
       Properties:
         DistributionConfig:
           Origins:
-            - DomainName: ${self:custom.s3Bucket}.s3.amazonaws.com
-              Id: WebApp
+            - Id: WebApp
+              DomainName:
+                Fn::GetAtt: [WebAppS3Bucket, DomainName]
               CustomOriginConfig:
                 HTTPPort: 80
                 HTTPSPort: 443
