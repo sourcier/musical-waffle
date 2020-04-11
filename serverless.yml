@@ -33,6 +33,7 @@ resources:
   Resources:
     S3Bucket:
       Type: AWS::S3::Bucket
+
     S3BucketPolicy:
       Type: AWS::S3::BucketPolicy
       Properties:
@@ -44,11 +45,13 @@ resources:
               Resource: !Sub 'arn:aws:s3:::#{S3Bucket}/*'
               Principal:
                 CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
+
     CloudFrontOriginAccessIdentity:
       Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
       Properties:
         CloudFrontOriginAccessIdentityConfig:
           Comment: !Ref S3Bucket
+
     CloudFrontDistribution:
       Type: AWS::CloudFront::Distribution
       Properties:
@@ -57,6 +60,7 @@ resources:
             - ErrorCode: 403
               ResponseCode: 200
               ResponsePagePath: ${self:custom.errorPagePath}
+
           DefaultCacheBehavior:
             AllowedMethods:
               - GET
@@ -76,14 +80,19 @@ resources:
               QueryString: false
             TargetOriginId: s3origin
             ViewerProtocolPolicy: redirect-to-https
+
           DefaultRootObject: ${self:custom.defaultRootObject}
+
           Enabled: true
+
           HttpVersion: http2
+
           Origins:
             - DomainName: !GetAtt S3Bucket.RegionalDomainName
               Id: s3origin
               S3OriginConfig:
                 OriginAccessIdentity: !Sub origin-access-identity/cloudfront/#{CloudFrontOriginAccessIdentity}
+
           ViewerCertificate:
             !If
               - IsProd
@@ -91,6 +100,7 @@ resources:
                 SslSupportMethod: sni-only
                 MinimumProtocolVersion: TLSv1.2_2018
               - CloudFrontDefaultCertificate: true
+
           Aliases:
             !If
               - IsProd
@@ -102,9 +112,11 @@ resources:
     BucketName:
       Description: 'S3 Bucket Name'
       Value: !Ref S3Bucket
+
     DistributionId:
       Description: 'CloudFront Distribution ID'
       Value: !Ref CloudFrontDistribution
+
     Domain:
       Description: 'Cloudfront Domain'
       Value: !GetAtt CloudFrontDistribution.DomainName
