@@ -6,10 +6,7 @@ plugins:
 
 custom:
   stage: ${opt:stage, self:provider.stage}
-  defaultRootObject: index.html
-  errorPagePath: /index.html
   distributionPath: build
-  AcmCertificateArn: ${env:AWS_ACM_CERTIFICATE_ARN}
 
 provider:
   name: aws
@@ -29,6 +26,15 @@ resources:
       AllowedValues:
         - prod
         - dev
+    DefaultRootObject:
+      Type: String
+      Default: index.html
+    ErrorPagePath:
+      Type: String
+      Default: /index.html
+    AcmCertificateArn:
+      Type: String
+      Default: arn:aws:acm:us-east-1:561381207426:certificate/d8f786c1-c7a4-4191-9e79-a5654cc45365
 
   Conditions:
     IsProd: !Equals [ !Ref EnvType, prod ]
@@ -62,7 +68,7 @@ resources:
           CustomErrorResponses:
             - ErrorCode: 403
               ResponseCode: 200
-              ResponsePagePath: ${self:custom.errorPagePath}
+              ResponsePagePath: !Ref ErrorPagePath
 
           DefaultCacheBehavior:
             AllowedMethods:
@@ -84,7 +90,7 @@ resources:
             TargetOriginId: s3origin
             ViewerProtocolPolicy: redirect-to-https
 
-          DefaultRootObject: ${self:custom.defaultRootObject}
+          DefaultRootObject: !Ref DefaultRootObject
 
           Enabled: true
 
@@ -99,7 +105,7 @@ resources:
           ViewerCertificate:
             !If
               - IsProd
-              - AcmCertificateArn: ${self:custom.AcmCertificateArn}
+              - AcmCertificateArn: !Ref AcmCertificateArn
                 SslSupportMethod: sni-only
                 MinimumProtocolVersion: TLSv1.2_2018
               - CloudFrontDefaultCertificate: true
@@ -142,7 +148,7 @@ resources:
               QueryString: false
             ViewerProtocolPolicy: redirect-to-https
           ViewerCertificate:
-            AcmCertificateArn: ${self:custom.AcmCertificateArn}
+            AcmCertificateArn: !Ref AcmCertificateArn
             MinimumProtocolVersion: TLSv1.2_2018
             SslSupportMethod: sni-only
 
