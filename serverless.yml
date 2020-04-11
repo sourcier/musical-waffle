@@ -20,7 +20,7 @@ provider:
 resources:
 
   Parameters:
-    Domain:
+    DomainName:
       Type: String
       Default: sourcier.uk
     EnvType:
@@ -107,9 +107,44 @@ resources:
           Aliases:
             !If
               - IsProd
-              - - !Ref Domain
+              - - !Ref DomainName
               - !Ref "AWS::NoValue"
 
+    RedirectBucket:
+      Type: 'AWS::S3::Bucket'
+      Condition: IsProd
+      Properties:
+        WebsiteConfiguration:
+          RedirectAllRequestsTo:
+            HostName: !Ref DomainName
+            Protocol: https
+
+    RedirectCloudFrontDistribution:
+      Type: 'AWS::CloudFront::Distribution'
+      Condition: IsProd
+      Properties:
+        DistributionConfig:
+          Aliases:
+            - !Sub www.#{DomainName}
+          Enabled: True
+          Origins:
+            - DomainName: !Select
+                - 1
+                - !Split ["//", !GetAtt RedirectBucket.WebsiteURL]
+              Id: origin
+              CustomOriginConfig:
+                OriginProtocolPolicy: http-only
+          DefaultCacheBehavior:
+            TargetOriginId: origin
+            DefaultTTL: 5
+            MaxTTL: 30
+            ForwardedValues:
+              QueryString: false
+            ViewerProtocolPolicy: redirect-to-https
+          ViewerCertificate:
+            AcmCertificateArn: ${self:custom.AcmCertificateArn}
+            MinimumProtocolVersion: TLSv1.2_2018
+            SslSupportMethod: sni-only
 
   Outputs:
     BucketName:
@@ -123,3 +158,8 @@ resources:
     Domain:
       Description: 'Cloudfront Domain'
       Value: !GetAtt CloudFrontDistribution.DomainName
+
+    RedirectDomain:
+      Condition: IsProd
+      Description: 'Redirect Cloudfront Domain'
+      Value: !GetAtt RedirectCloudFrontDistribution.DomainName

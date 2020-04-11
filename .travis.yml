@@ -19,12 +19,12 @@ script:
 
 deploy:
   - provider: script
-    script: npx serverless deploy; npx serverless syncToS3; npx serverless invalidateCloudFrontCache
+    script: npx sls deploy; npx sls syncToS3; npx sls invalidateCloudFrontCache
     skip_cleanup: true
     on:
       branch: develop
   - provider: script
-    script: npx serverless -s prod deploy; npx serverless -s prod syncToS3; npx serverless -s prod invalidateCloudFrontCache
+    script: npx sls -s prod deploy; npx sls -s prod syncToS3; npx sls -s prod invalidateCloudFrontCache
     skip_cleanup: true
     on:
       branch: master
