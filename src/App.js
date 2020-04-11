@@ -10,25 +10,21 @@ import NotFound from './routes/NotFound'
 import Admin from './routes/Admin'
 
 export default class App extends Component {
-    render() {
-        return (
-            <BrowserRouter>
-                <HelmetProvider>
-                    <Layout>
-                        <Switch>
-                            <Route path="/" exact component={Home} />
-                            <Route path="/blog" exact component={Blog} />
-                            <Route
-                                path="/blog/:slug"
-                                exact
-                                component={BlogPage}
-                            />
-                            <Route path="/admin" exact component={Admin} />
-                            <Route component={NotFound} />
-                        </Switch>
-                    </Layout>
-                </HelmetProvider>
-            </BrowserRouter>
-        )
-    }
+  render() {
+    return (
+      <BrowserRouter>
+        <HelmetProvider>
+          <Layout>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/blog" exact component={Blog} />
+              <Route path="/blog/:slug" exact component={BlogPage} />
+              <Route path="/admin" exact component={Admin} />
+              <Route component={NotFound} />
+            </Switch>
+          </Layout>
+        </HelmetProvider>
+      </BrowserRouter>
+    )
+  }
 }

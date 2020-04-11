@@ -12,62 +12,56 @@ import { Meta } from '../../components/Meta'
 import { getBlogPost } from '../../store/reducers/blog'
 
 export const BlogPage = ({
-    post,
-    state,
-    getBlogPost,
-    match: {
-        params: { slug },
-    },
+  post,
+  state,
+  getBlogPost,
+  match: {
+    params: { slug },
+  },
 }) => {
-    const renderPost = () => {
-        return (
-            <React.Fragment>
-                <Meta title={post.title} />
-                <Container className="my-5">
-                    <Row>
-                        <Col>
-                            <div>
-                                <h2>{post.title}</h2>
-                                <p className="text-muted">
-                                    Last updated{' '}
-                                    {moment(post.updatedAt).fromNow()}
-                                </p>
-                                <ReactMarkdown source={post.summary} />
-                                <hr />
-                                <ReactMarkdown source={post.body} />
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            </React.Fragment>
-        )
-    }
-
-    useEffect(() => {
-        getBlogPost(slug)
-    }, [])
-
+  const renderPost = () => {
     return (
-        <React.Fragment>
-            {'fetching' === state ? <Spinner /> : renderPost()}
-        </React.Fragment>
+      <React.Fragment>
+        <Meta title={post.title} />
+        <Container className="my-5">
+          <Row>
+            <Col>
+              <div>
+                <h2>{post.title}</h2>
+                <p className="text-muted">
+                  Last updated {moment(post.updatedAt).fromNow()}
+                </p>
+                <ReactMarkdown source={post.summary} />
+                <hr />
+                <ReactMarkdown source={post.body} />
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </React.Fragment>
     )
+  }
+
+  useEffect(() => {
+    getBlogPost(slug)
+  }, [])
+
+  return (
+    <React.Fragment>
+      {'fetching' === state ? <Spinner /> : renderPost()}
+    </React.Fragment>
+  )
 }
 
 const mapStateToProps = ({
-    blog: {
-        blogPost: { state, post },
-    },
+  blog: {
+    blogPost: { state, post },
+  },
 }) => ({
-    post,
-    state,
+  post,
+  state,
 })
 
 const mapDispatchToProps = { getBlogPost }
 
-export default compose(
-    connect(
-        mapStateToProps,
-        mapDispatchToProps
-    )
-)(BlogPage)
+export default compose(connect(mapStateToProps, mapDispatchToProps))(BlogPage)

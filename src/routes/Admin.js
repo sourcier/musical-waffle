@@ -7,9 +7,9 @@ import { Meta } from '../components/Meta'
 Amplify.configure({})
 
 export const Admin = () => (
-    <React.Fragment>
-        <Meta />
-    </React.Fragment>
+  <React.Fragment>
+    <Meta />
+  </React.Fragment>
 )
 
 export default withAuthenticator(Admin)
