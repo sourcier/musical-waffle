@@ -1,6 +1,6 @@
 {
     "name": "musical-waffle",
-    "version": "1.4.1",
+    "version": "1.5.0",
     "private": true,
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.12.1",
