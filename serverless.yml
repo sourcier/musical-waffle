@@ -42,7 +42,7 @@ resources:
         DistributionConfig:
           CustomErrorResponses:
             - ErrorCode: 403
-              ResponseCode: 404
+              ResponseCode: 200
               ResponsePagePath: ${self:custom.errorPagePath}
           DefaultCacheBehavior:
             AllowedMethods:
