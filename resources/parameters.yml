@@ -1,0 +1,19 @@
+Parameters:
+  DomainName:
+    Type: String
+    Default: sourcier.uk
+  EnvType:
+    Type: String
+    Default: ${self:custom.stage}
+    AllowedValues:
+      - prod
+      - dev
+  DefaultRootObject:
+    Type: String
+    Default: index.html
+  ErrorPagePath:
+    Type: String
+    Default: /index.html
+  AcmCertificateArn:
+    Type: String
+    Default: arn:aws:acm:us-east-1:561381207426:certificate/d8f786c1-c7a4-4191-9e79-a5654cc45365
