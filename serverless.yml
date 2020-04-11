@@ -1,7 +1,7 @@
 service: musical-waffle
 
 plugins:
-  - serverless-single-page-app-plugin
+  - single-page-app
   - serverless-pseudo-parameters
 
 custom:
