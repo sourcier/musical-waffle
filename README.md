@@ -5,11 +5,11 @@
 ## Links
 
 - [Production](https://sourcier.uk/)
-- [Staging](https://develop.d647torcuzgrv.amplifyapp.com)
+- [Staging](d2pytkwkd6rjme.cloudfront.net)
 
 ## Dev
 
 ```bash
-$ yarn
-$ yarn start
+$ npm install
+$ npm start
 ```
