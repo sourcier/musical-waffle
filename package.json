@@ -54,10 +54,11 @@
         "redux-devtools-extension": "^2.13.8",
         "sass-loader": "^8.0.0",
         "serverless": "^1.67.3",
+        "serverless-pseudo-parameters": "^2.5.0",
+        "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin",
         "webpack": "^4.41.1",
         "webpack-cli": "^3.3.9",
-        "webpack-dev-server": "^3.8.2",
-        "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin"
+        "webpack-dev-server": "^3.8.2"
     },
     "scripts": {
         "start": "webpack-dev-server --mode development",

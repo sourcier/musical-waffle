@@ -2,10 +2,12 @@ service: musical-waffle
 
 plugins:
   - serverless-single-page-app-plugin
+  - serverless-pseudo-parameters
 
 custom:
-  stage: ${opt:stage, self:provider.stage}
-  s3Bucket: ${self:service}-${self:custom.stage}-frontend
+  defaultRootObject: index.html
+  errorPagePath: /index.html
+  distributionPath: build
 
 provider:
   name: aws
@@ -14,65 +16,72 @@ provider:
   region: eu-west-2
 
 resources:
+
   Resources:
-    WebAppS3Bucket:
+    S3Bucket:
       Type: AWS::S3::Bucket
-      Properties:
-        BucketName: ${self:custom.s3Bucket}
-        AccessControl: PublicRead
-        WebsiteConfiguration:
-          IndexDocument: index.html
-          ErrorDocument: index.html
-    WebAppS3BucketPolicy:
+    S3BucketPolicy:
       Type: AWS::S3::BucketPolicy
       Properties:
-        Bucket:
-          Ref: WebAppS3Bucket
+        Bucket: !Ref S3Bucket
         PolicyDocument:
           Statement:
+            - Action: s3:GetObject
               Effect: Allow
-              Principal: "*"
-              Action:
-              - s3:GetObject
-              Resource: arn:aws:s3:::${self:custom.s3Bucket}/*
-    WebAppCloudFrontDistribution:
+              Resource: !Sub 'arn:aws:s3:::#{S3Bucket}/*'
+              Principal:
+                CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
+    CloudFrontOriginAccessIdentity:
+      Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+      Properties:
+        CloudFrontOriginAccessIdentityConfig:
+          Comment: !Ref S3Bucket
+    CloudFrontDistribution:
       Type: AWS::CloudFront::Distribution
       Properties:
         DistributionConfig:
-          Origins:
-            - Id: WebApp
-              DomainName:
-                Fn::GetAtt: [WebAppS3Bucket, DomainName]
-              CustomOriginConfig:
-                HTTPPort: 80
-                HTTPSPort: 443
-                OriginProtocolPolicy: https-only
-          Enabled: true
-          DefaultRootObject: index.html
           CustomErrorResponses:
-            - ErrorCode: 404
-              ResponseCode: 200
-              ResponsePagePath: /index.html
+            - ErrorCode: 403
+              ResponseCode: 404
+              ResponsePagePath: ${self:custom.errorPagePath}
           DefaultCacheBehavior:
             AllowedMethods:
-              - DELETE
               - GET
               - HEAD
               - OPTIONS
-              - PATCH
-              - POST
-              - PUT
-            TargetOriginId: WebApp
+            CachedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            Compress: true
+            DefaultTTL: 3600
+            MaxTTL: 86400
+            MinTTL: 60
             ForwardedValues:
-              QueryString: false
               Cookies:
                 Forward: none
+              QueryString: false
+            TargetOriginId: s3origin
             ViewerProtocolPolicy: redirect-to-https
+          DefaultRootObject: ${self:custom.defaultRootObject}
+          Enabled: true
+          HttpVersion: http2
+          Origins:
+            - DomainName: !GetAtt S3Bucket.RegionalDomainName
+              Id: s3origin
+              S3OriginConfig:
+                OriginAccessIdentity: !Sub origin-access-identity/cloudfront/#{CloudFrontOriginAccessIdentity}
           ViewerCertificate:
             CloudFrontDefaultCertificate: true
             MinimumProtocolVersion: TLSv1.2_2018
 
   Outputs:
-    WebAppCloudFrontDistributionOutput:
-      Value:
-        'Fn::GetAtt': [ WebAppCloudFrontDistribution, DomainName ]
+    BucketName:
+      Description: 'S3 Bucket Name'
+      Value: !Ref S3Bucket
+    DistributionId:
+      Description: 'CloudFront Distribution ID'
+      Value: !Ref CloudFrontDistribution
+    Domain:
+      Description: 'Cloudfront Domain'
+      Value: !GetAtt CloudFrontDistribution.DomainName

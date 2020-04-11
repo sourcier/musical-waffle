@@ -51,12 +51,27 @@ class ServerlessPlugin {
   }
 
   // syncs the `app` directory to the provided bucket
-  syncDirectory() {
-    const s3Bucket = this.serverless.variables.service.custom.s3Bucket;
+  async syncDirectory() {
+    const provider = this.serverless.getProvider('aws');
+    const stackName = provider.naming.getStackName(this.options.stage);
+    const result = await provider.request(
+      'CloudFormation',
+      'describeStacks',
+      { StackName: stackName },
+      this.options.stage,
+      this.options.region,
+    );
+
+    const outputs = result.Stacks[0].Outputs;
+    const output = outputs.find(
+      entry => entry.OutputKey === 'BucketName',
+    );
+    const s3Bucket = output.OutputValue
+    const distributionPath = this.serverless.variables.service.custom.distributionPath
     const args = [
       's3',
       'sync',
-      'build/',
+      `${distributionPath}/`,
       `s3://${s3Bucket}/`,
       '--delete',
     ];
@@ -82,7 +97,7 @@ class ServerlessPlugin {
 
     const outputs = result.Stacks[0].Outputs;
     const output = outputs.find(
-      entry => entry.OutputKey === 'WebAppCloudFrontDistributionOutput',
+      entry => entry.OutputKey === 'Domain',
     );
 
     if (output && output.OutputValue) {
