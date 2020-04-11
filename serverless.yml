@@ -20,6 +20,9 @@ provider:
 resources:
 
   Parameters:
+    Domain:
+      Type: String
+      Default: sourcier.uk
     EnvType:
       Type: String
       Default: ${self:custom.stage}
@@ -104,7 +107,7 @@ resources:
           Aliases:
             !If
               - IsProd
-              - - sourcier.uk
+              - - !Ref Domain
               - !Ref "AWS::NoValue"
 
 
