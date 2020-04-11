@@ -5,9 +5,11 @@ plugins:
   - serverless-pseudo-parameters
 
 custom:
+  stage: ${opt:stage, self:provider.stage}
   defaultRootObject: index.html
   errorPagePath: /index.html
   distributionPath: build
+  AcmCertificateArn: ${env:AWS_ACM_CERTIFICATE_ARN}
 
 provider:
   name: aws
@@ -16,6 +18,17 @@ provider:
   region: eu-west-2
 
 resources:
+
+  Parameters:
+    EnvType:
+      Type: String
+      Default: ${self:custom.stage}
+      AllowedValues:
+        - prod
+        - dev
+
+  Conditions:
+    IsProd: !Equals [ !Ref EnvType, prod ]
 
   Resources:
     S3Bucket:
@@ -72,8 +85,18 @@ resources:
               S3OriginConfig:
                 OriginAccessIdentity: !Sub origin-access-identity/cloudfront/#{CloudFrontOriginAccessIdentity}
           ViewerCertificate:
-            CloudFrontDefaultCertificate: true
-            MinimumProtocolVersion: TLSv1.2_2018
+            !If
+              - IsProd
+              - AcmCertificateArn: ${self:custom.AcmCertificateArn}
+                SslSupportMethod: sni-only
+                MinimumProtocolVersion: TLSv1.2_2018
+              - CloudFrontDefaultCertificate: true
+          Aliases:
+            !If
+              - IsProd
+              - - sourcier.uk
+              - !Ref "AWS::NoValue"
+
 
   Outputs:
     BucketName:
