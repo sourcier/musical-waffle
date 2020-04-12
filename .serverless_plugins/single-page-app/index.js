@@ -37,7 +37,7 @@ class ServerlessPlugin {
   }
 
   runAwsCommand(args) {
-    const result = spawnSync('aws', args);
+    const result = spawnSync('aws', args, {shell: true});
     const stdout = result.stdout && result.stdout.toString();
     const sterr = result.stderr && result.stderr.toString();
     if (stdout) {
