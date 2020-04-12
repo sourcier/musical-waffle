@@ -12,6 +12,11 @@ module.exports = {
     filename: "[name].[contenthash].js",
     publicPath: '/'
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
   resolve: {
     mainFiles: ['index']
   },
