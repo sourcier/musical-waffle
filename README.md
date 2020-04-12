@@ -5,7 +5,7 @@
 ## Links
 
 - [Production](https://sourcier.uk/)
-- [Staging](d2pytkwkd6rjme.cloudfront.net)
+- [Staging](https://d2pytkwkd6rjme.cloudfront.net)
 
 ## Dev
 
