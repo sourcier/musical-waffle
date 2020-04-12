@@ -1,6 +1,7 @@
 'use strict';
 
-const execa = require('execa');
+const spawnSync = require('child_process').spawnSync;
+
 
 class ServerlessPlugin {
   constructor(serverless, options) {
@@ -37,8 +38,7 @@ class ServerlessPlugin {
   }
 
   async runAwsCommand(args) {
-    const result = await execa('aws', args);
-    console.log(result)
+    const result = spawnSync('aws', args);
     const stdout = result.stdout && result.stdout.toString();
     const sterr = result.stderr && result.stderr.toString();
     if (stdout) {

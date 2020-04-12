@@ -13,7 +13,7 @@ git:
 
 before_install:
   - pyenv global 3.7
-  - pip3 install awscli
+  - pip3 install --quiet awscli
   - aws --version
 
 install:
