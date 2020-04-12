@@ -11,6 +11,9 @@ cache:
 git:
   depth: 1
 
+before_install:
+  - pip3 install awscli
+
 install:
   - npm --production=false install
 

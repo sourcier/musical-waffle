@@ -1,6 +1,6 @@
 'use strict';
 
-const spawnSync = require('child_process').spawnSync;
+const execa = require('execa');
 
 class ServerlessPlugin {
   constructor(serverless, options) {
@@ -36,8 +36,9 @@ class ServerlessPlugin {
     };
   }
 
-  runAwsCommand(args) {
-    const result = spawnSync('aws', args, {shell: true});
+  async runAwsCommand(args) {
+    const result = await execa('aws', args);
+    console.log(result)
     const stdout = result.stdout && result.stdout.toString();
     const sterr = result.stderr && result.stderr.toString();
     if (stdout) {
@@ -74,7 +75,8 @@ class ServerlessPlugin {
       `${distributionPath}/`,
       `s3://${s3Bucket}/`,
       '--delete',
-      '--size-only'
+      '--size-only',
+      '--dryrun'
     ];
     const { sterr } = this.runAwsCommand(args);
     if (!sterr) {
