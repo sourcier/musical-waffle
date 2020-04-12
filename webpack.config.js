@@ -9,7 +9,7 @@ module.exports = {
   entry: path.join(__dirname, "src", "index.js"),
   output: {
     path: path.join(__dirname, "build"),
-    filename: "bundle.js",
+    filename: "[name].[contenthash].js",
     publicPath: '/'
   },
   resolve: {
@@ -34,7 +34,8 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "[path][name]-[hash:8].[ext]"
+              name: "[name].[contenthash].[ext]",
+              outputPath: "assets"
             }
           }
         ]
@@ -55,11 +56,10 @@ module.exports = {
       template: path.join(__dirname, "src", "index.html")
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: "[name].[contenthash].css",
     }),
     new CopyWebpackPlugin([
-      { from: path.join(__dirname, "assets"), to: path.join(__dirname, "build") }
+      { from: path.join(__dirname, "assets"), to: path.join(__dirname, "build", "assets") }
     ])
   ],
   devServer: {
