@@ -74,8 +74,7 @@ class ServerlessPlugin {
       'sync',
       `${distributionPath}/`,
       `s3://${s3Bucket}/`,
-      '--delete',
-      '--size-only'
+      '--delete'
     ];
     const { sterr } = this.runAwsCommand(args);
     if (!sterr) {
