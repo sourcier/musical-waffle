@@ -12,6 +12,9 @@ custom:
   distributionPath: ./build
   postsTableName: ${self:custom.prefix}-posts
 
+  bundle:
+    linting: false
+
 provider:
   name: aws
   runtime: nodejs12.x
@@ -39,6 +42,9 @@ resources:
   - ${file(resources/spa.yml)}
   - ${file(resources/spa-redirect.yml)}
   - ${file(resources/posts-table.yml)}
+
+package:
+  individually: true
 
 functions:
   - ${file(src/api/posts/posts.yml)}

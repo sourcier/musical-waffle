@@ -1,15 +1,11 @@
-import * as dynamoDbLib from '../../lib/dynamodb-lib'
-import { success, failure } from '../../lib/response-lib'
+import * as dynamoDbLib from '../../lib/dynamodb'
+import { success, failure } from '../../lib/response'
 
-export default async (event, context) => {
-  const params = {
-    TableName: process.env.POSTS_TABLE_NAME,
-  }
-
-  try {
-    const result = await dynamoDbLib.call('scan', params)
-    return success(result.Items)
-  } catch (e) {
-    return failure({ status: false })
-  }
+export default (event, context) => {
+  return dynamoDbLib
+    .call('scan', {
+      TableName: process.env.POSTS_TABLE_NAME,
+    })
+    .then((result) => success(result.Items))
+    .catch(() => failure({ status: false }))
 }
