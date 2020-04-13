@@ -3,6 +3,8 @@ service: musical-waffle
 plugins:
   - single-page-app
   - serverless-pseudo-parameters
+  - serverless-bundle
+  - serverless-offline
 
 custom:
   stage: ${opt:stage, self:provider.stage}
@@ -17,7 +19,7 @@ provider:
   region: eu-west-2
 
   environment:
-    tableName: ${self:custom.postsTableName}
+    POSTS_TABLE_NAME: ${self:custom.postsTableName}
 
   iamRoleStatements:
     - Effect: Allow
@@ -29,7 +31,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource:
-        - !GetAtt NotesTable.Arn
+        - !GetAtt PostsTable.Arn
 
 resources:
   - ${file(resources/parameters.yml)}
@@ -37,3 +39,6 @@ resources:
   - ${file(resources/spa.yml)}
   - ${file(resources/spa-redirect.yml)}
   - ${file(resources/posts-table.yml)}
+
+functions:
+  - ${file(src/api/posts/posts.yml)}
