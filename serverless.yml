@@ -43,6 +43,7 @@ resources:
   - ${file(resources/spa-redirect.yml)}
   - ${file(resources/posts-table.yml)}
   - ${file(resources/api-gateway-errors.yml)}
+  - ${file(resources/cognito-user-pool.yml)}
 
 package:
   individually: true
