@@ -2,7 +2,7 @@ Resources:
   CognitoUserPool:
     Type: AWS::Cognito::UserPool
     Properties:
-      UserPoolName: ${self:custom.prefix}-user-pool
+      UserPoolName: !Ref CognitoUserPoolName
       UsernameAttributes:
         - email
       AutoVerifiedAttributes:
@@ -11,7 +11,7 @@ Resources:
   CognitoUserPoolClient:
     Type: AWS::Cognito::UserPoolClient
     Properties:
-      ClientName: ${self:custom.prefix}-user-pool-client
+      ClientName: !Ref CognitoUserPoolClientName
       UserPoolId: !Ref CognitoUserPool
       ExplicitAuthFlows:
         - ALLOW_USER_PASSWORD_AUTH
