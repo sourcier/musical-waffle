@@ -1,2 +1,2 @@
 Conditions:
-  IsProd: !Equals [ !Ref EnvType, prod ]
+  IsProd: !Equals [ !Ref Stage, prod ]
