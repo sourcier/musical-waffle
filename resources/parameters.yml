@@ -4,7 +4,7 @@ Parameters:
     Default: sourcier.uk
   EnvType:
     Type: String
-    Default: ${self:custom.stage}
+    Default: ${self:provider.stage}
     AllowedValues:
       - prod
       - dev

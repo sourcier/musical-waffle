@@ -7,8 +7,7 @@ plugins:
   - serverless-offline
 
 custom:
-  stage: ${opt:stage, self:provider.stage}
-  prefix: ${self:service}-${self:custom.stage}
+  prefix: ${self:service}-${self:provider.stage}
   distributionPath: ./build
   postsTableName: ${self:custom.prefix}-posts
 
@@ -18,7 +17,7 @@ custom:
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: dev
+  stage: ${opt:stage, 'dev'}
   region: eu-west-2
 
   environment:
