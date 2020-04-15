@@ -3,8 +3,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Navigation } from '../Navigation'
 import styles from './styles'
+import withStyles from '../../../lib/with-styles'
 
-export const Footer = () => (
+export const Component = ({ styles }) => (
   <footer>
     <div className="py-4 border-top" css={styles.footer}>
       <Row>
@@ -42,3 +43,5 @@ export const Footer = () => (
     </div>
   </footer>
 )
+
+export const Footer = withStyles(styles)(Component)
