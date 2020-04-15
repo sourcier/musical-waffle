@@ -1,14 +1,12 @@
 import React from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-
 import { Navigation } from '../Navigation'
-
-import './styles.css'
+import styles from './styles'
 
 export const Footer = () => (
   <footer>
-    <div className="footer py-4 border-top">
+    <div className="py-4 border-top" css={styles.footer}>
       <Row>
         <Col xs={12} sm={6} className="mb-4">
           <p>
@@ -33,7 +31,7 @@ export const Footer = () => (
         </Col>
       </Row>
     </div>
-    <div className="footer-copyright">
+    <div css={styles.footerCopyright}>
       <p>
         &copy; Copyright Sourcier Ltd. All Rights Reserved Sourcier Ltd. is
         registered in England and Wales company number 8086280
