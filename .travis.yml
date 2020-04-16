@@ -21,16 +21,23 @@ install:
 
 script:
   - npm test
-  - npm run build
 
 deploy:
   - provider: script
-    script: npx sls -v deploy; npx sls -v syncToS3; npx sls -v invalidateCloudFrontCache
+    script: >-
+      npm run build;
+      npx sls -v deploy;
+      npx sls -v syncToS3;
+      npx sls -v invalidateCloudFrontCache
     skip_cleanup: true
     on:
       branch: develop
   - provider: script
-    script: npx sls -v -s prod deploy; npx sls -v -s prod syncToS3; npx sls -v -s prod invalidateCloudFrontCache
+    script: >-
+      npm run build;
+      npx sls -v -s prod deploy;
+      npx sls -v -s prod syncToS3;
+      npx sls -v -s prod invalidateCloudFrontCache
     skip_cleanup: true
     on:
       branch: master
