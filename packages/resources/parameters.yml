@@ -1,0 +1,19 @@
+Parameters:
+  Stage:
+    Type: String
+    Default: ${self:provider.stage}
+    AllowedValues:
+      - prod
+      - dev
+  PostsTableName:
+    Type: String
+    Default: ${self:custom.postsTableName}
+  IdentityPoolName:
+    Type: String
+    Default: ${self:custom.prefix}-identity-pool
+  CognitoUserPoolName:
+    Type: String
+    Default: ${self:custom.prefix}-user-pool
+  CognitoUserPoolClientName:
+    Type: String
+    Default: ${self:custom.prefix}-user-pool-client
