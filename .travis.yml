@@ -7,6 +7,9 @@ cache:
   npm: true
   directories:
     - node_modules
+    - packages/resources/node_modules
+    - packages/posts/node_modules
+    - packages/web/node_modules
 
 git:
   depth: 1
@@ -15,29 +18,89 @@ before_install:
   - pyenv global 3.7
   - pip3 install --quiet awscli
   - aws --version
+  - npm install --global serverless
 
-install:
-  - npm --production=false install
+jobs:
+  include:
 
-script:
-  - npm test
+    - name: "resources"
+      install:
+        - cd packages/resources
+        - npm install
+        - cd -
+      deploy:
+        - provider: script
+          script: >-
+            cd packages/resources;
+            sls -v deploy;
+            cd -
+          skip_cleanup: true
+          on:
+            all_branches: true
+            condition: $TRAVIS_BRANCH =~ ^develop|feature\/.*$
+        - provider: script
+          script: >-
+            cd packages/resources;
+            sls -v -s prod deploy;
+            cd -
+          skip_cleanup: true
+          on:
+            branch: master
 
-deploy:
-  - provider: script
-    script: >-
-      npm run build;
-      npx sls -v deploy;
-      npx sls -v syncToS3;
-      npx sls -v invalidateCloudFrontCache
-    skip_cleanup: true
-    on:
-      branch: develop
-  - provider: script
-    script: >-
-      npm run build;
-      npx sls -v -s prod deploy;
-      npx sls -v -s prod syncToS3;
-      npx sls -v -s prod invalidateCloudFrontCache
-    skip_cleanup: true
-    on:
-      branch: master
+    - name: "posts"
+      install:
+        - cd packages/posts
+        - npm install
+        - cd -
+      deploy:
+        - provider: script
+          script: >-
+            cd packages/posts;
+            sls -v deploy;
+            cd -
+          skip_cleanup: true
+          on:
+            all_branches: true
+            condition: $TRAVIS_BRANCH =~ ^develop|feature\/.*$
+        - provider: script
+          script: >-
+            cd packages/posts;
+            sls -v -s prod deploy;
+            cd -
+          skip_cleanup: true
+          on:
+            branch: master
+
+    - name: "web"
+      install:
+        - cd packages/web
+        - npm install --production=false
+        - cd -
+      script:
+        - cd packages/web
+        - npm run test
+        - cd -
+      deploy:
+        - provider: script
+          script: >-
+            cd packages/web;
+            npm run build;
+            sls -v deploy;
+            sls -v syncToS3;
+            sls -v invalidateCloudFrontCache;
+            cd -
+          skip_cleanup: true
+          on:
+            all_branches: true
+            condition: $TRAVIS_BRANCH =~ ^develop|feature\/.*$
+        - provider: script
+          script: >-
+            cd packages/web;
+            npm run build;
+            sls -v -s prod deploy;
+            sls -v -s prod syncToS3;
+            sls -v -s prod invalidateCloudFrontCache;
+            cd -
+          skip_cleanup: true
+          on:
+            branch: master
