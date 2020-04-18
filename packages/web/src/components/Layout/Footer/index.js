@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Navigation } from '../Navigation'
 import styles from './styles'
-import withStyles from '../../../lib/with-styles'
+import withStyles from '../../../libs/with-styles'
 
 export const Component = ({ styles }) => (
   <footer>

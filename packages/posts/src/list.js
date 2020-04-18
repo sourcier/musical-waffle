@@ -1,5 +1,5 @@
-import * as dynamoDbLib from '../../lib/dynamodb'
-import { success, failure } from '../../lib/response'
+import * as dynamoDbLib from './libs/dynamodb'
+import { success, failure } from './libs/response'
 
 export default (event, context) => {
   return dynamoDbLib

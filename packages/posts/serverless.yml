@@ -1,14 +1,12 @@
-service: musical-waffle
+service: musical-waffle-posts
 
 plugins:
-  - single-page-app
   - serverless-pseudo-parameters
   - serverless-bundle
   - serverless-offline
 
 custom:
   prefix: ${self:service}-${self:provider.stage}
-  distributionPath: ./build
   postsTableName: ${self:custom.prefix}-posts
 
   bundle:
@@ -37,16 +35,18 @@ provider:
 
 resources:
   - ${file(resources/parameters.yml)}
-  - ${file(resources/conditions.yml)}
-  - ${file(resources/spa.yml)}
-  - ${file(resources/spa-redirect.yml)}
   - ${file(resources/posts-table.yml)}
   - ${file(resources/api-gateway-errors.yml)}
-  - ${file(resources/cognito-user-pool.yml)}
-  - ${file(resources/cognito-identity-pool.yml)}
 
 package:
   individually: true
 
 functions:
-  - ${file(resources/posts-api.yml)}
+  GetPosts:
+    handler: src/list.default
+    events:
+      - http:
+          path: posts
+          method: get
+          cors: true
+          authorizer: aws_iam

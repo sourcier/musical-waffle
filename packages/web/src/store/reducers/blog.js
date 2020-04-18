@@ -1,4 +1,4 @@
-import { getPostsByStatus, getPostBySlug } from '../../lib/posts'
+import { getPostsByStatus, getPostBySlug } from '../../libs/posts'
 
 const actions = {
   FETCH_POSTS: 'fetch/posts',
