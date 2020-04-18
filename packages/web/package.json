@@ -63,7 +63,8 @@
         "serverless-pseudo-parameters": "^2.5.0",
         "webpack": "^4.41.1",
         "webpack-cli": "^3.3.9",
-        "webpack-dev-server": "^3.8.2"
+        "webpack-dev-server": "^3.8.2",
+        "webpack-bundle-analyzer": "^3.7.0"
     },
     "scripts": {
         "start": "webpack-dev-server --mode development",
@@ -72,7 +73,8 @@
         "test-watch": "jest --watch",
         "lint": "eslint ./src",
         "lint-fix": "eslint ./src --fix --ignore-path .gitignore",
-        "prettier": "prettier --single-quote --write './src/**/*.{js,jsx,json,css,scss,md}'"
+        "prettier": "prettier --single-quote --write './src/**/*.{js,jsx,json,css,scss,md}'",
+        "bundle-analyzer": "webpack --profile --json > stats.json; webpack-bundle-analyzer stats.json"
     },
     "browserslist": [
         ">0.2%",
