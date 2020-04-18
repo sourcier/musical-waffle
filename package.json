@@ -1,9 +1,9 @@
 {
-    "name": "musical-waffle",
-    "version": "1.5.12",
-    "private": true,
-    "dependencies": {
-        "npm-check": "^5.9.2",
-        "npm-why": "^1.1.9"
-    }
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.20.2",
+    "npm-check": "^5.9.2",
+    "npm-why": "^1.1.9"
+  }
 }
