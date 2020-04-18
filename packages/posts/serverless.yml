@@ -1,0 +1,52 @@
+service: musical-waffle-posts
+
+plugins:
+  - serverless-pseudo-parameters
+  - serverless-bundle
+  - serverless-offline
+
+custom:
+  prefix: ${self:service}-${self:provider.stage}
+  postsTableName: ${self:custom.prefix}-posts
+
+  bundle:
+    linting: false
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-2
+
+  environment:
+    POSTS_TABLE_NAME: ${self:custom.postsTableName}
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - !GetAtt PostsTable.Arn
+
+resources:
+  - ${file(resources/parameters.yml)}
+  - ${file(resources/posts-table.yml)}
+  - ${file(resources/api-gateway-errors.yml)}
+
+package:
+  individually: true
+
+functions:
+  GetPosts:
+    handler: src/list.default
+    events:
+      - http:
+          path: posts
+          method: get
+          cors: true
+          authorizer: aws_iam

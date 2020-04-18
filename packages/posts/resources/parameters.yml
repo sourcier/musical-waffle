@@ -1,0 +1,4 @@
+Parameters:
+  PostsTableName:
+    Type: String
+    Default: ${self:custom.postsTableName}
