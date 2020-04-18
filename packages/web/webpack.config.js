@@ -9,12 +9,13 @@ module.exports = {
   entry: path.join(__dirname, "src", "index.js"),
   output: {
     path: path.join(__dirname, "build"),
-    filename: "[name].[contenthash].js",
+    filename: "[name].[contenthash:8].js",
     publicPath: '/'
   },
   optimization: {
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      name: 'vendors'
     }
   },
   resolve: {
@@ -39,7 +40,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "[name].[contenthash].[ext]",
+              name: "[name].[contenthash:8].[ext]",
               outputPath: "assets"
             }
           }
@@ -61,7 +62,7 @@ module.exports = {
       template: path.join(__dirname, "src", "index.html")
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
+      filename: "[name].[contenthash:8].css",
     }),
     new CopyWebpackPlugin([
       { from: path.join(__dirname, "assets"), to: path.join(__dirname, "build", "assets") }
