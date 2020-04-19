@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { DefinePlugin } = require('webpack')
 const DotenvPlugin = require('dotenv-webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
@@ -62,11 +61,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new DefinePlugin({
-      'process.env.REACT_APP_PARSE_URL': `'${process.env.REACT_APP_PARSE_URL || ''}'`,
-      'process.env.REACT_APP_PARSE_ID': `'${process.env.REACT_APP_PARSE_ID || ''}'`,
-      'process.env.REACT_APP_PARSE_KEY': `'${process.env.REACT_APP_PARSE_KEY || ''}'`
-    }),
     new DotenvPlugin({
       path: `./${process.env.ENV_FILE || '.env'}`
     }),
