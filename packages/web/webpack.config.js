@@ -62,7 +62,7 @@ module.exports = {
   },
   plugins: [
     new DotenvPlugin({
-      path: `./${process.env.ENV_FILE || '.env'}`
+      path: process.env.ENV_FILE || '.env'
     }),
     new HtmlWebpackPlugin({
       filename: "index.html",
