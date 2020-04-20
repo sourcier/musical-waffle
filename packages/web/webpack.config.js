@@ -15,17 +15,9 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
-        amplify: {
-          test: /[\\/]node_modules[\\/](@aws-amplify)[\\/]/,
-          name: "amplify"
-        },
-        awsSdk: {
-          test: /[\\/]node_modules[\\/](aws-sdk)[\\/]/,
-          name: "aws-sdk"
-        },
-        vendor: {
-          test: /[\\/]node_modules[\\/](!aws-amplify)(!aws-sdk)[\\/]/,
-          name: "vendor"
+        vendors: {
+          test: /node_modules/,
+          name: "vendors"
         }
       }
     }
