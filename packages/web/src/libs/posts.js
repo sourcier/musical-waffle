@@ -1,6 +1,6 @@
 import { get } from 'lodash'
 
-import client, { AUTH_MODE } from './amplify'
+import client from './amplify'
 
 const queries = {}
 
@@ -24,7 +24,6 @@ export const getPostsByStatus = () =>
           status: STATUS.PUBLISHED,
           sortDirection: SORT.DESC,
         },
-        authMode: AUTH_MODE.AWS_IAM,
       })
     )
     .then((allPosts) => get(allPosts, 'data.listPostsByStatus.items', null))
@@ -35,7 +34,6 @@ export const getPostBySlug = (slug) =>
       client.graphql({
         query: queries.getPostBySlug,
         variables: { slug },
-        authMode: AUTH_MODE.AWS_IAM,
       })
     )
     .then((allPosts) => get(allPosts, 'data.getPostBySlug.items[0]', null))
