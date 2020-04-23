@@ -1,10 +1,10 @@
 import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 
-import { Navigation } from './Navigation'
-import { Socials } from './Socials'
+import { Navigation } from '../Navigation'
+import { Socials } from '../Socials'
 
-export const Header = () => (
+export default () => (
   <Navbar bg="dark" variant="dark" expand="md" fixed="top">
     <Navbar.Brand href="/">Sourcier</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
