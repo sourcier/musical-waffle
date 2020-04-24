@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import * as theme from './theme'
+import * as theme from '../libs/theme'
 
 const stylesToClasses = (styles = {}) =>
   Object.keys(styles).reduce(
@@ -11,7 +11,7 @@ const stylesToClasses = (styles = {}) =>
     {}
   )
 
-export default (styles) => (Component) => (props) => {
+export const withStyles = (styles) => (Component) => (props) => {
   const combinedProps = {
     ...props,
     styles:
