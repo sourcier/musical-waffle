@@ -8,11 +8,60 @@ exports[`renders without crashing 1`] = `
     <ForwardRef(render)
       styles={
         Object {
-          "map": "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFwcC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFtQndCIiwiZmlsZSI6IkFwcC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tIFwicmVhY3RcIlxuaW1wb3J0IHsgQnJvd3NlclJvdXRlciwgUm91dGUsIFN3aXRjaCB9IGZyb20gXCJyZWFjdC1yb3V0ZXItZG9tXCJcbmltcG9ydCB7IEhlbG1ldFByb3ZpZGVyIH0gZnJvbSBcInJlYWN0LWhlbG1ldC1hc3luY1wiXG5pbXBvcnQgeyBHbG9iYWwsIGNzcyB9IGZyb20gXCJAZW1vdGlvbi9jb3JlXCJcbmltcG9ydCB7IHVzZVRoZW1lIH0gZnJvbSAnZW1vdGlvbi10aGVtaW5nJ1xuXG5pbXBvcnQgTGF5b3V0IGZyb20gXCIuL2NvbXBvbmVudHMvTGF5b3V0XCJcbmltcG9ydCBCbG9nIGZyb20gXCIuL3JvdXRlcy9CbG9nXCJcbmltcG9ydCBCbG9nUGFnZSBmcm9tIFwiLi9yb3V0ZXMvQmxvZ1BhZ2VcIlxuaW1wb3J0IEhvbWUgZnJvbSBcIi4vcm91dGVzL0hvbWVcIlxuaW1wb3J0IE5vdEZvdW5kIGZyb20gXCIuL3JvdXRlcy9Ob3RGb3VuZFwiXG5pbXBvcnQgQWRtaW4gZnJvbSBcIi4vcm91dGVzL0FkbWluXCJcblxuZXhwb3J0IGRlZmF1bHQgKHByb3BzKSA9PiB7XG4gIGNvbnN0IHRoZW1lID0gdXNlVGhlbWUoKVxuXG4gIHJldHVybiAoXG4gIDxCcm93c2VyUm91dGVyPlxuICAgIDxIZWxtZXRQcm92aWRlcj5cbiAgICAgICAgPEdsb2JhbCBzdHlsZXM9e2Nzcyh0aGVtZS50cmVhdG1lbnRzLmJvZHkpfSAvPlxuICAgICAgICA8TGF5b3V0PlxuICAgICAgICAgIDxTd2l0Y2g+XG4gICAgICAgICAgICA8Um91dGUgcGF0aD1cIi9cIiBleGFjdCBjb21wb25lbnQ9e0hvbWV9IC8+XG4gICAgICAgICAgICA8Um91dGUgcGF0aD1cIi9ibG9nXCIgZXhhY3QgY29tcG9uZW50PXtCbG9nfSAvPlxuICAgICAgICAgICAgPFJvdXRlIHBhdGg9XCIvYmxvZy86c2x1Z1wiIGV4YWN0IGNvbXBvbmVudD17QmxvZ1BhZ2V9IC8+XG4gICAgICAgICAgICA8Um91dGUgcGF0aD1cIi9hZG1pblwiIGV4YWN0IGNvbXBvbmVudD17QWRtaW59IC8+XG4gICAgICAgICAgICA8Um91dGUgY29tcG9uZW50PXtOb3RGb3VuZH0gLz5cbiAgICAgICAgICA8L1N3aXRjaD5cbiAgICAgICAgPC9MYXlvdXQ+XG4gICAgPC9IZWxtZXRQcm92aWRlcj5cbiAgPC9Ccm93c2VyUm91dGVyPlxuKVxufVxuIl19 */",
-          "name": "otawtj",
-          "next": undefined,
-          "styles": "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFwcC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFtQndCIiwiZmlsZSI6IkFwcC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tIFwicmVhY3RcIlxuaW1wb3J0IHsgQnJvd3NlclJvdXRlciwgUm91dGUsIFN3aXRjaCB9IGZyb20gXCJyZWFjdC1yb3V0ZXItZG9tXCJcbmltcG9ydCB7IEhlbG1ldFByb3ZpZGVyIH0gZnJvbSBcInJlYWN0LWhlbG1ldC1hc3luY1wiXG5pbXBvcnQgeyBHbG9iYWwsIGNzcyB9IGZyb20gXCJAZW1vdGlvbi9jb3JlXCJcbmltcG9ydCB7IHVzZVRoZW1lIH0gZnJvbSAnZW1vdGlvbi10aGVtaW5nJ1xuXG5pbXBvcnQgTGF5b3V0IGZyb20gXCIuL2NvbXBvbmVudHMvTGF5b3V0XCJcbmltcG9ydCBCbG9nIGZyb20gXCIuL3JvdXRlcy9CbG9nXCJcbmltcG9ydCBCbG9nUGFnZSBmcm9tIFwiLi9yb3V0ZXMvQmxvZ1BhZ2VcIlxuaW1wb3J0IEhvbWUgZnJvbSBcIi4vcm91dGVzL0hvbWVcIlxuaW1wb3J0IE5vdEZvdW5kIGZyb20gXCIuL3JvdXRlcy9Ob3RGb3VuZFwiXG5pbXBvcnQgQWRtaW4gZnJvbSBcIi4vcm91dGVzL0FkbWluXCJcblxuZXhwb3J0IGRlZmF1bHQgKHByb3BzKSA9PiB7XG4gIGNvbnN0IHRoZW1lID0gdXNlVGhlbWUoKVxuXG4gIHJldHVybiAoXG4gIDxCcm93c2VyUm91dGVyPlxuICAgIDxIZWxtZXRQcm92aWRlcj5cbiAgICAgICAgPEdsb2JhbCBzdHlsZXM9e2Nzcyh0aGVtZS50cmVhdG1lbnRzLmJvZHkpfSAvPlxuICAgICAgICA8TGF5b3V0PlxuICAgICAgICAgIDxTd2l0Y2g+XG4gICAgICAgICAgICA8Um91dGUgcGF0aD1cIi9cIiBleGFjdCBjb21wb25lbnQ9e0hvbWV9IC8+XG4gICAgICAgICAgICA8Um91dGUgcGF0aD1cIi9ibG9nXCIgZXhhY3QgY29tcG9uZW50PXtCbG9nfSAvPlxuICAgICAgICAgICAgPFJvdXRlIHBhdGg9XCIvYmxvZy86c2x1Z1wiIGV4YWN0IGNvbXBvbmVudD17QmxvZ1BhZ2V9IC8+XG4gICAgICAgICAgICA8Um91dGUgcGF0aD1cIi9hZG1pblwiIGV4YWN0IGNvbXBvbmVudD17QWRtaW59IC8+XG4gICAgICAgICAgICA8Um91dGUgY29tcG9uZW50PXtOb3RGb3VuZH0gLz5cbiAgICAgICAgICA8L1N3aXRjaD5cbiAgICAgICAgPC9MYXlvdXQ+XG4gICAgPC9IZWxtZXRQcm92aWRlcj5cbiAgPC9Ccm93c2VyUm91dGVyPlxuKVxufVxuIl19 */",
-          "toString": [Function],
+          "body": Object {
+            "fontSize": "16px",
+            "lineHeight": 1.5,
+          },
+          "h1": Object {
+            "fontSize": "48px",
+            "lineHeight": 1,
+            "marginBottom": "24px",
+          },
+          "h2": Object {
+            "fontSize": "40px",
+            "lineHeight": 1.2,
+            "marginBottom": "24px",
+          },
+          "h3": Object {
+            "fontSize": "32px",
+            "lineHeight": 1.125,
+            "marginBottom": "24px",
+          },
+          "h4": Object {
+            "fontSize": "24px",
+            "lineHeight": 1,
+            "marginBottom": "24px",
+          },
+          "h5": Object {
+            "fontSize": "20px",
+            "lineHeight": 1.2,
+            "marginBottom": "24px",
+          },
+          "h6": Object {
+            "fontSize": "16px",
+            "lineHeight": 1.5,
+            "marginBottom": "24px",
+          },
+          "ol": Object {
+            "fontSize": "16px",
+            "lineHeight": 1.5,
+            "marginBottom": "24px",
+          },
+          "p": Object {
+            "fontSize": "16px",
+            "lineHeight": 1.5,
+            "marginBottom": "24px",
+          },
+          "pre": Object {
+            "fontSize": "16px",
+            "lineHeight": 1.5,
+            "marginBottom": "24px",
+          },
+          "ul": Object {
+            "fontSize": "16px",
+            "lineHeight": 1.5,
+            "marginBottom": "24px",
+          },
         }
       }
     />

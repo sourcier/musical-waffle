@@ -2,21 +2,23 @@ import Shevy from 'shevyjs'
 
 const shevy = new Shevy()
 
-const rhythm = shevy.baseSpacing
+export const rhythm = shevy.baseSpacing
 
-const colors = {}
+export const colors = {
+  hotPink: '#fd256e',
+}
 
-const fonts = {}
+export const fonts = {}
 
 // Breakpoints are based on a base font size of 16px
-const breakpoints = {
+export const breakpoints = {
   sm: '23rem', // 375px
   md: '48rem', // 768px
   lg: '60rem', // 960px
   xl: '80rem', // 1024px
 }
 
-const treatments = {
+export const treatments = {
   body: {
     body: {
       ...shevy.body,
@@ -54,13 +56,5 @@ const treatments = {
   },
 }
 
-const mediaQuery = (size = 'sm', query = 'min-width') =>
+export const mediaQuery = (size = 'sm', query = 'min-width') =>
   `@media (${query}: ${breakpoints[size]})`
-
-export default {
-  colors,
-  fonts,
-  mediaQuery,
-  treatments,
-  rhythm,
-}
