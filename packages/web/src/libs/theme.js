@@ -16,30 +16,46 @@ export const colors = {
   hotPink: '#fd256e',
 }
 
-export const fonts = {}
+export const fonts = {
+  sourceSansPro: {
+    fontFamily: "'Source Sans Pro', sans-serif",
+    fontWeight: 400,
+  },
+  playfairDisplay: {
+    fontFamily: "'Playfair Display', sans-serif",
+    fontWeight: 400,
+  },
+}
 
 export const treatments = {
   body: {
     body: {
       ...shevy.body,
+      ...fonts.sourceSansPro,
     },
     h1: {
       ...shevy.h1,
+      ...fonts.playfairDisplay,
     },
     h2: {
       ...shevy.h2,
+      ...fonts.playfairDisplay,
     },
     h3: {
       ...shevy.h3,
+      ...fonts.playfairDisplay,
     },
     h4: {
       ...shevy.h4,
+      ...fonts.playfairDisplay,
     },
     h5: {
       ...shevy.h5,
+      ...fonts.playfairDisplay,
     },
     h6: {
       ...shevy.h6,
+      ...fonts.playfairDisplay,
     },
     p: {
       ...shevy.content,

@@ -7,7 +7,6 @@ import configureStore from './store/configureStore'
 
 import 'sanitize.css'
 import 'sanitize.css/forms.css'
-import 'sanitize.css/typography.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
