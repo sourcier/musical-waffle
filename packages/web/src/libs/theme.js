@@ -13,7 +13,7 @@ const breakpoints = {
 export const rhythm = shevy.baseSpacing
 
 export const colors = {
-  hotPink: '#fd256e',
+  primary: '#fd256e',
 }
 
 export const fonts = {

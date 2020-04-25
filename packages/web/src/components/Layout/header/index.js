@@ -1,16 +1,8 @@
 import React from 'react'
-import Navbar from 'react-bootstrap/Navbar'
 
-import { Navigation } from '../Navigation'
-import { Socials } from '../Socials'
+import styles from './styles'
+import { withStyles } from '../../withStyles'
 
-export default () => (
-  <Navbar bg="dark" variant="dark" expand="md" fixed="top">
-    <Navbar.Brand href="/">Sourcier</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Navigation />
-      <Socials />
-    </Navbar.Collapse>
-  </Navbar>
-)
+const Header = ({ styles }) => <div css={styles.header} />
+
+export default withStyles(styles)(Header)
