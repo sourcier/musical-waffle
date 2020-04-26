@@ -2,78 +2,45 @@ import React, { useEffect } from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { isEmpty } from 'lodash'
-import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
-import Card from 'react-bootstrap/Card'
-import CardColumns from 'react-bootstrap/CardColumns'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
 
-import { Spinner } from '../../components/Spinner'
 import { Meta } from '../../components/Meta'
+import { withStyles } from '../../components/withStyles'
 import { getBlogList } from '../../store/reducers/blog'
+import styles from './styles'
 
-import './styles.css'
-
-const BlogList = ({ posts, state, getBlogList }) => {
-  const renderPosts = () => {
-    if ('fetched' === state) {
-      if (isEmpty(posts)) {
-        return renderEmpty()
-      } else {
-        return posts.map((post, key) => (
-          <Card key={post.id}>
-            <Card.Body>
-              <Card.Title>{post.title}</Card.Title>
-              <Card.Text>
-                <ReactMarkdown>{post.summary}</ReactMarkdown>
-              </Card.Text>
-              <Button variant="primary" href={`/blog/${post.slug}`}>
-                View
-              </Button>
-            </Card.Body>
-            <Card.Footer>
-              <small>Last updated {moment(post.updatedAt).fromNow()}</small>
-            </Card.Footer>
-          </Card>
-        ))
-      }
-    } else {
-      return <Spinner />
-    }
-  }
-
-  const renderEmpty = () => {
-    return (
-      <Card>
-        <Card.Body>
-          <Card.Text>There are no posts yet.</Card.Text>
-        </Card.Body>
-      </Card>
-    )
-  }
-
+const BlogList = ({ posts, state, getBlogList, styles }) => {
   useEffect(() => {
     getBlogList()
   }, [])
 
+  const renderEmpty = () => <div>There are no posts yet.</div>
+
+  const renderLoading = () => <div>Fetching posts...</div>
+
+  const renderPosts = () => {
+    if (isEmpty(posts)) {
+      return renderEmpty()
+    } else {
+      return posts.map((post, key) => (
+        <div key={post.slug} css={styles.blogListItem}>
+          <h2>
+            <Link to={`/${post.slug}`}>{post.title}</Link>
+          </h2>
+          <ReactMarkdown>{post.content}</ReactMarkdown>
+          <Link to={`/${post.slug}`}>Continue Reading</Link>
+        </div>
+      ))
+    }
+  }
+
   return (
     <React.Fragment>
-      <Meta title="Blog" />
-      <Container className="my-5">
-        <Row>
-          <Col>
-            <h1 className="display-4">Blog</h1>
-          </Col>
-        </Row>
-        <Row className="my-5">
-          <Col>
-            <CardColumns>{renderPosts()}</CardColumns>
-          </Col>
-        </Row>
-      </Container>
+      <Meta title="blog" />
+      <div css={styles.blogList}>
+        {'fetched' === state ? renderPosts(posts) : renderLoading()}
+      </div>
     </React.Fragment>
   )
 }
@@ -89,4 +56,7 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = { getBlogList }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps))(BlogList)
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withStyles(styles)
+)(BlogList)

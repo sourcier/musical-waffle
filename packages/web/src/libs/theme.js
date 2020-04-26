@@ -1,25 +1,30 @@
 import Shevy from 'shevyjs'
 
-const shevy = new Shevy()
+const baseFontSize = 24
 
-// Breakpoints are based on a base font size of 16px
+const shevy = new Shevy({
+  baseFontSize: `${baseFontSize}px`,
+  baseFontScale: 'minorThird',
+})
+
 const breakpoints = {
-  sm: '23rem', // 375px
-  md: '48rem', // 768px
-  lg: '60rem', // 960px
-  xl: '80rem', // 1024px
+  sm: `${375 / baseFontSize}rem`,
+  md: `${768 / baseFontSize}rem`,
+  lg: `${960 / baseFontSize}rem`,
+  xl: `${1024 / baseFontSize}rem`,
 }
 
 export const rhythm = shevy.baseSpacing
 
 export const colors = {
   primary: '#fd256e',
+  text: '#343434',
 }
 
 export const fonts = {
   sourceSansPro: {
     fontFamily: "'Source Sans Pro', sans-serif",
-    fontWeight: 400,
+    fontWeight: 300,
   },
   playfairDisplay: {
     fontFamily: "'Playfair Display', sans-serif",
@@ -32,6 +37,7 @@ export const treatments = {
     body: {
       ...shevy.body,
       ...fonts.sourceSansPro,
+      color: colors.text,
     },
     h1: {
       ...shevy.h1,
@@ -40,6 +46,13 @@ export const treatments = {
     h2: {
       ...shevy.h2,
       ...fonts.playfairDisplay,
+      a: {
+        fontSize: 'inherit',
+        lineHeight: 'inherit',
+        marginBottom: 'inherit',
+        textDecoration: 'none',
+        color: colors.text,
+      },
     },
     h3: {
       ...shevy.h3,
@@ -58,6 +71,9 @@ export const treatments = {
       ...fonts.playfairDisplay,
     },
     p: {
+      ...shevy.content,
+    },
+    a: {
       ...shevy.content,
     },
     ol: {

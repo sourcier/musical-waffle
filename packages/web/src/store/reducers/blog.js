@@ -1,4 +1,4 @@
-import { getPostsByStatus, getPostBySlug } from '../../libs/posts'
+import { getPosts, getPostBySlug } from '../../libs/posts'
 
 const actions = {
   FETCH_POSTS: 'fetch/posts',
@@ -12,7 +12,7 @@ const actions = {
 export const getBlogList = () => (dispatch) => {
   return Promise.resolve()
     .then(() => dispatch({ type: actions.FETCH_POSTS }))
-    .then(() => getPostsByStatus())
+    .then(() => getPosts())
     .then((posts) =>
       dispatch({ type: actions.FETCH_POSTS_SUCCESS, payload: posts })
     )
