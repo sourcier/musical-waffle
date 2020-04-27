@@ -62,7 +62,7 @@
     },
     "scripts": {
         "start": "webpack-dev-server --mode development",
-        "build": "rm -rf build; webpack --mode production",
+        "build": "rm -rf build; webpack --mode $NODE_ENV",
         "test": "jest",
         "test-watch": "jest --watch",
         "lint": "eslint ./src",

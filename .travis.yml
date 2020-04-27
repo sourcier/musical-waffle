@@ -84,7 +84,7 @@ jobs:
         - provider: script
           script: >-
             cd packages/web;
-            npm run build;
+            NODE_ENV=development npm run build;
             sls -v deploy;
             sls -v syncToS3;
             sls -v invalidateCloudFrontCache;
