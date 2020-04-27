@@ -70,20 +70,11 @@ export const treatments = {
       ...shevy.h6,
       ...fonts.playfairDisplay,
     },
-    p: {
+    'p, a, ol, ul, pre': {
       ...shevy.content,
     },
-    a: {
-      ...shevy.content,
-    },
-    ol: {
-      ...shevy.content,
-    },
-    ul: {
-      ...shevy.content,
-    },
-    pre: {
-      ...shevy.content,
+    stong: {
+      fontWeight: '400',
     },
   },
 }

@@ -8,11 +8,6 @@ exports[`renders without crashing 1`] = `
     <ForwardRef(render)
       styles={
         Object {
-          "a": Object {
-            "fontSize": "24px",
-            "lineHeight": 1.5,
-            "marginBottom": "36px",
-          },
           "body": Object {
             "color": "#343434",
             "fontFamily": "'Source Sans Pro', sans-serif",
@@ -69,25 +64,13 @@ exports[`renders without crashing 1`] = `
             "lineHeight": 1.5,
             "marginBottom": "36px",
           },
-          "ol": Object {
+          "p, a, ol, ul, pre": Object {
             "fontSize": "24px",
             "lineHeight": 1.5,
             "marginBottom": "36px",
           },
-          "p": Object {
-            "fontSize": "24px",
-            "lineHeight": 1.5,
-            "marginBottom": "36px",
-          },
-          "pre": Object {
-            "fontSize": "24px",
-            "lineHeight": 1.5,
-            "marginBottom": "36px",
-          },
-          "ul": Object {
-            "fontSize": "24px",
-            "lineHeight": 1.5,
-            "marginBottom": "36px",
+          "stong": Object {
+            "fontWeight": "400",
           },
         }
       }

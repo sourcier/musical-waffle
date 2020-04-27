@@ -1,42 +1,20 @@
 import React from 'react'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import { Navigation } from '../Navigation'
 import styles from './styles'
 import { withStyles } from '../../withStyles'
 
 export const Component = ({ styles }) => (
-  <footer>
-    <div className="py-4 border-top" css={styles.footer}>
-      <Row>
-        <Col xs={12} sm={6} className="mb-4">
-          <p>
-            <strong>USEFUL LINKS</strong>
-          </p>
-          <Navigation vertical />
-        </Col>
-        <Col xs="12" sm={6}>
-          <p>
-            <strong>CONTACT US</strong>
-          </p>
-          <p>
-            Sourcier Ltd. <br />
-            86-90 Paul Street <br />
-            London
-            <br />
-            United Kingdom <br />
-            <strong>Email:</strong>{' '}
-            <a href="mailto:info@soucier.uk">info@soucier.uk</a>
-            <br />
-          </p>
-        </Col>
-      </Row>
+  <footer css={styles.footer}>
+    <div css={styles.links}>
+      <ul>
+        <li>Home</li>
+        <li>Contact</li>
+      </ul>
     </div>
-    <div css={styles.footerCopyright}>
+    <div css={styles.copyright}>
       <p>
-        &copy; Copyright Sourcier Ltd. All Rights Reserved Sourcier Ltd. is
-        registered in England and Wales company number 8086280
+        Sourcier Ltd. is registered in England and Wales company number 8086280.
       </p>
+      <p>&copy; 2020 Sourcier Ltd. All Rights Reserved.</p>
       <p>
         <a href="#root">Back to top</a>
       </p>
