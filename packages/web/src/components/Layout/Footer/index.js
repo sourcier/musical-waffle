@@ -1,12 +1,15 @@
 import React from 'react'
 import styles from './styles'
+import { Link } from 'react-router-dom'
 import { withStyles } from '../../withStyles'
 
 export const Component = ({ styles }) => (
   <footer css={styles.footer}>
     <div css={styles.links}>
       <ul>
-        <li>Home</li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
         <li>Contact</li>
       </ul>
     </div>
@@ -16,7 +19,7 @@ export const Component = ({ styles }) => (
       </p>
       <p>&copy; 2020 Sourcier Ltd. All Rights Reserved.</p>
       <p>
-        <a href="#root">Back to top</a>
+        <a href="#header">Back to top</a>
       </p>
     </div>
   </footer>

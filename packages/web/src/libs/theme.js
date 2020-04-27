@@ -19,6 +19,7 @@ export const rhythm = shevy.baseSpacing
 export const colors = {
   primary: '#fd256e',
   text: '#343434',
+  muted: '#777',
 }
 
 export const fonts = {

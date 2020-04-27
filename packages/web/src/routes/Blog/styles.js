@@ -4,7 +4,7 @@ export default (props, { rhythm, colors }) => ({
   },
   blogListItem: {
     marginTop: rhythm(3),
-    '&:nth-child(1)': {
+    '&:nth-of-type(1)': {
       marginTop: rhythm(0),
     },
   },

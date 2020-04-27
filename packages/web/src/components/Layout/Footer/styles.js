@@ -14,6 +14,10 @@ export default (props, { rhythm, colors }) => ({
         '&:last-child': {
           paddingRight: 0,
         },
+        a: {
+          color: colors.text,
+          textDecoration: 'none',
+        },
       },
     },
   },
@@ -22,7 +26,7 @@ export default (props, { rhythm, colors }) => ({
     backgroundColor: '#fafafa',
     'p, a': {
       fontSize: rhythm(0.5),
-      color: '#777',
+      color: colors.muted,
     },
   },
 })
