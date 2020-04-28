@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import { Footer } from './Footer'
-import ScrollToTop from '../ScrollToTop'
+import ScrollToTop from '../../ScrollToTop'
 
 const Root = ({ children }) => (
   <React.Fragment>

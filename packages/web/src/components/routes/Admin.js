@@ -2,7 +2,7 @@ import React from 'react'
 import { withAuthenticator } from 'aws-amplify-react'
 import Amplify from 'aws-amplify'
 
-import { Meta } from '../components/Meta'
+import { Meta } from '../Meta'
 
 Amplify.configure({})
 

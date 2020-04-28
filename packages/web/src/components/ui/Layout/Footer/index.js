@@ -1,7 +1,8 @@
 import React from 'react'
-import styles from './styles'
 import { Link } from 'react-router-dom'
-import { withStyles } from '../../withStyles'
+
+import styles from './styles'
+import { withStyles } from '../../../withStyles'
 
 export const Component = ({ styles }) => (
   <footer css={styles.footer}>

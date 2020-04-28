@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Hero from '../components/Hero'
-import { Meta } from '../components/Meta'
+import Hero from '../ui/Hero'
+import { Meta } from '../Meta'
 
 export const NotFound = () => (
   <React.Fragment>

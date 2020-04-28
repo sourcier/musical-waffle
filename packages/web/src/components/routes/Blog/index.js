@@ -5,9 +5,9 @@ import { isEmpty } from 'lodash'
 import ReactMarkdown from 'react-markdown'
 import { Link } from 'react-router-dom'
 
-import { Meta } from '../../components/Meta'
-import { withStyles } from '../../components/withStyles'
-import { getBlogList } from '../../store/reducers/blog'
+import { Meta } from '../../Meta'
+import { withStyles } from '../../withStyles'
+import { getBlogList } from '../../../store/reducers/blog'
 import styles from './styles'
 
 const BlogList = ({ posts, state, getBlogList, styles }) => {

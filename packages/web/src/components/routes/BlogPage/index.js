@@ -3,9 +3,9 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 
-import { Meta } from '../../components/Meta'
-import { getBlogPost } from '../../store/reducers/blog'
-import { withStyles } from '../../components/withStyles'
+import { Meta } from '../../Meta'
+import { getBlogPost } from '../../../store/reducers/blog'
+import { withStyles } from '../../withStyles'
 import styles from './styles'
 
 export const BlogPage = ({
