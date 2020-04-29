@@ -6,21 +6,24 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 
 module.exports = (env, argv) => {
   const isDevelopment = argv.mode === "development"
+  const isProduction = argv.mode === "production"
 
   return {
     entry: path.join(__dirname, "src", "index.js"),
     output: {
       path: path.join(__dirname, "build"),
-      filename: "[name].[contenthash:8].js",
+      filename: "[name].[hash:8].js",
       publicPath: "/",
     },
     optimization: {
+      moduleIds: "hashed",
       splitChunks: {
         chunks: "all",
         cacheGroups: {
           vendors: {
             test: /node_modules/,
             name: "vendors",
+            chunks: "all",
           },
         },
       },
@@ -31,7 +34,8 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /.(js|jsx)$/,
+          test: /.(js)$/,
+          include: path.resolve(__dirname, "src"),
           exclude: /node_modules/,
           use: {
             loader: "babel-loader",
@@ -47,7 +51,7 @@ module.exports = (env, argv) => {
             {
               loader: "file-loader",
               options: {
-                name: "[name].[contenthash:8].[ext]",
+                name: "[name].[hash:8].[ext]",
                 outputPath: "assets",
               },
             },
@@ -58,13 +62,14 @@ module.exports = (env, argv) => {
     plugins: [
       new DotenvPlugin({
         path: process.env.ENV_FILE || ".env",
+        systemvars: true,
       }),
       new HtmlWebpackPlugin({
         filename: "index.html",
         template: path.join(__dirname, "src", "index.html"),
       }),
       new MiniCssExtractPlugin({
-        filename: "[name].[contenthash:8].css",
+        filename: "[name].[hash:8].css",
       }),
       new CopyWebpackPlugin([
         {
@@ -75,7 +80,9 @@ module.exports = (env, argv) => {
     ],
     devServer: {
       historyApiFallback: true,
+      hot: true,
     },
     devtool: isDevelopment ? "eval-source-map" : "source-map",
+    cache: isProduction ? false : true,
   }
 }
