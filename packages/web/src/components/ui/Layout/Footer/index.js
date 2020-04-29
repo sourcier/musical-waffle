@@ -3,15 +3,22 @@ import { Link } from 'react-router-dom'
 
 import styles from './styles'
 import { withStyles } from '../../../withStyles'
+import { links, socials } from '../Header'
 
 export const Component = ({ styles }) => (
   <footer css={styles.footer}>
     <div css={styles.links}>
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>Contact</li>
+        {links.map(({ label, icon, href }, key) => (
+          <li key={key}>
+            <Link to={href}>{label}</Link>
+          </li>
+        ))}
+        {socials.map(({ icon, label, ...link }, key) => (
+          <li key={key}>
+            <a {...link}>{icon}</a>
+          </li>
+        ))}
       </ul>
     </div>
     <div css={styles.copyright}>

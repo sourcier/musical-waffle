@@ -11,7 +11,7 @@ import { withStyles } from '../../../withStyles'
 import { toggleNav } from '../../../../store/reducers/nav'
 
 export const links = [
-  { label: 'Home', href: '/', icon: faHome },
+  { label: 'Home', href: '/', icon: <FontAwesomeIcon icon={faHome} /> },
   // { label: 'About Us', href: '#about' },
   // { label: 'Services', href: '#services' },
   // { label: 'Portfolio', href: '#portfolio' },
@@ -24,14 +24,14 @@ export const socials = [
   {
     label: 'Github',
     href: 'https://github.com/sourcier/',
-    icon: faGithub,
+    icon: <FontAwesomeIcon icon={faGithub} />,
     target: '_blank',
     rel: 'noopener noreferrer',
   },
   {
     label: 'Twitter',
     href: 'https://twitter.com/sourcier',
-    icon: faTwitter,
+    icon: <FontAwesomeIcon icon={faTwitter} />,
     target: '_blank',
     rel: 'noopener noreferrer',
   },
@@ -50,13 +50,13 @@ const Header = ({ styles, isOpen, toggleNav }) => {
           <ul>
             {links.map(({ label, icon, href }, key) => (
               <li key={key}>
-                <FontAwesomeIcon icon={icon} />
+                {icon}
                 <Link to={href}>{label}</Link>
               </li>
             ))}
             {socials.map(({ icon, label, ...link }, key) => (
               <li key={key}>
-                <FontAwesomeIcon icon={icon} />
+                {icon}
                 <a {...link}>{label}</a>
               </li>
             ))}
