@@ -20,6 +20,8 @@ export const colors = {
   primary: '#fd256e',
   text: '#343434',
   muted: '#777',
+  shade: '#fafafa',
+  transparant: 'transparant',
 }
 
 export const fonts = {

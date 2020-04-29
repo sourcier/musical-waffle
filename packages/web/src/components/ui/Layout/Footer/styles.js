@@ -23,7 +23,7 @@ export default (props, { rhythm, colors }) => ({
   },
   copyright: {
     padding: rhythm(0.5),
-    backgroundColor: '#fafafa',
+    backgroundColor: colors.shade,
     'p, a': {
       fontSize: rhythm(0.5),
       color: colors.muted,
