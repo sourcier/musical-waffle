@@ -3,16 +3,38 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faHome, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faHome } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 import styles from './styles'
 import { withStyles } from '../../../withStyles'
 import { toggleNav } from '../../../../store/reducers/nav'
 
+export const links = [
+  { label: 'Home', href: '/', icon: faHome },
+  // { label: 'About Us', href: '#about' },
+  // { label: 'Services', href: '#services' },
+  // { label: 'Portfolio', href: '#portfolio' },
+  // { label: 'Team', href: '#team' },
+  // { label: 'Blog', href: '/blog' },
+  // { label: 'Contact', href: '/contact', icon: faEnvelope },
+]
+
 export const socials = [
-  { label: 'Twitter', href: 'https://twitter.com/sourcier' },
-  { label: 'Github', href: 'https://github.com/sourcier/' },
+  {
+    label: 'Github',
+    href: 'https://github.com/sourcier/',
+    icon: faGithub,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  {
+    label: 'Twitter',
+    href: 'https://twitter.com/sourcier',
+    icon: faTwitter,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
 ]
 
 const Header = ({ styles, isOpen, toggleNav }) => {
@@ -26,32 +48,18 @@ const Header = ({ styles, isOpen, toggleNav }) => {
       {isOpen && (
         <div css={styles.menu}>
           <ul>
-            <li>
-              <FontAwesomeIcon icon={faHome} />
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faEnvelope} />
-              <Link to="#">Contact</Link>
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faGithub} />
-              <a
-                href="https://github.com/sourcier/"
-                target="_blank"
-                rel="noopener noreferrer">
-                Github
-              </a>
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faTwitter} />
-              <a
-                href="https://twitter.com/sourcier"
-                target="_blank"
-                rel="noopener noreferrer">
-                Twitter
-              </a>
-            </li>
+            {links.map(({ label, icon, href }, key) => (
+              <li key={key}>
+                <FontAwesomeIcon icon={icon} />
+                <Link to={href}>{label}</Link>
+              </li>
+            ))}
+            {socials.map(({ icon, label, ...link }, key) => (
+              <li key={key}>
+                <FontAwesomeIcon icon={icon} />
+                <a {...link}>{label}</a>
+              </li>
+            ))}
           </ul>
         </div>
       )}
