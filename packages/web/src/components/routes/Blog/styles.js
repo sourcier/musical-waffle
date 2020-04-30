@@ -3,9 +3,6 @@ export default (props, { rhythm, colors }) => ({
     padding: rhythm(0.5),
   },
   blogListItem: {
-    marginTop: rhythm(3),
-    '&:nth-of-type(1)': {
-      marginTop: rhythm(0),
-    },
+    marginBottom: rhythm(3),
   },
 })
