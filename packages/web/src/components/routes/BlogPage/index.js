@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 
 import { Meta } from '../../Meta'
+import Spinner from '../../ui/Spinner'
 import { getBlogPost } from '../../../store/reducers/blog'
 import { withStyles } from '../../withStyles'
 import styles from './styles'
@@ -17,8 +18,6 @@ export const BlogPage = ({
     params: { slug },
   },
 }) => {
-  const renderLoading = () => <div>Fetching post...</div>
-
   const renderPost = () => {
     return (
       <React.Fragment>
@@ -38,7 +37,7 @@ export const BlogPage = ({
 
   return (
     <div css={styles.blogPost}>
-      {'fetching' === state ? renderLoading() : renderPost()}
+      {'fetching' === state ? <Spinner /> : renderPost()}
     </div>
   )
 }

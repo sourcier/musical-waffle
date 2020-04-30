@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import { Link } from 'react-router-dom'
 
 import { Meta } from '../../Meta'
+import Spinner from '../../ui/Spinner'
 import { withStyles } from '../../withStyles'
 import { getBlogList } from '../../../store/reducers/blog'
 import styles from './styles'
@@ -16,8 +17,6 @@ const BlogList = ({ posts, state, getBlogList, styles }) => {
   }, [])
 
   const renderEmpty = () => <div>There are no posts yet.</div>
-
-  const renderLoading = () => <div>Fetching posts...</div>
 
   const renderPosts = () => {
     if (isEmpty(posts)) {
@@ -39,7 +38,7 @@ const BlogList = ({ posts, state, getBlogList, styles }) => {
     <React.Fragment>
       <Meta title="blog" />
       <div css={styles.blogList}>
-        {'fetched' === state ? renderPosts(posts) : renderLoading()}
+        {'fetched' === state ? renderPosts(posts) : <Spinner />}
       </div>
     </React.Fragment>
   )
