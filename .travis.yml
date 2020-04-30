@@ -4,7 +4,7 @@ node_js:
   - 12
 
 cache:
-  npm: true
+  yarn: true,
   directories:
     - node_modules
     - packages/resources/node_modules
@@ -18,7 +18,7 @@ before_install:
   - pyenv global 3.7
   - pip3 install --quiet awscli
   - aws --version
-  - npm install --global serverless
+  - yarn global add serverless
 
 jobs:
   include:
@@ -26,7 +26,11 @@ jobs:
     - name: "resources"
       install:
         - cd packages/resources
-        - npm install
+        - yarn install
+        - cd -
+      script:
+        - cd packages/resources
+        - yarn test
         - cd -
       deploy:
         - provider: script
@@ -50,7 +54,11 @@ jobs:
     - name: "posts"
       install:
         - cd packages/posts
-        - npm install
+        - yarn install
+        - cd -
+      script:
+        - cd packages/posts
+        - yarn test
         - cd -
       deploy:
         - provider: script
@@ -74,17 +82,17 @@ jobs:
     - name: "web"
       install:
         - cd packages/web
-        - npm install --production=false
+        - yarn install --production=false
         - cd -
       script:
         - cd packages/web
-        - npm run test
+        - yarn test
         - cd -
       deploy:
         - provider: script
           script: >-
             cd packages/web;
-            NODE_ENV=development npm run build;
+            NODE_ENV=development yarn build;
             sls -v deploy;
             sls -v syncToS3;
             sls -v invalidateCloudFrontCache;
@@ -96,7 +104,7 @@ jobs:
         - provider: script
           script: >-
             cd packages/web;
-            npm run build;
+            yarn build;
             sls -v -s prod deploy;
             sls -v -s prod syncToS3;
             sls -v -s prod invalidateCloudFrontCache;
