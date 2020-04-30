@@ -16,7 +16,7 @@ export default ({ isOpen }, { rhythm, colors }) => ({
   menu: {
     background: colors.shade,
     padding: rhythm(0.5),
-    marginTop: rhythm(-1.5),
+    textAlign: 'center',
     ul: {
       listStyle: 'none',
       margin: 0,
