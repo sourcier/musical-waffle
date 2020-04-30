@@ -9,7 +9,6 @@ import Blog from './components/routes/Blog'
 import BlogPage from './components/routes/BlogPage'
 // import Home from './routes/Home'
 import NotFound from './components/routes/NotFound'
-import Admin from './components/routes/Admin'
 import { treatments } from './libs/theme'
 
 export default hot((props) => (
@@ -21,7 +20,6 @@ export default hot((props) => (
           {/* <Route path="/" exact component={Home} /> */}
           <Route path="/" exact component={Blog} />
           <Route path="/:slug" exact component={BlogPage} />
-          <Route path="/admin" exact component={Admin} />
           <Route component={NotFound} />
         </Switch>
       </Layout>
