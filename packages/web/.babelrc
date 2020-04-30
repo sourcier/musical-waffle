@@ -12,7 +12,10 @@
       "plugins": ["emotion"]
     },
     "development": {
-      "plugins": [["emotion", { "sourceMap": true }]]
+      "plugins": [
+        ["emotion", { "sourceMap": true }],
+        "react-hot-loader/babel"
+      ]
     }
   }
 }

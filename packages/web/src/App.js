@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { Global } from '@emotion/core'
+import { hot } from 'react-hot-loader/root'
 
 import Layout from './components/ui/Layout'
 import Blog from './components/routes/Blog'
@@ -11,7 +12,7 @@ import NotFound from './components/routes/NotFound'
 import Admin from './components/routes/Admin'
 import { treatments } from './libs/theme'
 
-export default (props) => (
+export default hot((props) => (
   <BrowserRouter>
     <HelmetProvider>
       <Global styles={treatments.body} />
@@ -26,4 +27,4 @@ export default (props) => (
       </Layout>
     </HelmetProvider>
   </BrowserRouter>
-)
+))

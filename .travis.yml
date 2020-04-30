@@ -92,7 +92,7 @@ jobs:
         - provider: script
           script: >-
             cd packages/web;
-            NODE_ENV=development yarn build;
+            yarn build;
             sls -v deploy;
             sls -v syncToS3;
             sls -v invalidateCloudFrontCache;
