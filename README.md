@@ -1,6 +1,6 @@
 # Musical Waffle
 
-![Build status](https://travis-ci.com/sourcier/musical-waffle.svg?branch=master)
+![Build status](https://travis-ci.com/sourcier/musical-waffle.svg?branch=develop)
 
 ## Links
 
@@ -10,6 +10,6 @@
 ## Dev
 
 ```bash
-$ npm install
-$ npm start
+$ yarn install
+$ yarn start
 ```
