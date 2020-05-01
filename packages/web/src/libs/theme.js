@@ -14,7 +14,10 @@ const breakpoints = {
   xl: `${1024 / baseFontSize}rem`,
 }
 
-export const rhythm = shevy.baseSpacing
+export const rhythm = (factorOrFactors) =>
+  Array.isArray(factorOrFactors)
+    ? factorOrFactors.map((factor) => shevy.baseSpacing(factor)).join(' ')
+    : shevy.baseSpacing(factorOrFactors)
 
 export const colors = {
   primary: '#fd256e',
