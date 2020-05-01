@@ -14,6 +14,9 @@ const breakpoints = {
   xl: `${1024 / baseFontSize}rem`,
 }
 
+export const mediaQuery = (size = 'sm', query = 'min-width') =>
+  `@media (${query}: ${breakpoints[size]})`
+
 export const rhythm = (factorOrFactors) =>
   Array.isArray(factorOrFactors)
     ? factorOrFactors.map((factor) => shevy.baseSpacing(factor)).join(' ')
@@ -24,7 +27,7 @@ export const colors = {
   text: '#343434',
   muted: '#777',
   shade: '#fafafa',
-  transparant: 'transparant',
+  transparent: 'transparent',
 }
 
 export const fonts = {
@@ -85,8 +88,14 @@ export const treatments = {
   },
 }
 
-export const mediaQuery = (size = 'sm', query = 'min-width') =>
-  `@media (${query}: ${breakpoints[size]})`
+export const styles = {
+  container: {
+    padding: rhythm(0.5),
+    [mediaQuery('md')]: {
+      padding: rhythm(1),
+    },
+  },
+}
 
 export const theme = {
   rhythm,
@@ -94,4 +103,5 @@ export const theme = {
   fonts,
   treatments,
   mediaQuery,
+  styles,
 }

@@ -1,9 +1,6 @@
-export default (props, { rhythm, mediaQuery }) => ({
+export default (props, { rhythm, mediaQuery, styles, colors }) => ({
   blogList: {
-    padding: rhythm(0.5),
-    [mediaQuery('md')]: {
-      padding: rhythm(1),
-    },
+    ...styles.container,
   },
   blogListItem: {
     marginBottom: rhythm(3),

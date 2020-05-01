@@ -1,10 +1,10 @@
-export default (props, { rhythm, colors }) => ({
+export default (props, { rhythm, colors, styles }) => ({
   footer: {
     borderTop: `solid ${rhythm(0.25)} ${colors.primary}`,
     textAlign: 'center',
   },
   links: {
-    padding: rhythm(0.5),
+    ...styles.container,
     ul: {
       listStyle: 'none',
       paddingLeft: 0,
@@ -22,7 +22,7 @@ export default (props, { rhythm, colors }) => ({
     },
   },
   copyright: {
-    padding: rhythm(0.5),
+    ...styles.container,
     backgroundColor: colors.shade,
     'p, a': {
       fontSize: rhythm(0.5),

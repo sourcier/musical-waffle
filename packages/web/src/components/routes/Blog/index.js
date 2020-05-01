@@ -16,7 +16,9 @@ const BlogList = ({ posts, state, getBlogList, styles }) => {
     getBlogList()
   }, [])
 
-  const renderEmpty = () => <div>There are no posts yet.</div>
+  const renderEmpty = () => (
+    <div css={styles.empty}>There are no posts yet.</div>
+  )
 
   const renderPosts = () => {
     if (isEmpty(posts)) {
