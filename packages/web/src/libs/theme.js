@@ -1,4 +1,5 @@
 import Shevy from 'shevyjs'
+import { rgba } from 'polished'
 
 const baseFontSize = 24
 
@@ -113,4 +114,5 @@ export const theme = {
   treatments,
   mediaQuery,
   styles,
+  rgba,
 }
