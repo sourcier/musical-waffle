@@ -104,7 +104,7 @@ jobs:
         - provider: script
           script: >-
             cd packages/web;
-            yarn build;
+            APP_ENV=prod yarn build;
             sls -v -s prod deploy;
             sls -v -s prod syncToS3;
             sls -v -s prod invalidateCloudFrontCache;
