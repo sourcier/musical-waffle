@@ -33,6 +33,7 @@ export const colors = {
   muted: '#6c757d',
   text: '#212529',
   light: '#f8f9fa',
+  dark: '#343a40',
   white: '#fff',
   transparent: 'transparent',
 }
