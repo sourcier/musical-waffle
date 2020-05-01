@@ -23,14 +23,16 @@ export default (
     minHeight: rhythm(4),
     width: '100%',
     marginTop: rhythm(0.25),
-    borderColor: error ? colors.danger : colors.muted,
+    borderColor: error ? colors.danger : rgba(colors.muted, 0.5),
     backgroundColor: error ? rgba(colors.danger, 0.25) : colors.transparent,
+    borderRadius: rhythm(0.1),
   },
   input: {
     width: '100%',
     marginTop: rhythm(0.25),
-    borderColor: error ? colors.danger : colors.muted,
+    borderColor: error ? colors.danger : rgba(colors.muted, 0.5),
     backgroundColor: error ? rgba(colors.danger, 0.25) : colors.transparent,
+    borderRadius: rhythm(0.1),
   },
   fieldset: {
     padding: 0,
