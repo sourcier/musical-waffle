@@ -8,6 +8,6 @@ export default (props, { rhythm, mediaQuery, styles, colors }) => ({
   empty: {
     ...styles.container,
     textAlign: 'center',
-    background: colors.shade,
+    background: colors.light,
   },
 })

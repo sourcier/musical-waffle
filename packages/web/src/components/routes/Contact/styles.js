@@ -2,6 +2,7 @@ export default ({ isOpen }, { rhythm, colors, mediaQuery, styles }) => ({
   contact: {
     ...styles.container,
     marginBottom: rhythm(3),
+    fontSize: rhythm(0.5),
   },
   form: {
     fieldset: {
@@ -10,7 +11,6 @@ export default ({ isOpen }, { rhythm, colors, mediaQuery, styles }) => ({
     },
     textarea: {
       minHeight: rhythm(4),
-      fontSize: rhythm(0.5),
       width: '100%',
       marginTop: rhythm(0.25),
     },
@@ -23,14 +23,16 @@ export default ({ isOpen }, { rhythm, colors, mediaQuery, styles }) => ({
       background: colors.secondary,
       color: 'white',
       margin: rhythm([0.5, 0, 0.5]),
-      fontSize: rhythm(0.5),
-      fontWeight: 500,
+      fontWeight: 400,
       padding: rhythm([0.3, 0.75]),
+      '&[disabled]': {
+        background: colors.muted,
+      },
     },
   },
   label: {
     color: colors.primary,
-    fontWeight: 'bold',
+    fontWeight: 400,
     textTransform: 'uppercase',
     marginBottom: 0,
     fontSize: rhythm(0.5),

@@ -5,7 +5,7 @@ export default ({ isOpen }, { rhythm, colors, mediaQuery, styles }) => ({
   toggle: {
     textAlign: 'right',
     padding: rhythm([0.5, 0.5, 0]),
-    background: isOpen ? colors.shade : colors.transparent,
+    background: isOpen ? colors.light : colors.transparent,
     [mediaQuery('md')]: {
       padding: rhythm([1, 1, 0]),
       fontSize: rhythm(1),
@@ -14,12 +14,11 @@ export default ({ isOpen }, { rhythm, colors, mediaQuery, styles }) => ({
       border: 0,
       padding: 0,
       color: isOpen ? colors.primary : colors.text,
-      cursor: 'pointer',
     },
   },
   menu: {
     ...styles.container,
-    background: colors.shade,
+    background: colors.light,
     textAlign: 'center',
     ul: {
       listStyle: 'none',

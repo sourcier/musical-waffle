@@ -24,10 +24,15 @@ export const rhythm = (factorOrFactors) =>
 
 export const colors = {
   primary: '#fd256e',
-  secondary: '#12c766',
-  text: '#343434',
-  muted: '#777',
-  shade: '#fafafa',
+  secondary: '#28a745',
+  info: '#17a2b8',
+  warning: '#ffc107',
+  danger: '#dc3545',
+  success: '#28a745',
+  muted: '#6c757d',
+  text: '#212529',
+  light: '#f8f9fa',
+  white: '#fff',
   transparent: 'transparent',
 }
 
@@ -85,6 +90,9 @@ export const treatments = {
     },
     stong: {
       fontWeight: '400',
+    },
+    button: {
+      cursor: 'pointer',
     },
   },
 }

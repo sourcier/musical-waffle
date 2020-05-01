@@ -23,7 +23,7 @@ export default (props, { rhythm, colors, styles }) => ({
   },
   copyright: {
     ...styles.container,
-    backgroundColor: colors.shade,
+    backgroundColor: colors.light,
     'p, a': {
       fontSize: rhythm(0.5),
       color: colors.muted,
