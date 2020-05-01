@@ -8,6 +8,7 @@ import Spinner from '../../ui/Spinner'
 import { getBlogPost } from '../../../store/reducers/blog'
 import { withStyles } from '../../withStyles'
 import styles from './styles'
+import NotFound from '../NotFound'
 
 export const BlogPage = ({
   post,
@@ -35,11 +36,21 @@ export const BlogPage = ({
     getBlogPost(slug)
   }, [])
 
-  return (
-    <div css={styles.blogPost}>
-      {'fetching' === state ? <Spinner /> : renderPost()}
-    </div>
-  )
+  // return (
+  //   <div css={styles.blogPost}>
+  //     {/* {'fetching' === state ? <Spinner /> : renderPost()} */}
+  //     {switch(state) {}}
+  //   </div>
+  // )
+  switch (state) {
+    case 'fetched':
+      return renderPost()
+    case 'error':
+      return <NotFound />
+    case 'fetching':
+    default:
+      return <Spinner />
+  }
 }
 
 const mapStateToProps = ({
