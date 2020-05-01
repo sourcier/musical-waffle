@@ -6,12 +6,11 @@ import styles from './styles'
 export const InputField = ({
   type,
   styles,
-  value,
-  error,
   onChange,
   name,
   label,
   help,
+  field: { value, error },
 }) => {
   const params = {
     value,

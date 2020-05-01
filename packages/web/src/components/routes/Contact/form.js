@@ -44,7 +44,6 @@ export const Form = ({ styles }) => {
   }
 
   const handleSubmit = (event) => {
-    console.error(event)
     event.preventDefault()
   }
 
@@ -56,24 +55,21 @@ export const Form = ({ styles }) => {
           label="What’s up?"
           help="Type as much or as little as you like."
           name="message"
-          value={form.fields.message.value}
-          error={form.fields.message.error}
+          field={form.fields.message}
           onChange={handleChange}
         />
         <InputField
           type="text"
           label="What’s your name?"
           name="name"
-          value={form.fields.name.value}
-          error={form.fields.name.error}
+          field={form.fields.name}
           onChange={handleChange}
         />
         <InputField
           type="text"
           label="What’s your email address?"
           name="email"
-          value={form.fields.email.value}
-          error={form.fields.email.error}
+          field={form.fields.email}
           onChange={handleChange}
         />
         <button type="submit" disabled={form.error} css={styles.button}>

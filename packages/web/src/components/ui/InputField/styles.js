@@ -1,4 +1,7 @@
-export default ({ error }, { rhythm, colors, mediaQuery, styles, rgba }) => ({
+export default (
+  { field: { error, value } },
+  { rhythm, colors, mediaQuery, styles, rgba }
+) => ({
   label: {
     color: colors.primary,
     fontWeight: 400,
