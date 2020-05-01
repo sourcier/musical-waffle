@@ -72,7 +72,7 @@
     "scripts": {
         "start": "webpack-dev-server --config webpack.dev.js",
         "build": "webpack -p --config webpack.prod.js",
-        "test": "jest",
+        "test": "NODE_ENV=production jest --bail --ci",
         "test-watch": "jest --watch",
         "lint": "eslint ./src",
         "lint-fix": "eslint ./src --fix --ignore-path ../../.gitignore",
