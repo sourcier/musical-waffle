@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { Meta } from '../../Meta'
 import { withStyles } from '../../withStyles'
@@ -15,7 +16,7 @@ export const NotFound = ({ styles }) => (
     </h2>
     <p>
       Looks like you've stumbled on a page that doesn’t exist. If you’re sure
-      the link is correct, let us know.
+      the link is correct, <Link to="/contact">let me know</Link>.
     </p>
   </div>
 )

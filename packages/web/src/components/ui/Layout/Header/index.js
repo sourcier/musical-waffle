@@ -3,7 +3,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faHome, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 import styles from './styles'
@@ -17,7 +17,11 @@ export const links = [
   // { label: 'Portfolio', href: '#portfolio' },
   // { label: 'Team', href: '#team' },
   // { label: 'Blog', href: '/blog' },
-  // { label: 'Contact', href: '/contact', icon: faEnvelope },
+  {
+    label: 'Contact',
+    href: '/contact',
+    icon: <FontAwesomeIcon icon={faEnvelope} />,
+  },
 ]
 
 export const socials = [

@@ -36,21 +36,13 @@ export const BlogPage = ({
     getBlogPost(slug)
   }, [])
 
-  // return (
-  //   <div css={styles.blogPost}>
-  //     {/* {'fetching' === state ? <Spinner /> : renderPost()} */}
-  //     {switch(state) {}}
-  //   </div>
-  // )
-  switch (state) {
-    case 'fetched':
-      return renderPost()
-    case 'error':
-      return <NotFound />
-    case 'fetching':
-    default:
-      return <Spinner />
-  }
+  return (
+    <div css={styles.blogPost}>
+      {'fetching' === state && <Spinner />}
+      {'fetched' === state && renderPost()}
+      {'error' === state && <NotFound />}
+    </div>
+  )
 }
 
 const mapStateToProps = ({
