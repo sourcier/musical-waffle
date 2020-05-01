@@ -5,4 +5,9 @@ export default (props, { rhythm, mediaQuery, styles, colors }) => ({
   blogListItem: {
     marginBottom: rhythm(3),
   },
+  empty: {
+    ...styles.container,
+    textAlign: 'center',
+    background: colors.shade,
+  },
 })
