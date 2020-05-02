@@ -7,7 +7,7 @@ import styles from './styles'
 
 export const Form = ({ styles }) => {
   const [form, updateForm] = useState({
-    error: false,
+    disabled: true,
     fields: {
       message: {
         value: '',
@@ -28,10 +28,10 @@ export const Form = ({ styles }) => {
   })
 
   const validateForm = () => {
-    const errors = Object.entries(form.fields).reduce((pv, [key, field]) => {
+    const disabled = Object.entries(form.fields).reduce((pv, [key, field]) => {
       return field.error ? pv + 1 : pv
     }, 0)
-    updateForm({ ...form, error: 0 !== errors })
+    updateForm({ ...form, disabled: 0 !== disabled })
   }
 
   const handleChange = ({ target: { name, value } }) => {
@@ -45,6 +45,7 @@ export const Form = ({ styles }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    validateForm()
   }
 
   return (
@@ -72,7 +73,7 @@ export const Form = ({ styles }) => {
           field={form.fields.email}
           onChange={handleChange}
         />
-        <button type="submit" disabled={form.error} css={styles.button}>
+        <button type="submit" disabled={form.disabled} css={styles.button}>
           Send Message
         </button>
       </form>
