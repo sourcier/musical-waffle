@@ -79,6 +79,34 @@ jobs:
           on:
             branch: master
 
+    - name: "mail"
+      install:
+        - cd packages/mail
+        - yarn install
+        - cd -
+      script:
+        - cd packages/mail
+        - yarn test
+        - cd -
+      deploy:
+        - provider: script
+          script: >-
+            cd packages/mail;
+            SENDGRID_API_KEY=${DEV_SENDGRID_API_KEY} sls -v deploy;
+            cd -
+          skip_cleanup: true
+          on:
+            all_branches: true
+            condition: $TRAVIS_BRANCH =~ ^develop|feature\/.*$
+        - provider: script
+          script: >-
+            cd packages/mail;
+            SENDGRID_API_KEY=${PROD_SENDGRID_API_KEY} sls -v -s prod deploy;
+            cd -
+          skip_cleanup: true
+          on:
+            branch: master
+
     - name: "web"
       install:
         - cd packages/web
