@@ -24,7 +24,7 @@ export const rhythm = (factorOrFactors) =>
     : shevy.baseSpacing(factorOrFactors)
 
 export const colors = {
-  primary: '#fd256e',
+  primary: '#007bff',
   secondary: '#28a745',
   info: '#17a2b8',
   warning: '#ffc107',
