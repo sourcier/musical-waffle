@@ -1,0 +1,16 @@
+{
+  "name": "mail",
+  "version": "0.0.15",
+  "private": true,
+  "scripts": {
+    "test": "echo \"INFO: no test specified\""
+  },
+  "devDependencies": {
+    "serverless-bundle": "^1.4.0",
+    "serverless-offline": "^6.1.4",
+    "serverless-pseudo-parameters": "^2.5.0"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.1.0"
+  }
+}
