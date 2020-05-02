@@ -8,6 +8,9 @@ exports[`renders without crashing 1`] = `
     <ForwardRef
       styles={
         Object {
+          "a": Object {
+            "color": "#007bff",
+          },
           "body": Object {
             "color": "#212529",
             "fontFamily": "'Source Sans Pro', sans-serif",

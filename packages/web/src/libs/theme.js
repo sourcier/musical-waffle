@@ -96,6 +96,9 @@ export const treatments = {
     button: {
       cursor: 'pointer',
     },
+    a: {
+      color: colors.primary,
+    },
   },
 }
 
