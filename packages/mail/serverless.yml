@@ -1,7 +1,6 @@
 service: musical-waffle-mail
 
 plugins:
-  - serverless-pseudo-parameters
   - serverless-bundle
   - serverless-offline
 
@@ -22,7 +21,6 @@ provider:
     SENDGRID_EMAIL_TO: ${env:SENDGRID_EMAIL_TO}
 
 resources:
-  - ${file(resources/parameters.yml)}
   - ${file(resources/api-gateway-errors.yml)}
 
 package:
