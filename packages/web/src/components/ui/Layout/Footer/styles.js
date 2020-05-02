@@ -17,6 +17,7 @@ export default (props, { rhythm, colors, styles }) => ({
         a: {
           color: colors.text,
           textDecoration: 'none',
+          textTransform: 'uppercase',
         },
       },
     },

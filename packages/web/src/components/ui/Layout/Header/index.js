@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faHome, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 import styles from './styles'
@@ -11,7 +11,7 @@ import { withStyles } from '../../../withStyles'
 import { toggleNav } from '../../../../store/reducers/nav'
 
 export const links = [
-  { label: 'Home', href: '/', icon: <FontAwesomeIcon icon={faHome} /> },
+  { label: 'Home', href: '/' },
   // { label: 'About Us', href: '#about' },
   // { label: 'Services', href: '#services' },
   // { label: 'Portfolio', href: '#portfolio' },
@@ -20,7 +20,6 @@ export const links = [
   {
     label: 'Contact',
     href: '/contact',
-    icon: <FontAwesomeIcon icon={faEnvelope} />,
   },
 ]
 
@@ -42,11 +41,19 @@ export const socials = [
 ]
 
 const Header = ({ styles, isOpen, toggleNav }) => {
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'visible'
+  }, [isOpen])
+
   return (
     <div css={styles.header} id="header">
       <div css={styles.toggle}>
         <button onClick={toggleNav}>
-          <FontAwesomeIcon icon={faBars} />
+          {isOpen ? (
+            <FontAwesomeIcon icon={faTimesCircle} />
+          ) : (
+            <FontAwesomeIcon icon={faBars} />
+          )}
         </button>
       </div>
       {isOpen && (
@@ -54,13 +61,11 @@ const Header = ({ styles, isOpen, toggleNav }) => {
           <ul>
             {links.map(({ label, icon, href }, key) => (
               <li key={key}>
-                {icon}
                 <Link to={href}>{label}</Link>
               </li>
             ))}
             {socials.map(({ icon, label, ...link }, key) => (
               <li key={key}>
-                {icon}
                 <a {...link}>{label}</a>
               </li>
             ))}
