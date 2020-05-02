@@ -16,4 +16,7 @@ export default ({ error }, { rhythm, colors, mediaQuery, styles, rgba }) => ({
       background: rgba(colors.muted, 0.5),
     },
   },
+  buttonIcon: {
+    paddingLeft: rhythm(0.25),
+  },
 })

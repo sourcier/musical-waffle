@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 
 import { withStyles } from '../../withStyles'
 import { required, email } from '../../../libs/validators'
@@ -7,7 +9,8 @@ import styles from './styles'
 
 export const Form = ({ styles }) => {
   const [form, updateForm] = useState({
-    disabled: true,
+    disabled: () => validateForm(),
+    sending: false,
     fields: {
       message: {
         value: '',
@@ -22,30 +25,28 @@ export const Form = ({ styles }) => {
       email: {
         value: '',
         error: false,
-        validator: email('Your email is required'),
+        validator: email('Your email is not a valid email address'),
       },
     },
   })
 
-  const validateForm = () => {
-    const disabled = Object.entries(form.fields).reduce((pv, [key, field]) => {
-      return field.error ? pv + 1 : pv
-    }, 0)
-    updateForm({ ...form, disabled: 0 !== disabled })
-  }
+  const validateForm = () =>
+    0 !==
+    Object.entries(form.fields).reduce(
+      (pv, [key, { validator, value }]) => (validator(value) ? pv + 1 : pv),
+      0
+    )
 
   const handleChange = ({ target: { name, value } }) => {
     const newValues = { ...form }
     newValues.fields[name].value = value
     newValues.fields[name].error = newValues.fields[name].validator(value)
-
     updateForm(newValues)
-    validateForm()
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    validateForm()
+    updateForm({ ...form, sending: true })
   }
 
   return (
@@ -73,8 +74,16 @@ export const Form = ({ styles }) => {
           field={form.fields.email}
           onChange={handleChange}
         />
-        <button type="submit" disabled={form.disabled} css={styles.button}>
-          Send Message
+        <button
+          type="submit"
+          disabled={form.disabled() || form.sending}
+          css={styles.button}>
+          Send Message{' '}
+          {form.sending && (
+            <span css={styles.buttonIcon}>
+              <FontAwesomeIcon icon={faCircleNotch} spin />
+            </span>
+          )}
         </button>
       </form>
     </div>
