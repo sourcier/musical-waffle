@@ -9,9 +9,10 @@ export default (event, context) =>
 
       const msg = {
         to: process.env.SENDGRID_EMAIL_TO,
-        from,
+        from: process.env.SENDGRID_EMAIL_FROM,
         subject: `${subject}`,
         text: message,
+        replyTo: from
       }
 
       sgMail.send(msg).then(() => success(null))
