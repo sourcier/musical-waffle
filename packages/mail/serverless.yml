@@ -19,6 +19,8 @@ provider:
   environment:
     SENDGRID_API_KEY: ${env:SENDGRID_API_KEY}
     SENDGRID_EMAIL_TO: ${env:SENDGRID_EMAIL_TO}
+    SENDGRID_EMAIL_FROM: ${env:SENDGRID_EMAIL_FROM}
+    SENTRY_DNS: ${env:SENTRY_DNS}
 
 resources:
   - ${file(resources/api-gateway-errors.yml)}

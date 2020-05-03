@@ -1,22 +1,24 @@
 import sgMail from "@sendgrid/mail"
+import * as Sentry from "@sentry/node"
 
 import { success, failure } from "./libs/response"
 
+Sentry.init({ dsn: process.env.SENTRY_DSN })
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
 export default (event, context) =>
   Promise.resolve(JSON.parse(event.body))
-    .then(({message, from, subject}) => {
-      sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-
-      const msg = {
+    .then(({ message, from, subject }) =>
+      sgMail.send({
         to: process.env.SENDGRID_EMAIL_TO,
         from: process.env.SENDGRID_EMAIL_FROM,
         subject: `${subject}`,
         text: message,
-        replyTo: from
-      }
-
-      sgMail.send(msg).then(() => success(null))
-    })
+        replyTo: from,
+      })
+    )
+    .then(() => success(null))
     .catch((e) => {
-      return failure({ status: false })
+      Sentry.captureException(e)
+      return failure({ ...e })
     })
