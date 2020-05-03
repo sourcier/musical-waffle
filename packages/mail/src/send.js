@@ -4,12 +4,12 @@ import { success, failure } from "./libs/response"
 
 export default (event, context) =>
   Promise.resolve(JSON.parse(event.body))
-    .then(({message, email, subject}) => {
+    .then(({message, from, subject}) => {
       sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
       const msg = {
         to: process.env.SENDGRID_EMAIL_TO,
-        from: email,
+        from,
         subject: `${subject}`,
         text: message,
       }

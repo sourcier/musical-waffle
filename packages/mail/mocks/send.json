@@ -1,5 +1,5 @@
 {
-  "body": "{\"message\": \"hello\", \"subject\": \"Website enquiry from: TEST-USER-1234\", \"email\": \"test@example.com\"}",
+  "body": "{\"message\": \"hello\", \"subject\": \"Website enquiry from: TEST-USER-1234\", \"from\": \"test@example.com\"}",
   "requestContext": {
     "identity": {
       "cognitoIdentityId": "TEST-USER-1234"
