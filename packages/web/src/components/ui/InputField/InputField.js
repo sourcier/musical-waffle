@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 import { withStyles } from '../../withStyles'
 import styles from './styles'
@@ -28,7 +30,11 @@ export const InputField = ({
           <textarea {...params} css={styles.textarea}></textarea>
         )}
         {type === 'text' && <input {...params} css={styles.input} />}
-        {error && <p css={styles.error}>{error}</p>}
+        {error && (
+          <p css={styles.error}>
+            <FontAwesomeIcon icon={faInfoCircle} /> {error}
+          </p>
+        )}
       </label>
     </fieldset>
   )
