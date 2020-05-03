@@ -24,14 +24,14 @@ export default (
     width: '100%',
     marginTop: rhythm(0.25),
     borderColor: error ? colors.danger : rgba(colors.muted, 0.5),
-    backgroundColor: error ? rgba(colors.danger, 0.25) : colors.transparent,
+    backgroundColor: error ? rgba(colors.danger, 0.1) : colors.transparent,
     borderRadius: rhythm(0.1),
   },
   input: {
     width: '100%',
     marginTop: rhythm(0.25),
     borderColor: error ? colors.danger : rgba(colors.muted, 0.5),
-    backgroundColor: error ? rgba(colors.danger, 0.25) : colors.transparent,
+    backgroundColor: error ? rgba(colors.danger, 0.1) : colors.transparent,
     borderRadius: rhythm(0.1),
   },
   fieldset: {
