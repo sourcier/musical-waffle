@@ -17,6 +17,11 @@ API.configure({
       endpoint: config.api.posts.endpoint,
       region: config.api.posts.region,
     },
+    {
+      name: config.api.mail.name,
+      endpoint: config.api.mail.endpoint,
+      region: config.api.mail.region,
+    },
   ],
 })
 

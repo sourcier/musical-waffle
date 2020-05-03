@@ -1,4 +1,4 @@
-import { getPosts, getPost } from '../../libs/posts'
+import { getPosts, getPost } from '../../libs/api'
 
 const actions = {
   FETCH_POSTS: 'fetch/posts',

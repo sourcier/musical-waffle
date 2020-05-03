@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 
 import { withStyles } from '../../withStyles'
 import { required, email } from '../../../libs/validators'
 import InputField from '../../ui/InputField/InputField'
+import { sendEmail } from '../../../store/reducers/mail'
 import styles from './styles'
 
-export const Form = ({ styles }) => {
+export const Form = ({ styles, sendEmail }) => {
+  const history = useHistory()
   const [form, updateForm] = useState({
     disabled: () => validateForm(),
     sending: false,
@@ -47,6 +52,14 @@ export const Form = ({ styles }) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     updateForm({ ...form, sending: true })
+    sendEmail(
+      `Website enquiry from: ${form.fields.name.value}`,
+      form.fields.email.value,
+      `from: ${form.fields.name.value}\nemail: ${form.fields.email.value}\nmessage:\n${form.fields.message.value}`
+    ).then(() => {
+      updateForm({ ...form, sending: false })
+      history.push('/contact/thank-you')
+    })
   }
 
   return (
@@ -90,4 +103,9 @@ export const Form = ({ styles }) => {
   )
 }
 
-export default withStyles(styles)(Form)
+const mapDispatchToProps = { sendEmail }
+
+export default compose(
+  connect(null, mapDispatchToProps),
+  withStyles(styles)
+)(Form)

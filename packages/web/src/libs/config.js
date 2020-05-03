@@ -5,6 +5,11 @@ const devConfig = {
       endpoint: 'https://m25gl9uodb.execute-api.eu-west-2.amazonaws.com/dev',
       region: 'eu-west-2',
     },
+    mail: {
+      name: 'mail',
+      endpoint: 'https://7ikidzu3j6.execute-api.eu-west-2.amazonaws.com/dev',
+      region: 'eu-west-2',
+    },
   },
   cognito: {
     region: 'eu-west-2',
@@ -19,6 +24,11 @@ const prodConfig = {
     posts: {
       name: 'posts',
       endpoint: 'https://9p7igfrsfk.execute-api.eu-west-2.amazonaws.com/prod',
+      region: 'eu-west-2',
+    },
+    mail: {
+      name: 'mail',
+      endpoint: 'https://7q9qe3mkcg.execute-api.eu-west-2.amazonaws.com/prod',
       region: 'eu-west-2',
     },
   },
