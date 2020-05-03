@@ -55,7 +55,7 @@ export const Form = ({ styles, sendEmail }) => {
     sendEmail(
       `Website enquiry from: ${form.fields.name.value}`,
       form.fields.email.value,
-      `from: ${form.fields.name.value}\nemail: ${form.fields.email.value}\nmessage:\n${form.fields.message.value}`
+      form.fields.message.value
     ).then(() => {
       updateForm({ ...form, sending: false })
       history.push('/contact/thank-you')
