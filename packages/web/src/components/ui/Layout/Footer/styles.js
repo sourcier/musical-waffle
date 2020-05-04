@@ -10,7 +10,7 @@ export default (props, { rhythm, colors, styles }) => ({
       paddingLeft: 0,
       li: {
         display: 'inline-block',
-        paddingRight: rhythm(1),
+        paddingRight: rhythm(0.75),
         '&:last-child': {
           paddingRight: 0,
         },

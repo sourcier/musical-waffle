@@ -4,7 +4,11 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import {
+  faGithub,
+  faTwitter,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons'
 
 import styles from './styles'
 import { withStyles } from '../../../withStyles'
@@ -26,7 +30,7 @@ export const links = [
 export const socials = [
   {
     label: 'Github',
-    href: 'https://github.com/sourcier/',
+    href: 'https://github.com/sourcier',
     icon: <FontAwesomeIcon icon={faGithub} />,
     target: '_blank',
     rel: 'noopener noreferrer',
@@ -35,6 +39,13 @@ export const socials = [
     label: 'Twitter',
     href: 'https://twitter.com/sourcier',
     icon: <FontAwesomeIcon icon={faTwitter} />,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/roger-rajaratnam-3888021a4',
+    icon: <FontAwesomeIcon icon={faLinkedin} />,
     target: '_blank',
     rel: 'noopener noreferrer',
   },
