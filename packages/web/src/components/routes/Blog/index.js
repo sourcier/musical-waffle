@@ -29,7 +29,7 @@ const BlogList = ({ posts, state, getBlogList, styles }) => {
           <h2>
             <Link to={`/${post.slug}`}>{post.title}</Link>
           </h2>
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+          <ReactMarkdown>{post.summary}</ReactMarkdown>
           <Link to={`/${post.slug}`}>Read Post</Link>
         </div>
       ))
