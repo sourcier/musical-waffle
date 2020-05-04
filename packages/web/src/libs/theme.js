@@ -5,7 +5,7 @@ const baseFontSize = 24
 
 const shevy = new Shevy({
   baseFontSize: `${baseFontSize}px`,
-  baseFontScale: 'minorThird',
+  baseFontScale: 'majorSecond',
 })
 
 const breakpoints = {
