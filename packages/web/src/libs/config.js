@@ -17,6 +17,9 @@ const devConfig = {
     userPoolId: 'eu-west-2_U6GWHZUwk',
     userPoolWebClientId: '3nmtr2vpa6adlaum9l3g9b8j6n',
   },
+  facebook: {
+    appId: process.env.FACEBOOK_APP_ID,
+  },
 }
 
 const prodConfig = {
@@ -35,6 +38,9 @@ const prodConfig = {
   cognito: {
     region: 'eu-west-2',
     identityPoolId: 'eu-west-2:5ec7e7c9-08b8-455e-906a-9714383f57d9',
+  },
+  facebook: {
+    appId: process.env.FACEBOOK_APP_ID,
   },
 }
 

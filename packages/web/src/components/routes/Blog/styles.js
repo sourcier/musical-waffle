@@ -1,6 +1,11 @@
-export default (props, { rhythm, mediaQuery, styles, colors }) => ({
+export default (
+  props,
+  { rhythm, mediaQuery, styles, colors, breakpoints }
+) => ({
   blogList: {
     ...styles.container,
+    maxWidth: breakpoints.lg,
+    margin: `0 auto ${rhythm(3)}`,
   },
   blogListItem: {
     marginBottom: rhythm(3),

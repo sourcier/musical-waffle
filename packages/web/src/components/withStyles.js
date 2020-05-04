@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { theme } from '../libs/theme'
+import * as theme from '../libs/theme'
 
 const stylesToClasses = (styles = {}) =>
   Object.keys(styles).reduce(

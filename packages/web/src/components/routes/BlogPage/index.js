@@ -9,6 +9,7 @@ import { getBlogPost } from '../../../store/reducers/blog'
 import { withStyles } from '../../withStyles'
 import styles from './styles'
 import NotFound from '../NotFound'
+import Comments from './Comments'
 
 export const BlogPage = ({
   post,
@@ -36,11 +37,14 @@ export const BlogPage = ({
   }, [])
 
   return (
-    <div css={styles.blogPost}>
-      {'fetching' === state && <Spinner />}
-      {'fetched' === state && renderPost()}
-      {'error' === state && <NotFound />}
-    </div>
+    <React.Fragment>
+      <div css={styles.blogPost}>
+        {'fetching' === state && <Spinner />}
+        {'fetched' === state && renderPost()}
+        {'error' === state && <NotFound />}
+      </div>
+      <Comments />
+    </React.Fragment>
   )
 }
 

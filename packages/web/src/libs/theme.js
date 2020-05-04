@@ -8,11 +8,13 @@ const shevy = new Shevy({
   baseFontScale: 'majorSecond',
 })
 
-const breakpoints = {
-  sm: `${375 / baseFontSize}rem`,
-  md: `${768 / baseFontSize}rem`,
-  lg: `${960 / baseFontSize}rem`,
-  xl: `${1024 / baseFontSize}rem`,
+export { rgba }
+
+export const breakpoints = {
+  sm: `${375 / baseFontSize}em`,
+  md: `${768 / baseFontSize}em`,
+  lg: `${960 / baseFontSize}em`,
+  xl: `${1024 / baseFontSize}em`,
 }
 
 export const mediaQuery = (size = 'sm', query = 'min-width') =>
@@ -112,14 +114,4 @@ export const styles = {
       padding: rhythm(1),
     },
   },
-}
-
-export const theme = {
-  rhythm,
-  colors,
-  fonts,
-  treatments,
-  mediaQuery,
-  styles,
-  rgba,
 }

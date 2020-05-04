@@ -1,5 +1,5 @@
 export default (props, { rhythm, mediaQuery, styles, breakpoints }) => ({
-  blogPost: {
+  comments: {
     ...styles.container,
     maxWidth: breakpoints.lg,
     margin: `0 auto`,

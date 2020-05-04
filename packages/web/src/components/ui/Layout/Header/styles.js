@@ -1,15 +1,21 @@
-export default ({ isOpen }, { rhythm, colors, mediaQuery, styles }) => ({
+export default (
+  { isOpen },
+  { rhythm, colors, mediaQuery, styles, breakpoints }
+) => ({
   header: {
     borderTop: `solid ${rhythm(0.25)} ${colors.primary}`,
     borderBottom: `solid 1px ${colors.light}`,
-    padding: rhythm([0.25, 0.5]),
   },
   buttons: {
+    ...styles.container,
+    maxWidth: breakpoints.lg,
+    margin: `0 auto`,
     position: 'relative',
     zIndex: 2,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+
     a: {
       marginBottom: 0,
     },
