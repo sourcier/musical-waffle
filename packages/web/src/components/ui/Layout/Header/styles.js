@@ -1,23 +1,25 @@
 export default ({ isOpen }, { rhythm, colors, mediaQuery, styles }) => ({
   header: {
     borderTop: `solid ${rhythm(0.25)} ${colors.primary}`,
+    borderBottom: `solid 1px ${colors.light}`,
+    padding: rhythm([0.25, 0.5]),
   },
-  toggle: {
-    textAlign: 'right',
-    padding: rhythm([0.75, 0.75, 0]),
-    color: isOpen ? colors.white : colors.text,
-    position: 'absolute',
-    top: 0,
-    right: 0,
+  buttons: {
+    position: 'relative',
     zIndex: 2,
-    fontSize: rhythm(0.75),
-    [mediaQuery('md')]: {
-      padding: rhythm([1, 1, 0]),
-      fontSize: rhythm(1),
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    a: {
+      marginBottom: 0,
     },
     button: {
       border: 0,
       padding: 0,
+      color: isOpen ? colors.white : colors.text,
+    },
+    img: {
+      width: rhythm(4),
     },
   },
   menu: {

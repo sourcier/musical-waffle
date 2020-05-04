@@ -70,6 +70,9 @@ exports[`renders without crashing 1`] = `
             "lineHeight": 1.5,
             "marginBottom": "36px",
           },
+          "img": Object {
+            "maxWidth": "100%",
+          },
           "p, a, ol, ul, pre": Object {
             "fontSize": "24px",
             "lineHeight": 1.5,

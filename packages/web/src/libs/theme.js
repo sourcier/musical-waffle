@@ -99,6 +99,9 @@ export const treatments = {
     a: {
       color: colors.primary,
     },
+    img: {
+      maxWidth: '100%',
+    },
   },
 }
 

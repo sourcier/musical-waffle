@@ -47,7 +47,13 @@ const Header = ({ styles, isOpen, toggleNav }) => {
 
   return (
     <div css={styles.header} id="header">
-      <div css={styles.toggle}>
+      <div css={styles.buttons}>
+        <Link to="/">
+          <img
+            src={`/assets/img/${isOpen ? 'logo-inverse' : 'logo'}.svg`}
+            alt="Sourcier"
+          />
+        </Link>
         <button onClick={toggleNav}>
           {isOpen ? (
             <FontAwesomeIcon icon={faTimesCircle} />
