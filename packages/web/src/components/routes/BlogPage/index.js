@@ -25,7 +25,6 @@ export const BlogPage = ({
         <Meta title={post.title} />
         <div>
           <h2>{post.title}</h2>
-          <ReactMarkdown source={post.summary} />
           <ReactMarkdown escapeHtml={false} source={post.content} />
         </div>
       </React.Fragment>
