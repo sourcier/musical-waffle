@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown/with-html'
 
 import { Meta } from '../../Meta'
 import Spinner from '../../ui/Spinner'
@@ -26,7 +26,7 @@ export const BlogPage = ({
         <div>
           <h2>{post.title}</h2>
           <ReactMarkdown source={post.summary} />
-          <ReactMarkdown source={post.content} />
+          <ReactMarkdown escapeHtml={false} source={post.content} />
         </div>
       </React.Fragment>
     )
