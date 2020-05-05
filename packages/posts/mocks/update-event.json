@@ -1,5 +1,5 @@
 {
-  "body": "{\"title\": \"title\", \"body\": \"body\"}",
+  "body": "{\"data\": {\"type\": \"posts\",\"id\": \"test-post\", \"attributes\": {\"title\": \"Test Post\",\"summary\": \"Test article summary\",\"content\": \"Test article content\"}}\n}",
   "pathParameters": {
     "slug": "test-post"
   }
