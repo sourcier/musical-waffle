@@ -8,6 +8,7 @@ export default (event, context) => Promise.resolve(JSON.parse(event.body))
         Item: {
           ...body,
           slug: event.pathParameters.slug,
+          updatedAt: (new Date()).toISOString()
         },
       }
       return dynamoDbLib.call("put", params).then(() => success(params.Item))
