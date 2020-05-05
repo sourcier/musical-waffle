@@ -1,12 +1,12 @@
 const buildResponse = (statusCode, body) => ({
-  statusCode: statusCode,
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Credentials': true,
-  },
-  body: JSON.stringify(body),
+    statusCode,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
+    },
+    body: statusCode === 204 ? null : JSON.stringify(body),
 })
 
-export const success = (body) => buildResponse(200, body)
+export const success = (body, statusCode = 200) => buildResponse(statusCode, body)
 
-export const failure = (body) => buildResponse(500, body)
+export const failure = (body, statusCode = 500) => buildResponse(statusCode, body)

@@ -15,6 +15,6 @@ export default (event, context) =>
       },
     })
     .then(({Items: [first, ...rest]}) => {
-      return first ? success(first) : failure({ error: "Item not found." })
+      return first ? success(first) : failure({ error: "Item not found." }, 404)
     })
     .catch((e) => failure({ ...e }))
