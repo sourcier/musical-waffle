@@ -1,7 +1,11 @@
-export default ({ error }, { rhythm, colors, mediaQuery, styles, rgba }) => ({
+export default (
+  { error },
+  { rhythm, colors, mediaQuery, styles, rgba, breakpoints }
+) => ({
   contact: {
     ...styles.container,
-    marginBottom: rhythm(3),
+    maxWidth: breakpoints.lg,
+    margin: `0 auto ${rhythm(3)}`,
     fontSize: rhythm(0.5),
   },
   button: {

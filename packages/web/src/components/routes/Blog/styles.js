@@ -5,7 +5,7 @@ export default (
   blogList: {
     ...styles.container,
     maxWidth: breakpoints.lg,
-    margin: `0 auto ${rhythm(3)}`,
+    margin: `0 auto`,
   },
   blogListItem: {
     marginBottom: rhythm(3),
