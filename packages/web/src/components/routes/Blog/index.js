@@ -24,13 +24,13 @@ const BlogList = ({ posts, state, getBlogList, styles }) => {
     if (isEmpty(posts)) {
       return renderEmpty()
     } else {
-      return posts.map((post, key) => (
-        <div key={post.slug} css={styles.blogListItem}>
+      return posts.map((post) => (
+        <div key={post.id} css={styles.blogListItem}>
           <h2>
-            <Link to={`/${post.slug}`}>{post.title}</Link>
+            <Link to={`/${post.id}`}>{post.title}</Link>
           </h2>
           <ReactMarkdown>{post.summary}</ReactMarkdown>
-          <Link to={`/${post.slug}`}>Read Post</Link>
+          <Link to={`/${post.id}`}>Read Post</Link>
         </div>
       ))
     }
