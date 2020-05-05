@@ -11,7 +11,7 @@ export default (event, context) =>
       ExpressionAttributeValues: {
         ":slug": event.pathParameters.slug,
         ":published": true,
-        ":internal": false,
+        ":internal": true,
       },
     })
     .then(({Items: [first, ...rest]}) => {
