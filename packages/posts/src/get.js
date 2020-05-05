@@ -3,11 +3,18 @@ import { success, failure } from "./libs/response"
 
 export default (event, context) =>
   dynamoDbLib
-    .call("get", {
+    .call("query", {
       TableName: process.env.POSTS_TABLE_NAME,
-      Key: {
-        slug: event.pathParameters.slug,
-      }
+      KeyConditionExpression: "slug = :slug",
+      FilterExpression:
+        "published = :published AND (attribute_not_exists(internal) OR internal = :internal)",
+      ExpressionAttributeValues: {
+        ":slug": event.pathParameters.slug,
+        ":published": true,
+        ":internal": false,
+      },
     })
-    .then((result) => result.Item ? success(result.Item) : failure({ status: false, error: "Item not found." }))
-    .catch(() => failure({ status: false }))
+    .then(({Items: [first, ...rest]}) => {
+      return first ? success(first) : failure({ error: "Item not found." })
+    })
+    .catch((e) => failure({ ...e }))
