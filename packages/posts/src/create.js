@@ -5,16 +5,27 @@ export default (event, context) => {
   const date = new Date()
 
   return Promise.resolve(JSON.parse(event.body))
-    .then((body) => {
+    .then(({data: {id, type, attributes}}) => {
       const params = {
         TableName: process.env.POSTS_TABLE_NAME,
         Item: {
-          ...body,
-          createdAt: date.toISOString(),
-          updatedAt: date.toISOString()
+          ...attributes,
+          slug: id,
+          published: false,
+          created: date.toISOString(),
+          updated: date.toISOString()
         },
       }
-      return dynamoDbLib.call("put", params).then(() => success(params.Item))
+      return dynamoDbLib.call("put", params).then(() => {
+        const {slug, ...attributes} = params.Item
+        return success({
+          data: {
+            type: "posts",
+            id: slug,
+            ...attributes
+          }
+        })
+      })
     })
     .catch((e) => {
       return failure({ ...e })
