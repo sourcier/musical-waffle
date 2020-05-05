@@ -1,6 +1,6 @@
 {
   "name": "posts",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "private": true,
   "scripts": {
     "test": "echo \"INFO: no test specified\""
