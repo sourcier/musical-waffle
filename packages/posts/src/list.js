@@ -14,8 +14,14 @@ export default (event, context) => {
     })
     .then((result) =>
       success({
-        items: result.Items,
-        count: result.Count,
+        meta: {
+          totalItems: result.Count
+        },
+        data: result.Items.map(({slug, ...attributes}) => ({
+          type: "posts",
+          id: slug,
+          ...attributes
+        }))
       })
     )
     .catch((e) => failure({ ...e }))

@@ -15,6 +15,13 @@ export default (event, context) =>
       },
     })
     .then(({Items: [first, ...rest]}) => {
-      return first ? success(first) : failure({ error: "Item not found." }, 404)
+      const {slug, ...attributes} = first
+      return first ? success({
+        data: {
+          type: "posts",
+        id: slug,
+        ...attributes
+        }
+      }) : failure({ error: "Item not found." }, 404)
     })
     .catch((e) => failure({ ...e }))
