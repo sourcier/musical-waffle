@@ -67,3 +67,11 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
+  UpdatePost:
+    handler: src/update.default
+    events:
+      - http:
+          path: posts/{slug}
+          method: put
+          cors: true
+          authorizer: aws_iam

@@ -1,0 +1,6 @@
+{
+  "body": "{\"title\": \"title\", \"body\": \"body\"}",
+  "pathParameters": {
+    "slug": "test-post"
+  }
+}
