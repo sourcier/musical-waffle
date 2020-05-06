@@ -3,24 +3,50 @@ import { Link } from 'react-router-dom'
 
 import styles from './styles'
 import { withStyles } from '../../../withStyles'
-import { links, socials } from '../Header'
+import { socials, links, legals } from '../../../../libs/links'
 
 export const Component = ({ styles }) => (
-  <footer css={styles.footer}>
-    <div css={styles.links}>
-      <ul>
-        {links.map(({ label, icon, href }, key) => (
-          <li key={key}>
-            <Link to={href}>{label}</Link>
-          </li>
-        ))}
-        {socials.map(({ icon, label, ...link }, key) => (
-          <li key={key}>
-            <a {...link}>{icon}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
+  <React.Fragment>
+    <footer css={styles.root}>
+      <div css={styles.footer}>
+        <div css={styles.socials}>
+          <p>
+            <strong>Socials</strong>
+          </p>
+          <ul>
+            {socials.map(({ icon, label, ...link }, key) => (
+              <li key={key}>
+                <a {...link}>{icon}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div css={styles.links}>
+          <p>
+            <strong>Links</strong>
+          </p>
+          <ul>
+            {links.map(({ label, icon, href }, key) => (
+              <li key={key}>
+                <Link to={href}>{label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div css={styles.legals}>
+          <p>
+            <strong>Legals</strong>
+          </p>
+          <ul>
+            {legals.map(({ label, icon, href }, key) => (
+              <li key={key}>
+                <Link to={href}>{label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </footer>
     <div css={styles.copyright}>
       <p>
         Sourcier Ltd. is registered in England and Wales company number 8086280.
@@ -30,7 +56,7 @@ export const Component = ({ styles }) => (
         <a href="#header">Back to top</a>
       </p>
     </div>
-  </footer>
+  </React.Fragment>
 )
 
 export const Footer = withStyles(styles)(Component)

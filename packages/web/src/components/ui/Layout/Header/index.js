@@ -4,52 +4,11 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-import {
-  faGithub,
-  faTwitter,
-  faLinkedin,
-} from '@fortawesome/free-brands-svg-icons'
 
 import styles from './styles'
 import { withStyles } from '../../../withStyles'
 import { toggleNav } from '../../../../store/reducers/nav'
-
-export const links = [
-  { label: 'Home', href: '/' },
-  // { label: 'About Us', href: '#about' },
-  // { label: 'Services', href: '#services' },
-  // { label: 'Portfolio', href: '#portfolio' },
-  // { label: 'Team', href: '#team' },
-  // { label: 'Blog', href: '/blog' },
-  {
-    label: 'Contact',
-    href: '/contact',
-  },
-]
-
-export const socials = [
-  {
-    label: 'Github',
-    href: 'https://github.com/sourcier',
-    icon: <FontAwesomeIcon icon={faGithub} />,
-    target: '_blank',
-    rel: 'noopener noreferrer',
-  },
-  {
-    label: 'Twitter',
-    href: 'https://twitter.com/sourcier',
-    icon: <FontAwesomeIcon icon={faTwitter} />,
-    target: '_blank',
-    rel: 'noopener noreferrer',
-  },
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/roger-rajaratnam-3888021a4',
-    icon: <FontAwesomeIcon icon={faLinkedin} />,
-    target: '_blank',
-    rel: 'noopener noreferrer',
-  },
-]
+import { links, socials } from '../../../../libs/links'
 
 const Header = ({ styles, isOpen, toggleNav }) => {
   useEffect(() => {

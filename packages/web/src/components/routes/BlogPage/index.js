@@ -33,7 +33,7 @@ export const BlogPage = ({
 
   useEffect(() => {
     getBlogPost(slug)
-  }, [])
+  }, [slug])
 
   return (
     <React.Fragment>
