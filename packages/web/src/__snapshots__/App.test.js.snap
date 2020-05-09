@@ -97,6 +97,11 @@ exports[`renders without crashing 1`] = `
           path="/contact/thank-you"
         />
         <e
+          component={[Function]}
+          exact={true}
+          path="/sign-up"
+        />
+        <e
           component={
             Object {
               "$$typeof": Symbol(react.memo),

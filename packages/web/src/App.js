@@ -11,6 +11,7 @@ import BlogPage from './components/routes/BlogPage'
 import NotFound from './components/routes/NotFound'
 import Contact from './components/routes/Contact'
 import ThankYou from './components/routes/Contact/ThankYou'
+import Signup from './components/routes/Signup'
 import { treatments } from './libs/theme'
 
 export default hot((props) => (
@@ -22,6 +23,7 @@ export default hot((props) => (
           {/* <Route path="/" exact component={Home} /> */}
           <Route path="/contact" exact component={Contact} />
           <Route path="/contact/thank-you" exact component={ThankYou} />
+          <Route path="/sign-up" exact component={Signup} />
           <Route path="/" exact component={Blog} />
           <Route path="/:slug" exact component={BlogPage} />
           <Route component={NotFound} />

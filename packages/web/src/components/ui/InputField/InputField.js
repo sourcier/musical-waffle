@@ -15,10 +15,20 @@ export const InputField = ({
   field: { value, error },
 }) => {
   const params = {
+    type,
     value,
     name,
     onChange,
     onBlur: onChange,
+  }
+
+  const renderInput = () => {
+    switch (type) {
+      case 'textarea':
+        return <textarea {...params} css={styles.textarea}></textarea>
+      default:
+        return <input {...params} css={styles.input} />
+    }
   }
 
   return (
@@ -26,10 +36,7 @@ export const InputField = ({
       <label>
         <p css={styles.label}>{label}</p>
         {help && <p css={styles.help}>{help}</p>}
-        {type === 'textarea' && (
-          <textarea {...params} css={styles.textarea}></textarea>
-        )}
-        {type === 'text' && <input {...params} css={styles.input} />}
+        {renderInput()}
         {error && (
           <p css={styles.error}>
             <FontAwesomeIcon icon={faInfoCircle} /> {error}

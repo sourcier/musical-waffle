@@ -25,4 +25,4 @@ API.configure({
   ],
 })
 
-export { API }
+export { API, Auth }
