@@ -23,7 +23,6 @@ Then run
 
 ```bash
 $ lerna bootstrap
-$ lerna run start
 $ yarn workspace web start
 ```
 
