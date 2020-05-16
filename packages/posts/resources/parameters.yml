@@ -2,3 +2,11 @@ Parameters:
   PostsTableName:
     Type: String
     Default: ${self:custom.postsTableName}
+
+  DomainName:
+    Type: String
+    Default: musiical-waffle.biz
+
+  BasePath:
+    Type: String
+    Default: ${self:provider.stage}

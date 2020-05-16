@@ -1,0 +1,18 @@
+Resources:
+  ApiGatewayCertificate:
+    Type: "AWS::CertificateManager::Certificate"
+    Properties:
+      DomainName: !Ref DomainName
+
+  ApiGatewayDomainName:
+    Type: "AWS::ApiGateway::DomainName"
+    Properties:
+      CertificateArn: !Ref ApiGatewayCertificate
+      DomainName: !Ref domaiDomainNamenName
+
+  ApiGatewayMapping:
+    Type: "AWS::ApiGateway::BasePathMapping"
+    Properties:
+      BasePath: !Ref basePath
+      DomainName: !Ref ApiGatewayDomainName
+      RestApiId: !Ref ApiGatewayRestApi

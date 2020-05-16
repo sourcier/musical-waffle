@@ -37,6 +37,7 @@ provider:
 resources:
   - ${file(resources/parameters.yml)}
   - ${file(resources/posts-table.yml)}
+  - ${file(resources/domain-name.yml)}
   - ${file(resources/api-gateway-errors.yml)}
 
 package:
