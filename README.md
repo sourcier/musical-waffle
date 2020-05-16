@@ -1,4 +1,4 @@
-# Musical Waffle ![Build status](https://travis-ci.com/sourcier/musical-waffle.svg?branch=develop)
+# Musical Waffle ![Build status](https://travis-ci.com/sourcier/musical-waffle.svg?branch=develop) [![Total alerts](https://img.shields.io/lgtm/alerts/g/sourcier/musical-waffle.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sourcier/musical-waffle/alerts/)
 
 ## Links
 
