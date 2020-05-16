@@ -7,9 +7,23 @@
 
 ## Toolchain
 
-* [Lerna](https://lerna.js.org)
-* [Serverless](https://www.serverless.com)
-* [Yarn](http://yarnpkg.com)
+### [Yarn](http://yarnpkg.com)
+
+```bash
+npm install --global yarn
+```
+
+### [Lerna](https://lerna.js.org)
+
+```bash
+yarn global add lerna
+```
+
+### [Serverless](https://www.serverless.com)
+
+```bash
+yarn global add lerna
+```
 
 ## Contributing
 
@@ -25,6 +39,8 @@ Then run
 $ lerna bootstrap
 $ yarn workspace web start
 ```
+
+The dev server is then accessible via ```http://localhost:8080```
 
 ## Deployment
 
