@@ -3,6 +3,10 @@ Parameters:
     Type: String
     Default: ${self:custom.postsTableName}
 
+  CertificateArn:
+    Type: String
+    Default: arn:aws:acm:us-east-1:561381207426:certificate/d8f786c1-c7a4-4191-9e79-a5654cc45365
+
   DomainName:
     Type: String
     Default: musiical-waffle.biz

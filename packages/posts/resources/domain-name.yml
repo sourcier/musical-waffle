@@ -1,18 +1,18 @@
 Resources:
-  ApiGatewayCertificate:
-    Type: "AWS::CertificateManager::Certificate"
+  ApiGatewayDomainName:
+    Type: AWS::ApiGateway::DomainName
     Properties:
+      CertificateArn: !Ref CertificateArn
       DomainName: !Ref DomainName
 
-  ApiGatewayDomainName:
-    Type: "AWS::ApiGateway::DomainName"
-    Properties:
-      CertificateArn: !Ref ApiGatewayCertificate
-      DomainName: !Ref domaiDomainNamenName
-
   ApiGatewayMapping:
-    Type: "AWS::ApiGateway::BasePathMapping"
+    Type: AWS::ApiGateway::BasePathMapping
     Properties:
-      BasePath: !Ref basePath
+      BasePath: !Ref BasePath
       DomainName: !Ref ApiGatewayDomainName
       RestApiId: !Ref ApiGatewayRestApi
+
+Outputs:
+  ApiGatewayDistributionDomainName:
+    Description: The elasticache hostname
+    Value: !GetAtt [ApiGatewayDomainName, DistributionDomainName]
