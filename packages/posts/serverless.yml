@@ -4,10 +4,20 @@ plugins:
   - serverless-pseudo-parameters
   - serverless-bundle
   - serverless-offline
+  - serverless-domain-manager
 
 custom:
+  stage: ${self:provider.stage}
   prefix: ${self:service}-${self:provider.stage}
   postsTableName: ${self:custom.prefix}-posts
+  domains:
+    prod: api.sourcier.uk
+    dev: api-dev.sourcier.uk
+  customDomain:
+    basePath: posts
+    domainName: ${self:custom.domains.${self:custom.stage}}
+    stage: "${self:custom.stage}"
+    createRoute53Record: false
 
   bundle:
     linting: false
@@ -47,7 +57,7 @@ functions:
     handler: src/list.default
     events:
       - http:
-          path: posts
+          path: /
           method: get
           cors: true
           authorizer: aws_iam
@@ -55,7 +65,7 @@ functions:
     handler: src/get.default
     events:
       - http:
-          path: posts/{slug}
+          path: /{slug}
           method: get
           cors: true
           authorizer: aws_iam
@@ -63,7 +73,7 @@ functions:
     handler: src/create.default
     events:
       - http:
-          path: posts
+          path: /
           method: post
           cors: true
           authorizer: aws_iam
@@ -71,7 +81,7 @@ functions:
     handler: src/update.default
     events:
       - http:
-          path: posts/{slug}
+          path: /{slug}
           method: put
           cors: true
           authorizer: aws_iam
