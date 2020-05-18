@@ -3,9 +3,19 @@ service: musical-waffle-mail
 plugins:
   - serverless-bundle
   - serverless-offline
+  - serverless-domain-manager
 
 custom:
+  stage: ${self:provider.stage}
   prefix: ${self:service}-${self:provider.stage}
+  domains:
+    prod: api.sourcier.uk
+    dev: api-dev.sourcier.uk
+  customDomain:
+    basePath: mail
+    domainName: ${self:custom.domains.${self:custom.stage}}
+    stage: "${self:custom.stage}"
+    createRoute53Record: false
 
   bundle:
     linting: false
@@ -34,7 +44,7 @@ functions:
     handler: src/send.default
     events:
       - http:
-          path: mail
+          path: /
           method: post
           cors: true
           authorizer: aws_iam
