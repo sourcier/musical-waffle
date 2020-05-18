@@ -5,8 +5,12 @@ plugins:
   - serverless-pseudo-parameters
 
 custom:
+  stage: ${self:provider.stage}
   prefix: ${self:service}-${self:provider.stage}
   distributionPath: ./build
+  domains:
+    prod: sourcier.uk
+    dev: dev.sourcier.uk
 
 provider:
   name: aws

@@ -64,18 +64,12 @@ Resources:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/#{CloudFrontOriginAccessIdentity}
 
         ViewerCertificate:
-          !If
-            - IsProd
-            - AcmCertificateArn: !Ref AcmCertificateArn
-              SslSupportMethod: sni-only
-              MinimumProtocolVersion: TLSv1.2_2018
-            - CloudFrontDefaultCertificate: true
+          AcmCertificateArn: !Ref AcmCertificateArn
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2018
 
         Aliases:
-          !If
-            - IsProd
-            - - !Ref DomainName
-            - !Ref AWS::NoValue
+          - !Ref DomainName
 
 Outputs:
   BucketName:

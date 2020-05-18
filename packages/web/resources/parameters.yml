@@ -1,7 +1,7 @@
 Parameters:
   DomainName:
     Type: String
-    Default: sourcier.uk
+    Default: ${self:custom.domains.${self:custom.stage}}
   Stage:
     Type: String
     Default: ${self:provider.stage}
