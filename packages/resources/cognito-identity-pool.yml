@@ -49,7 +49,7 @@ Resources:
                   - Effect: Allow
                     Action:
                       - execute-api:Invoke
-                    Resource: !Sub arn:aws:execute-api:#{AWS::Region}:#{AWS::AccountId}:7q9qe3mkcg/dev/POST/mail
+                    Resource: !Sub arn:aws:execute-api:#{AWS::Region}:#{AWS::AccountId}:7q9qe3mkcg/dev/POST
                 -
                   - Effect: Allow
                     Action:
@@ -58,7 +58,7 @@ Resources:
                   - Effect: Allow
                     Action:
                       - execute-api:Invoke
-                    Resource: !Sub arn:aws:execute-api:#{AWS::Region}:#{AWS::AccountId}:7ikidzu3j6/dev/POST/mail
+                    Resource: !Sub arn:aws:execute-api:#{AWS::Region}:#{AWS::AccountId}:7ikidzu3j6/dev/POST
 
   CognitoAuthenticatedRole:
     Type: AWS::IAM::Role
