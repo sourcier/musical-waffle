@@ -2,12 +2,12 @@ const devConfig = {
   api: {
     posts: {
       name: 'posts',
-      endpoint: 'https://m25gl9uodb.execute-api.eu-west-2.amazonaws.com/dev',
+      endpoint: 'https://api-dev.sourcier.uk',
       region: 'eu-west-2',
     },
     mail: {
       name: 'mail',
-      endpoint: 'https://7ikidzu3j6.execute-api.eu-west-2.amazonaws.com/dev',
+      endpoint: 'https://api-dev.sourcier.uk',
       region: 'eu-west-2',
     },
   },
@@ -26,12 +26,12 @@ const prodConfig = {
   api: {
     posts: {
       name: 'posts',
-      endpoint: 'https://9p7igfrsfk.execute-api.eu-west-2.amazonaws.com/prod',
+      endpoint: 'https://api.sourcier.uk',
       region: 'eu-west-2',
     },
     mail: {
       name: 'mail',
-      endpoint: 'https://7q9qe3mkcg.execute-api.eu-west-2.amazonaws.com/prod',
+      endpoint: 'https://api.sourcier.uk',
       region: 'eu-west-2',
     },
   },
