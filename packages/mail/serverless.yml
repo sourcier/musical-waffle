@@ -10,7 +10,7 @@ custom:
   prefix: ${self:service}-${self:provider.stage}
   domains:
     prod: api.sourcier.uk
-    dev: api-dev.sourcier.uk
+    dev: dev-api.sourcier.uk
   customDomain:
     basePath: mail
     domainName: ${self:custom.domains.${self:custom.stage}}
