@@ -10,6 +10,7 @@ cache:
     - packages/resources/node_modules
     - packages/posts/node_modules
     - packages/web/node_modules
+    - packages/mail/node_modules
 
 git:
   depth: 1
@@ -40,8 +41,7 @@ jobs:
             cd -
           skip_cleanup: true
           on:
-            all_branches: true
-            condition: $TRAVIS_BRANCH =~ ^develop|feature\/.*$
+            branch: develop
         - provider: script
           script: >-
             cd packages/resources;
@@ -68,8 +68,7 @@ jobs:
             cd -
           skip_cleanup: true
           on:
-            all_branches: true
-            condition: $TRAVIS_BRANCH =~ ^develop|feature\/.*$
+            branch: develop
         - provider: script
           script: >-
             cd packages/posts;
@@ -96,8 +95,7 @@ jobs:
             cd -
           skip_cleanup: true
           on:
-            all_branches: true
-            condition: $TRAVIS_BRANCH =~ ^develop|feature\/.*$
+            branch: develop
         - provider: script
           script: >-
             cd packages/mail;
@@ -127,8 +125,7 @@ jobs:
             cd -
           skip_cleanup: true
           on:
-            all_branches: true
-            condition: $TRAVIS_BRANCH =~ ^develop|feature\/.*$
+            branch: develop
         - provider: script
           script: >-
             cd packages/web;
