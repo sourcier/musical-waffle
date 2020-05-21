@@ -3,7 +3,7 @@ import { sendMail } from '../../libs/api'
 const actions = {
   SEND_MAIL: 'send/mail',
   SEND_MAIL_SUCCESS: 'send/mail/success',
-  SEND_MAIL_FAILURE: 'send/mail/failure',
+  SEND_MAIL_FAILURE: 'send/mail/failure'
 }
 
 export const sendEmail = (subject, from, message) => (dispatch) => {
@@ -18,7 +18,7 @@ export const sendEmail = (subject, from, message) => (dispatch) => {
 }
 
 const initialState = {
-  mail: { sending: 'idle' },
+  mail: { sending: 'idle' }
 }
 
 export default (state = initialState, { type, payload }) => {

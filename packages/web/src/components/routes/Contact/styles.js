@@ -1,12 +1,12 @@
 export default (
-  { error },
+  { hasError },
   { rhythm, colors, mediaQuery, styles, rgba, breakpoints }
 ) => ({
   contact: {
     ...styles.container,
     maxWidth: breakpoints.lg,
     margin: `0 auto ${rhythm(3)}`,
-    fontSize: rhythm(0.5),
+    fontSize: rhythm(0.5)
   },
   button: {
     border: 0,
@@ -17,10 +17,10 @@ export default (
     padding: rhythm([0.3, 0.75]),
     borderRadius: rhythm(0.1),
     '&[disabled]': {
-      background: rgba(colors.muted, 0.5),
-    },
+      background: rgba(colors.muted, 0.5)
+    }
   },
   buttonIcon: {
-    paddingLeft: rhythm(0.25),
-  },
+    paddingLeft: rhythm(0.25)
+  }
 })

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faGithub,
   faTwitter,
-  faLinkedin,
+  faLinkedin
 } from '@fortawesome/free-brands-svg-icons'
 
 export const links = [
@@ -15,8 +15,8 @@ export const links = [
   // { label: 'Blog', href: '/blog' },
   {
     label: 'Contact',
-    href: '/contact',
-  },
+    href: '/contact'
+  }
 ]
 
 export const socials = [
@@ -25,35 +25,35 @@ export const socials = [
     href: 'https://github.com/sourcier',
     icon: <FontAwesomeIcon icon={faGithub} />,
     target: '_blank',
-    rel: 'noopener noreferrer',
+    rel: 'noopener noreferrer'
   },
   {
     label: 'Twitter',
     href: 'https://twitter.com/sourcier',
     icon: <FontAwesomeIcon icon={faTwitter} />,
     target: '_blank',
-    rel: 'noopener noreferrer',
+    rel: 'noopener noreferrer'
   },
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/roger-rajaratnam-3888021a4',
     icon: <FontAwesomeIcon icon={faLinkedin} />,
     target: '_blank',
-    rel: 'noopener noreferrer',
-  },
+    rel: 'noopener noreferrer'
+  }
 ]
 
 export const legals = [
   {
     label: 'Cookie Policy',
-    href: '/cookie-policy',
+    href: '/cookie-policy'
   },
   {
     label: 'Privacy Policy',
-    href: '/privacy-policy',
+    href: '/privacy-policy'
   },
   {
     label: 'Terms of Service',
-    href: '/terms-of-service',
-  },
+    href: '/terms-of-service'
+  }
 ]

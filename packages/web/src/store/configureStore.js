@@ -8,7 +8,7 @@ export default (initialState = {}) => {
   const appliedMiddleware = applyMiddleware(...middlewares)
   const enhancers = [appliedMiddleware]
   const composedEnhancers =
-    'production' !== process.env.NODE_ENV
+    process.env.NODE_ENV !== 'production'
       ? composeWithDevTools(...enhancers)
       : compose(...enhancers)
   const store = createStore(rootReducer, initialState, composedEnhancers)

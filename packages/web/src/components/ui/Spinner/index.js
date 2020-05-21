@@ -8,7 +8,7 @@ import styles from './styles'
 const Spinner = ({ styles }) => {
   return (
     <div css={styles.spinner}>
-      <FontAwesomeIcon icon={faCircleNotch} spin size="2x" />
+      <FontAwesomeIcon icon={faCircleNotch} spin size='2x' />
     </div>
   )
 }

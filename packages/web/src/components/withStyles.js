@@ -6,7 +6,7 @@ const stylesToClasses = (styles = {}) =>
   Object.keys(styles).reduce(
     (classNames, styleKey) => ({
       ...classNames,
-      [styleKey]: css({ ...styles[styleKey], label: styleKey }),
+      [styleKey]: css({ ...styles[styleKey], label: styleKey })
     }),
     {}
   )
@@ -17,7 +17,7 @@ export const withStyles = (styles) => (Component) => (props) => {
     styles:
       typeof styles === 'function'
         ? stylesToClasses(styles(props, theme))
-        : stylesToClasses(styles),
+        : stylesToClasses(styles)
   }
 
   return <Component {...combinedProps} />

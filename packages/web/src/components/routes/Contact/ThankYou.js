@@ -6,7 +6,7 @@ import styles from './styles'
 
 export const NotFound = ({ styles }) => (
   <div css={styles.contact}>
-    <Meta title="Thanks for being awesome!" />
+    <Meta title='Thanks for being awesome!' />
     <h2>Thanks for being awesome!</h2>
 
     <p>

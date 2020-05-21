@@ -6,5 +6,5 @@ import mail from './mail'
 export default combineReducers({
   blog,
   nav,
-  mail,
+  mail
 })

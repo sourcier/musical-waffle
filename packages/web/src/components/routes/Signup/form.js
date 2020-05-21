@@ -22,31 +22,31 @@ export const Form = ({ styles, sendEmail }) => {
         type: 'email',
         label: 'Email',
         value: '',
-        error: false,
-        validator: email('Your email is not a valid email address'),
+        hasError: false,
+        validator: email('Your email is not a valid email address')
       },
       password: {
         type: 'password',
         label: 'Password',
         value: '',
-        error: false,
-        validator: required('Your name is required'),
-      },
-    },
+        hasError: false,
+        validator: required('Your name is required')
+      }
+    }
   })
 
   const validateForm = () =>
-    0 !==
     Object.entries(form.fields).reduce(
       (pv, [key, { validator, value }]) =>
         validator && validator(value) ? pv + 1 : pv,
       0
-    )
+    ) !==
+    0
 
   const handleChange = ({ target: { name, value } }) => {
     const newValues = { ...form }
     newValues.fields[name].value = value
-    newValues.fields[name].error = newValues.fields[name].validator
+    newValues.fields[name].hasError = newValues.fields[name].validator
       ? newValues.fields[name].validator(value)
       : null
     updateForm(newValues)
@@ -81,9 +81,10 @@ export const Form = ({ styles, sendEmail }) => {
           )
         })}
         <button
-          type="submit"
+          type='submit'
           disabled={form.disabled() || form.sending}
-          css={styles.button}>
+          css={styles.button}
+        >
           Sign Up{' '}
           {form.sending && (
             <span css={styles.buttonIcon}>

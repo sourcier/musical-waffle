@@ -16,18 +16,18 @@ export const BlogPage = ({
   getBlogPost,
   styles,
   match: {
-    params: { slug },
-  },
+    params: { slug }
+  }
 }) => {
   const renderPost = () => {
     return (
-      <React.Fragment>
+      <>
         <Meta title={post.title} />
         <div>
           <h2>{post.title}</h2>
           <ReactMarkdown escapeHtml={false} source={post.content} />
         </div>
-      </React.Fragment>
+      </>
     )
   }
 
@@ -36,23 +36,23 @@ export const BlogPage = ({
   }, [slug])
 
   return (
-    <React.Fragment>
+    <>
       <div css={styles.blogPost}>
-        {'fetching' === state && <Spinner />}
-        {'fetched' === state && renderPost()}
-        {'error' === state && <NotFound />}
+        {state === 'fetching' && <Spinner />}
+        {state === 'fetched' && renderPost()}
+        {state === 'error' && <NotFound />}
       </div>
-    </React.Fragment>
+    </>
   )
 }
 
 const mapStateToProps = ({
   blog: {
-    blogPost: { state, post },
-  },
+    blogPost: { state, post }
+  }
 }) => ({
   post,
-  state,
+  state
 })
 
 const mapDispatchToProps = { getBlogPost }

@@ -19,33 +19,33 @@ export const Form = ({ styles, sendEmail }) => {
     fields: {
       message: {
         value: '',
-        error: false,
-        validator: required('Your message is required'),
+        hasError: false,
+        validator: required('Your message is required')
       },
       name: {
         value: '',
-        error: false,
-        validator: required('Your name is required'),
+        hasError: false,
+        validator: required('Your name is required')
       },
       email: {
         value: '',
-        error: false,
-        validator: email('Your email is not a valid email address'),
-      },
-    },
+        hasError: false,
+        validator: email('Your email is not a valid email address')
+      }
+    }
   })
 
   const validateForm = () =>
-    0 !==
     Object.entries(form.fields).reduce(
       (pv, [key, { validator, value }]) => (validator(value) ? pv + 1 : pv),
       0
-    )
+    ) !==
+    0
 
   const handleChange = ({ target: { name, value } }) => {
     const newValues = { ...form }
     newValues.fields[name].value = value
-    newValues.fields[name].error = newValues.fields[name].validator(value)
+    newValues.fields[name].hasError = newValues.fields[name].validator(value)
     updateForm(newValues)
   }
 
@@ -66,31 +66,32 @@ export const Form = ({ styles, sendEmail }) => {
     <div>
       <form onSubmit={handleSubmit}>
         <InputField
-          type="textarea"
-          label="What’s up?"
-          help="Type as much or as little as you like."
-          name="message"
+          type='textarea'
+          label='What’s up?'
+          help='Type as much or as little as you like.'
+          name='message'
           field={form.fields.message}
           onChange={handleChange}
         />
         <InputField
-          type="text"
-          label="What’s your name?"
-          name="name"
+          type='text'
+          label='What’s your name?'
+          name='name'
           field={form.fields.name}
           onChange={handleChange}
         />
         <InputField
-          type="text"
-          label="What’s your email address?"
-          name="email"
+          type='text'
+          label='What’s your email address?'
+          name='email'
           field={form.fields.email}
           onChange={handleChange}
         />
         <button
-          type="submit"
+          type='submit'
           disabled={form.disabled() || form.sending}
-          css={styles.button}>
+          css={styles.button}
+        >
           Send Message{' '}
           {form.sending && (
             <span css={styles.buttonIcon}>

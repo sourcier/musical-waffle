@@ -4,7 +4,7 @@ import Hero from '../components/Hero'
 import { Meta } from '../components/Meta'
 
 export const Home = () => (
-  <React.Fragment>
+  <>
     <Meta />
     <Hero>
       <h2>
@@ -13,7 +13,7 @@ export const Home = () => (
         for Your <span>Business</span>
       </h2>
     </Hero>
-  </React.Fragment>
+  </>
 )
 
 export default Home

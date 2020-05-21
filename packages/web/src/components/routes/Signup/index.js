@@ -7,7 +7,7 @@ import Form from './form'
 
 export const Contact = ({ styles }) => (
   <div css={styles.contact}>
-    <Meta title="Contact" />
+    <Meta title='Contact' />
     <h2>Sign-Up</h2>
     <Form />
   </div>

@@ -16,12 +16,12 @@ const Header = ({ styles, isOpen, toggleNav }) => {
   }, [isOpen])
 
   return (
-    <div css={styles.header} id="header">
+    <div css={styles.header} id='header'>
       <div css={styles.buttons}>
-        <Link to="/">
+        <Link to='/'>
           <img
             src={`/assets/img/${isOpen ? 'logo-inverse' : 'logo'}.svg`}
-            alt="Sourcier"
+            alt='Sourcier'
           />
         </Link>
         <button onClick={toggleNav}>
@@ -53,7 +53,7 @@ const Header = ({ styles, isOpen, toggleNav }) => {
 }
 
 const mapStateToProps = ({ nav: { isOpen } }) => ({
-  isOpen,
+  isOpen
 })
 
 const mapDispatchToProps = { toggleNav }

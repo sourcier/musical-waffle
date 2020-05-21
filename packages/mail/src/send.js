@@ -1,7 +1,7 @@
-import sgMail from "@sendgrid/mail"
-import * as Sentry from "@sentry/node"
+import sgMail from '@sendgrid/mail'
+import * as Sentry from '@sentry/node'
 
-import { success, failure } from "./libs/response"
+import { success, failure } from './libs/response'
 
 Sentry.init({ dsn: process.env.SENTRY_DSN })
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
@@ -14,7 +14,7 @@ export default (event, context) =>
         from: process.env.SENDGRID_EMAIL_FROM,
         subject: `${subject}`,
         text: message,
-        replyTo: from,
+        replyTo: from
       })
     )
     .then(() => success(null))

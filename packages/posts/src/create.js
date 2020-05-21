@@ -1,11 +1,11 @@
-import * as dynamoDbLib from "./libs/dynamodb"
-import { success, failure } from "./libs/response"
+import * as dynamoDbLib from './libs/dynamodb'
+import { success, failure } from './libs/response'
 
 export default (event, context) => {
   const date = new Date()
 
   return Promise.resolve(JSON.parse(event.body))
-    .then(({data: {id, type, attributes}}) => {
+    .then(({ data: { id, type, attributes } }) => {
       const params = {
         TableName: process.env.POSTS_TABLE_NAME,
         Item: {
@@ -14,13 +14,13 @@ export default (event, context) => {
           published: false,
           created: date.toISOString(),
           updated: date.toISOString()
-        },
+        }
       }
-      return dynamoDbLib.call("put", params).then(() => {
-        const {slug, ...attributes} = params.Item
+      return dynamoDbLib.call('put', params).then(() => {
+        const { slug, ...attributes } = params.Item
         return success({
           data: {
-            type: "posts",
+            type: 'posts',
             id: slug,
             ...attributes
           }
@@ -30,4 +30,4 @@ export default (event, context) => {
     .catch((e) => {
       return failure({ ...e })
     })
-  }
+}

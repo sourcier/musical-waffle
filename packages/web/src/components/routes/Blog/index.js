@@ -37,22 +37,22 @@ const BlogList = ({ posts, state, getBlogList, styles }) => {
   }
 
   return (
-    <React.Fragment>
-      <Meta title="blog" />
+    <>
+      <Meta title='blog' />
       <div css={styles.blogList}>
-        {'fetched' === state ? renderPosts() : <Spinner />}
+        {state === 'fetched' ? renderPosts() : <Spinner />}
       </div>
-    </React.Fragment>
+    </>
   )
 }
 
 const mapStateToProps = ({
   blog: {
-    blogList: { state, posts },
-  },
+    blogList: { state, posts }
+  }
 }) => ({
   posts,
-  state,
+  state
 })
 
 const mapDispatchToProps = { getBlogList }

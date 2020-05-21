@@ -1,12 +1,12 @@
 export default (props, { rhythm, colors, styles, mediaQuery, breakpoints }) => {
   return {
     root: {
-      borderTop: `solid ${rhythm(0.25)} ${colors.primary}`,
+      borderTop: `solid ${rhythm(0.25)} ${colors.primary}`
     },
     footer: {
       ...styles.container,
       maxWidth: breakpoints.lg,
-      margin: `0 auto`,
+      margin: '0 auto',
       textAlign: 'center',
       display: 'flex',
       flexDirection: 'column',
@@ -14,8 +14,8 @@ export default (props, { rhythm, colors, styles, mediaQuery, breakpoints }) => {
       [mediaQuery('md')]: {
         flexDirection: 'row',
         textAlign: 'left',
-        padding: rhythm(1),
-      },
+        padding: rhythm(1)
+      }
     },
     links: {
       ul: {
@@ -26,10 +26,10 @@ export default (props, { rhythm, colors, styles, mediaQuery, breakpoints }) => {
           a: {
             color: colors.text,
             textDecoration: 'none',
-            textTransform: 'uppercase',
-          },
-        },
-      },
+            textTransform: 'uppercase'
+          }
+        }
+      }
     },
     legals: {
       ul: {
@@ -40,10 +40,10 @@ export default (props, { rhythm, colors, styles, mediaQuery, breakpoints }) => {
           a: {
             color: colors.text,
             textDecoration: 'none',
-            textTransform: 'uppercase',
-          },
-        },
-      },
+            textTransform: 'uppercase'
+          }
+        }
+      }
     },
     socials: {
       ul: {
@@ -53,15 +53,15 @@ export default (props, { rhythm, colors, styles, mediaQuery, breakpoints }) => {
           display: 'inline-block',
           paddingRight: rhythm(0.75),
           '&:last-child': {
-            paddingRight: 0,
+            paddingRight: 0
           },
           a: {
             color: colors.text,
             textDecoration: 'none',
-            textTransform: 'uppercase',
-          },
-        },
-      },
+            textTransform: 'uppercase'
+          }
+        }
+      }
     },
     copyright: {
       ...styles.container,
@@ -69,8 +69,8 @@ export default (props, { rhythm, colors, styles, mediaQuery, breakpoints }) => {
       textAlign: 'center',
       'p, a': {
         fontSize: rhythm(0.5),
-        color: colors.muted,
-      },
-    },
+        color: colors.muted
+      }
+    }
   }
 }

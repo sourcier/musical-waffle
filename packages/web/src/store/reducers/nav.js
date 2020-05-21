@@ -1,6 +1,6 @@
 const actions = {
   TOGGLE_NAV: 'nav/toggle',
-  CLOSE_NAV: 'nav/close',
+  CLOSE_NAV: 'nav/close'
 }
 
 export const toggleNav = () => (dispatch) =>
@@ -10,7 +10,7 @@ export const closeNav = () => (dispatch) =>
   dispatch({ type: actions.CLOSE_NAV })
 
 const initialState = {
-  isOpen: false,
+  isOpen: false
 }
 
 export default (state = initialState, { type }) => {

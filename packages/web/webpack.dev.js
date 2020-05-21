@@ -1,9 +1,9 @@
-const merge = require("webpack-merge")
+const merge = require('webpack-merge')
 
-const common = require("./webpack.common.js")
+const common = require('./webpack.common.js')
 
 module.exports = merge(common, {
-  mode: "development",
+  mode: 'development',
   resolve: {
     alias: {
       'react-dom': '@hot-loader/react-dom'
@@ -11,7 +11,7 @@ module.exports = merge(common, {
   },
   devServer: {
     historyApiFallback: true,
-    hot: true,
+    hot: true
   },
-  devtool: "eval-source-map",
+  devtool: 'eval-source-map'
 })

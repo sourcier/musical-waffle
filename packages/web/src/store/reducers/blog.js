@@ -6,7 +6,7 @@ const actions = {
   FETCH_POSTS_FAILURE: 'fetch/posts/failure',
   FETCH_POST: 'fetch/post',
   FETCH_POST_SUCCESS: 'fetch/post/success',
-  FETCH_POST_FAILURE: 'fetch/post/failure',
+  FETCH_POST_FAILURE: 'fetch/post/failure'
 }
 
 export const getBlogList = () => (dispatch) => {
@@ -35,7 +35,7 @@ export const getBlogPost = (slug) => (dispatch) => {
 
 const initialState = {
   blogList: { state: 'fetching' },
-  blogPost: { state: 'fetching' },
+  blogPost: { state: 'fetching' }
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -49,16 +49,16 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         blogList: {
           posts: payload,
-          state: 'fetched',
-        },
+          state: 'fetched'
+        }
       }
     case actions.FETCH_POST_SUCCESS:
       return {
         ...state,
         blogPost: {
           post: payload,
-          state: 'fetched',
-        },
+          state: 'fetched'
+        }
       }
     case actions.FETCH_POSTS_FAILURE:
       return { ...state, blogList: { state: 'error' } }

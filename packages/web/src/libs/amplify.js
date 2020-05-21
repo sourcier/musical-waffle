@@ -7,7 +7,7 @@ Auth.configure({
   region: config.cognito.region,
   userPoolId: config.cognito.userPoolId,
   userPoolWebClientId: config.cognito.userPoolWebClientId,
-  mandatorySignIn: false,
+  mandatorySignIn: false
 })
 
 API.configure({
@@ -15,14 +15,14 @@ API.configure({
     {
       name: config.api.posts.name,
       endpoint: config.api.posts.endpoint,
-      region: config.api.posts.region,
+      region: config.api.posts.region
     },
     {
       name: config.api.mail.name,
       endpoint: config.api.mail.endpoint,
-      region: config.api.mail.region,
-    },
-  ],
+      region: config.api.mail.region
+    }
+  ]
 })
 
 export { API, Auth }

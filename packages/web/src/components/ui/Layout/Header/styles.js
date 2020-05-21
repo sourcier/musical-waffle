@@ -4,12 +4,12 @@ export default (
 ) => ({
   header: {
     borderTop: `solid ${rhythm(0.25)} ${colors.primary}`,
-    borderBottom: `solid 1px ${colors.light}`,
+    borderBottom: `solid 1px ${colors.light}`
   },
   buttons: {
     ...styles.container,
     maxWidth: breakpoints.lg,
-    margin: `0 auto`,
+    margin: '0 auto',
     position: 'relative',
     zIndex: 2,
     display: 'flex',
@@ -17,16 +17,16 @@ export default (
     alignItems: 'center',
 
     a: {
-      marginBottom: 0,
+      marginBottom: 0
     },
     button: {
       border: 0,
       padding: 0,
-      color: isOpen ? colors.white : colors.text,
+      color: isOpen ? colors.white : colors.text
     },
     img: {
-      width: rhythm(4),
-    },
+      width: rhythm(4)
+    }
   },
   menu: {
     ...styles.container,
@@ -52,9 +52,9 @@ export default (
           color: colors.white,
           textDecoration: 'none',
           textTransform: 'uppercase',
-          fontWeight: 400,
-        },
-      },
-    },
-  },
+          fontWeight: 400
+        }
+      }
+    }
+  }
 })

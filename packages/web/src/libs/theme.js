@@ -5,7 +5,7 @@ const baseFontSize = 24
 
 const shevy = new Shevy({
   baseFontSize: `${baseFontSize}px`,
-  baseFontScale: 'majorSecond',
+  baseFontScale: 'majorSecond'
 })
 
 export { rgba }
@@ -14,7 +14,7 @@ export const breakpoints = {
   sm: `${375 / baseFontSize}em`,
   md: `${768 / baseFontSize}em`,
   lg: `${960 / baseFontSize}em`,
-  xl: `${1024 / baseFontSize}em`,
+  xl: `${1024 / baseFontSize}em`
 }
 
 export const mediaQuery = (size = 'sm', query = 'min-width') =>
@@ -37,18 +37,18 @@ export const colors = {
   light: '#f8f9fa',
   dark: '#343a40',
   white: '#fff',
-  transparent: 'transparent',
+  transparent: 'transparent'
 }
 
 export const fonts = {
   sourceSansPro: {
     fontFamily: "'Source Sans Pro', sans-serif",
-    fontWeight: 300,
+    fontWeight: 300
   },
   playfairDisplay: {
     fontFamily: "'Playfair Display', sans-serif",
-    fontWeight: 400,
-  },
+    fontWeight: 400
+  }
 }
 
 export const treatments = {
@@ -56,11 +56,11 @@ export const treatments = {
     body: {
       ...shevy.body,
       ...fonts.sourceSansPro,
-      color: colors.text,
+      color: colors.text
     },
     h1: {
       ...shevy.h1,
-      ...fonts.playfairDisplay,
+      ...fonts.playfairDisplay
     },
     h2: {
       ...shevy.h2,
@@ -70,48 +70,48 @@ export const treatments = {
         lineHeight: 'inherit',
         marginBottom: 'inherit',
         textDecoration: 'none',
-        color: colors.text,
-      },
+        color: colors.text
+      }
     },
     h3: {
       ...shevy.h3,
-      ...fonts.playfairDisplay,
+      ...fonts.playfairDisplay
     },
     h4: {
       ...shevy.h4,
-      ...fonts.playfairDisplay,
+      ...fonts.playfairDisplay
     },
     h5: {
       ...shevy.h5,
-      ...fonts.playfairDisplay,
+      ...fonts.playfairDisplay
     },
     h6: {
       ...shevy.h6,
-      ...fonts.playfairDisplay,
+      ...fonts.playfairDisplay
     },
     'p, a, ol, ul, pre': {
-      ...shevy.content,
+      ...shevy.content
     },
     stong: {
-      fontWeight: '400',
+      fontWeight: '400'
     },
     button: {
-      cursor: 'pointer',
+      cursor: 'pointer'
     },
     a: {
-      color: colors.primary,
+      color: colors.primary
     },
     img: {
-      maxWidth: '100%',
-    },
-  },
+      maxWidth: '100%'
+    }
+  }
 }
 
 export const styles = {
   container: {
     padding: rhythm(0.5),
     [mediaQuery('md')]: {
-      padding: rhythm(1),
-    },
-  },
+      padding: rhythm(1)
+    }
+  }
 }

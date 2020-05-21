@@ -1,45 +1,45 @@
-const path = require("path")
-const merge = require("webpack-merge")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const CopyWebpackPlugin = require("copy-webpack-plugin")
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path')
+const merge = require('webpack-merge')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-const common = require("./webpack.common.js")
+const common = require('./webpack.common.js')
 
 module.exports = merge(common, {
-  mode: "production",
-  devtool: "source-map",
+  mode: 'production',
+  devtool: 'source-map',
   module: {
     rules: [
       {
         test: /.(css|scss)$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-      },
-    ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      }
+    ]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].[hash:8].css",
+      filename: '[name].[hash:8].css'
     }),
     new CopyWebpackPlugin([
       {
-        from: path.join(__dirname, "assets"),
-        to: path.join(__dirname, "build", "assets"),
-      },
+        from: path.join(__dirname, 'assets'),
+        to: path.join(__dirname, 'build', 'assets')
+      }
     ]),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin()
   ],
   optimization: {
-    moduleIds: "hashed",
+    moduleIds: 'hashed',
     splitChunks: {
-      chunks: "all",
+      chunks: 'all',
       cacheGroups: {
         vendors: {
           test: /node_modules/,
-          name: "vendors",
-          chunks: "all",
-        },
-      },
-    },
-  },
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  }
 })

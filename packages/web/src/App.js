@@ -22,12 +22,12 @@ export default hot((props) => (
       <Layout>
         <Switch>
           {/* <Route path="/" exact component={Home} /> */}
-          <Route path="/contact" exact component={Contact} />
-          <Route path="/contact/thank-you" exact component={ThankYou} />
-          <Route path="/sign-up" exact component={Signup} />
-          <Route path="/sign-up/confirm" exact component={Confirm} />
-          <Route path="/" exact component={Blog} />
-          <Route path="/:slug" exact component={BlogPage} />
+          <Route path='/contact' exact component={Contact} />
+          <Route path='/contact/thank-you' exact component={ThankYou} />
+          <Route path='/sign-up' exact component={Signup} />
+          <Route path='/sign-up/confirm' exact component={Confirm} />
+          <Route path='/' exact component={Blog} />
+          <Route path='/:slug' exact component={BlogPage} />
           <Route component={NotFound} />
         </Switch>
       </Layout>

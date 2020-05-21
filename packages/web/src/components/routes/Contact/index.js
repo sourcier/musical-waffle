@@ -7,10 +7,10 @@ import Form from './form'
 
 export const Contact = ({ styles }) => (
   <div css={styles.contact}>
-    <Meta title="Contact" />
+    <Meta title='Contact' />
     <h2>
       Contact{' '}
-      <span role="img" aria-label="Call Me Hand">
+      <span role='img' aria-label='Call Me Hand'>
         🤙
       </span>
     </h2>

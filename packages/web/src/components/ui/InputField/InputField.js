@@ -12,20 +12,20 @@ export const InputField = ({
   name,
   label,
   help,
-  field: { value, error },
+  field: { value, error }
 }) => {
   const params = {
     type,
     value,
     name,
     onChange,
-    onBlur: onChange,
+    onBlur: onChange
   }
 
   const renderInput = () => {
     switch (type) {
       case 'textarea':
-        return <textarea {...params} css={styles.textarea}></textarea>
+        return <textarea {...params} css={styles.textarea} />
       default:
         return <input {...params} css={styles.input} />
     }

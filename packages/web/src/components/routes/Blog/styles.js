@@ -5,14 +5,14 @@ export default (
   blogList: {
     ...styles.container,
     maxWidth: breakpoints.lg,
-    margin: `0 auto`,
+    margin: '0 auto'
   },
   blogListItem: {
-    marginBottom: rhythm(3),
+    marginBottom: rhythm(3)
   },
   empty: {
     ...styles.container,
     textAlign: 'center',
-    background: colors.light,
-  },
+    background: colors.light
+  }
 })

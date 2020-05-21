@@ -10,7 +10,7 @@ const Comments = ({ styles }) => {
     <div css={styles.comments}>
       <h3>Join the discussion</h3>
       <FacebookProvider appId={config.facebook.appId}>
-        <FacbookComments width="100%" />
+        <FacbookComments width='100%' />
       </FacebookProvider>
     </div>
   )

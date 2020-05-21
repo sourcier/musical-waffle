@@ -6,7 +6,7 @@ import { withStyles } from '../../../withStyles'
 import { socials, links, legals } from '../../../../libs/links'
 
 export const Component = ({ styles }) => (
-  <React.Fragment>
+  <>
     <footer css={styles.root}>
       <div css={styles.footer}>
         <div css={styles.socials}>
@@ -53,10 +53,10 @@ export const Component = ({ styles }) => (
       </p>
       <p>&copy; 2020 Sourcier Ltd. All Rights Reserved.</p>
       <p>
-        <a href="#header">Back to top</a>
+        <a href='#header'>Back to top</a>
       </p>
     </div>
-  </React.Fragment>
+  </>
 )
 
 export const Footer = withStyles(styles)(Component)

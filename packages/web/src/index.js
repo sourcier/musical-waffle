@@ -12,14 +12,14 @@ const rootElement = document.getElementById('root')
 
 rootElement.hasChildNodes()
   ? hydrate(
-      <Provider store={configureStore()}>
-        <App />
-      </Provider>,
-      document.getElementById('root')
-    )
+    <Provider store={configureStore()}>
+      <App />
+    </Provider>,
+    document.getElementById('root')
+  )
   : render(
-      <Provider store={configureStore()}>
-        <App />
-      </Provider>,
-      document.getElementById('root')
-    )
+    <Provider store={configureStore()}>
+      <App />
+    </Provider>,
+    document.getElementById('root')
+  )

@@ -7,10 +7,10 @@ export const getPost = (slug) =>
   API.get('posts', `/posts/${slug}`).then((response) => response.data)
 
 export const sendMail = (subject, from, message) =>
-  API.post('mail', `/mail`, {
+  API.post('mail', '/mail', {
     body: {
       subject,
       from,
-      message,
-    },
+      message
+    }
   })
