@@ -9,6 +9,7 @@ import { getBlogPost } from '../../../store/reducers/blog'
 import { withStyles } from '../../withStyles'
 import styles from './styles'
 import NotFound from '../NotFound'
+import Comments from './Comments'
 
 export const BlogPage = ({
   post,
@@ -26,6 +27,7 @@ export const BlogPage = ({
         <div>
           <h2>{post.title}</h2>
           <ReactMarkdown escapeHtml={false} source={post.content} />
+          <Comments />
         </div>
       </>
     )
