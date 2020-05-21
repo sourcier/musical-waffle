@@ -40,7 +40,7 @@ const BlogList = ({ posts, state, getBlogList, styles }) => {
     <React.Fragment>
       <Meta title="blog" />
       <div css={styles.blogList}>
-        {'fetched' === state ? renderPosts(posts) : <Spinner />}
+        {'fetched' === state ? renderPosts() : <Spinner />}
       </div>
     </React.Fragment>
   )
