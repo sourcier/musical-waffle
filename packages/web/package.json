@@ -1,119 +1,123 @@
 {
-    "name": "web",
-    "version": "0.0.35",
-    "private": true,
-    "dependencies": {
-        "@aws-amplify/api": "^3.1.8",
-        "@aws-amplify/auth": "^3.2.5",
-        "@emotion/core": "^10.0.28",
-        "@fortawesome/fontawesome-svg-core": "^1.2.28",
-        "@fortawesome/free-brands-svg-icons": "^5.13.0",
-        "@fortawesome/free-solid-svg-icons": "^5.13.0",
-        "@fortawesome/react-fontawesome": "^0.1.9",
-        "classnames": "^2.2.6",
-        "hyvor-talk-react": "^1.0.1",
-        "lodash": "^4.17.15",
-        "moment": "^2.24.0",
-        "polished": "^3.5.2",
-        "react": "^16.10.2",
-        "react-bootstrap": "^1.0.0-beta.16",
-        "react-dom": "^16.10.2",
-        "react-helmet-async": "^1.0.5",
-        "react-loading-skeleton": "^2.0.1",
-        "react-markdown": "^4.0.8",
-        "react-redux": "^7.1.0",
-        "react-router-dom": "^5.0.0",
-        "redux": "^4.0.4",
-        "redux-thunk": "^2.3.0",
-        "sanitize.css": "^11.0.0",
-        "shevyjs": "^1.1.0"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.6.4",
-        "@babel/plugin-proposal-class-properties": "^7.5.5",
-        "@babel/preset-env": "^7.6.3",
-        "@babel/preset-react": "^7.6.3",
-        "@emotion/babel-preset-css-prop": "^10.0.27",
-        "@hot-loader/react-dom": "16.10.2",
-        "babel-loader": "^8.0.6",
-        "babel-plugin-emotion": "^10.0.33",
-        "clean-webpack-plugin": "^3.0.0",
-        "copy-webpack-plugin": "^5.1.1",
-        "css-loader": "^3.2.0",
-        "dotenv-webpack": "^1.7.0",
-        "enzyme": "^3.10.0",
-        "enzyme-adapter-react-16": "^1.14.0",
-        "enzyme-to-json": "^3.3.5",
-        "file-loader": "^6.0.0",
-        "html-webpack-plugin": "^4.2.0",
-        "husky": "^4.2.5",
-        "identity-obj-proxy": "^3.0.0",
-        "jest": "^25.4.0",
-        "lint-staged": "^10.1.6",
-        "mini-css-extract-plugin": "^0.9.0",
-        "node-sass": "^4.12.0",
-        "prettier": "^2.0.4",
-        "react-hot-loader": "^4.12.21",
-        "redux-devtools-extension": "^2.13.8",
-        "sass-loader": "^8.0.0",
-        "serverless-pseudo-parameters": "^2.5.0",
-        "style-loader": "^1.2.1",
-        "webpack": "^4.41.1",
-        "webpack-bundle-analyzer": "^3.7.0",
-        "webpack-cli": "^3.3.9",
-        "webpack-dev-server": "^3.8.2",
-        "webpack-merge": "^4.2.2"
-    },
-    "scripts": {
-        "start": "webpack-dev-server --config webpack.dev.js",
-        "build": "webpack -p --config webpack.prod.js",
-        "test": "NODE_ENV=production jest --bail --ci",
-        "test-watch": "jest --watch",
-        "lint": "standard ./src",
-        "lint-fix": "standard ./src --fix",
-        "prettier": "prettier --single-quote --write './src/**/*.{js,jsx,json,css,scss,md}'",
-        "bundle-analyzer": "webpack --profile --json > stats.json; webpack-bundle-analyzer stats.json"
-    },
-    "browserslist": [
-        ">0.2%",
-        "not dead",
-        "not ie <= 11",
-        "not op_mini all"
-    ],
-    "engines": {
-        "node": "^12"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "yarn test && yarn lint-staged"
-        }
-    },
-    "lint-staged": {
-        "src/**/*.{js,jsx}": [
-            "standard --fix",
-            "git add"
-        ]
-    },
-    "jest": {
-        "setupFilesAfterEnv": [
-            "./src/setupTests.js"
-        ],
-        "snapshotSerializers": [
-            "enzyme-to-json/serializer"
-        ],
-        "moduleNameMapper": {
-            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js",
-            "\\.(css|less|scss)$": "identity-obj-proxy"
-        }
-    },
-    "standard": {
-        "globals": [
-            "it",
-            "jest",
-            "expect"
-        ],
-        "ignore": [
-            "build"
-        ]
+  "name": "web",
+  "version": "0.0.35",
+  "private": true,
+  "dependencies": {
+    "@aws-amplify/api": "^3.1.8",
+    "@aws-amplify/auth": "^3.2.5",
+    "@emotion/core": "^10.0.28",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-brands-svg-icons": "^5.13.0",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "classnames": "^2.2.6",
+    "hyvor-talk-react": "^1.0.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "polished": "^3.5.2",
+    "react": "^16.10.2",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-dom": "^16.10.2",
+    "react-helmet-async": "^1.0.5",
+    "react-loading-skeleton": "^2.0.1",
+    "react-markdown": "^4.0.8",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.0",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "sanitize.css": "^11.0.0",
+    "shevyjs": "^1.1.0",
+    "snyk": "^1.323.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@hot-loader/react-dom": "16.10.2",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-emotion": "^10.0.33",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.2.0",
+    "dotenv-webpack": "^1.7.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.2.0",
+    "husky": "^4.2.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.4.0",
+    "lint-staged": "^10.1.6",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.12.0",
+    "prettier": "^2.0.4",
+    "react-hot-loader": "^4.12.21",
+    "redux-devtools-extension": "^2.13.8",
+    "sass-loader": "^8.0.0",
+    "serverless-pseudo-parameters": "^2.5.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.41.1",
+    "webpack-bundle-analyzer": "^3.7.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2",
+    "webpack-merge": "^4.2.2"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack -p --config webpack.prod.js",
+    "test": "NODE_ENV=production jest --bail --ci",
+    "test-watch": "jest --watch",
+    "lint": "standard ./src",
+    "lint-fix": "standard ./src --fix",
+    "prettier": "prettier --single-quote --write './src/**/*.{js,jsx,json,css,scss,md}'",
+    "bundle-analyzer": "webpack --profile --json > stats.json; webpack-bundle-analyzer stats.json",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "engines": {
+    "node": "^12"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test && yarn lint-staged"
     }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "standard --fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./src/setupTests.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js",
+      "\\.(css|less|scss)$": "identity-obj-proxy"
+    }
+  },
+  "standard": {
+    "globals": [
+      "it",
+      "jest",
+      "expect"
+    ],
+    "ignore": [
+      "build"
+    ]
+  },
+  "snyk": true
 }
