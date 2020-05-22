@@ -6,10 +6,10 @@ import ReactMarkdown from 'react-markdown'
 import { Link } from 'react-router-dom'
 
 import { Meta } from '../../Meta'
-import Spinner from '../../ui/Spinner'
 import { withStyles } from '../../withStyles'
 import { getBlogList } from '../../../store/reducers/blog'
 import styles from './styles'
+import BlogPostSkeleton from '../../ui/BlogPostSkeleton'
 
 const BlogList = ({ posts, state, getBlogList, styles }) => {
   useEffect(() => {
@@ -40,7 +40,7 @@ const BlogList = ({ posts, state, getBlogList, styles }) => {
     <>
       <Meta title='blog' />
       <div css={styles.blogList}>
-        {state === 'fetched' ? renderPosts() : <Spinner />}
+        {state === 'fetched' ? renderPosts() : <BlogPostSkeleton />}
       </div>
     </>
   )

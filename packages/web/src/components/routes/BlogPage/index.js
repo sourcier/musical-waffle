@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown/with-html'
 
 import { Meta } from '../../Meta'
-import Spinner from '../../ui/Spinner'
 import { getBlogPost } from '../../../store/reducers/blog'
 import { withStyles } from '../../withStyles'
 import styles from './styles'
 import NotFound from '../NotFound'
 import Comments from './Comments'
+import BlogPostSkeleton from '../../ui/BlogPostSkeleton'
 
 export const BlogPage = ({
   post,
@@ -40,7 +40,7 @@ export const BlogPage = ({
   return (
     <>
       <div css={styles.blogPost}>
-        {state === 'fetching' && <Spinner />}
+        {state === 'fetching' && <BlogPostSkeleton />}
         {state === 'fetched' && renderPost()}
         {state === 'error' && <NotFound />}
       </div>
