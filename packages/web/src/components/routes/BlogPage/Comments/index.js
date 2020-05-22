@@ -35,7 +35,7 @@ const Comments = ({ styles }) => {
     <div css={styles.comments}>
       {isLoading && <Spinner />}
       {!isLoading && <h3>Join the discussion</h3>}
-      <div className='fb-comments' />
+      <div className='fb-comments' data-width='100%' />
     </div>
   )
 }
