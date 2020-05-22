@@ -27,7 +27,7 @@ export const rhythm = (factorOrFactors) =>
 
 export const colors = {
   primary: '#007bff',
-  secondary: '#28a745',
+  secondary: '#fd256e',
   info: '#17a2b8',
   warning: '#ffc107',
   danger: '#dc3545',
