@@ -22,7 +22,7 @@ Resources:
     Properties:
       Path: /
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Principal:
@@ -37,35 +37,23 @@ Resources:
       Policies:
         - PolicyName: CognitoAuthorizedPolicy
           PolicyDocument:
-            Version: "2012-10-17"
+            Version: '2012-10-17'
             Statement:
-              !If
-                - IsProd
-                -
-                  - Effect: Allow
-                    Action:
-                      - execute-api:Invoke
-                    Resource: !Sub arn:aws:execute-api:#{AWS::Region}:#{AWS::AccountId}:*/prod/GET/*
-                  - Effect: Allow
-                    Action:
-                      - execute-api:Invoke
-                    Resource: !Sub arn:aws:execute-api:#{AWS::Region}:#{AWS::AccountId}:7q9qe3mkcg/dev/POST
-                -
-                  - Effect: Allow
-                    Action:
-                      - execute-api:Invoke
-                    Resource: !Sub arn:aws:execute-api:#{AWS::Region}:#{AWS::AccountId}:*/dev/GET/*
-                  - Effect: Allow
-                    Action:
-                      - execute-api:Invoke
-                    Resource: !Sub arn:aws:execute-api:#{AWS::Region}:#{AWS::AccountId}:7ikidzu3j6/dev/POST
+              - Effect: Allow
+                Action:
+                  - execute-api:Invoke
+                Resource: !Sub arn:aws:execute-api:#{AWS::Region}:#{AWS::AccountId}:*/#{Stage}/GET/*
+              - Effect: Allow
+                Action:
+                  - execute-api:Invoke
+                Resource: !Sub arn:aws:execute-api:#{AWS::Region}:#{AWS::AccountId}:#{MailApiGatewayId}/#{Stage}/POST
 
   CognitoAuthenticatedRole:
     Type: AWS::IAM::Role
     Properties:
       Path: /
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Principal:
@@ -80,7 +68,7 @@ Resources:
       Policies:
         - PolicyName: CognitoAuthorizedPolicy
           PolicyDocument:
-            Version: "2012-10-17"
+            Version: '2012-10-17'
             Statement:
               - Effect: Allow
                 Action:

@@ -17,3 +17,6 @@ Parameters:
   CognitoUserPoolClientName:
     Type: String
     Default: ${self:custom.prefix}-user-pool-client
+  MailApiGatewayId:
+    Type: String
+    Default: ${self:custom.mailApiGatewayId.${self:custom.stage}}
