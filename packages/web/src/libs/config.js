@@ -4,12 +4,12 @@ const devConfig = {
   api: {
     posts: {
       name: 'posts',
-      endpoint: 'https://dev-api.sourcier.uk',
+      endpoint: 'https://api-staging.sourcier.uk',
       region: 'eu-west-2'
     },
     mail: {
       name: 'mail',
-      endpoint: 'https://dev-api.sourcier.uk',
+      endpoint: 'https://api-staging.sourcier.uk',
       region: 'eu-west-2'
     }
   },

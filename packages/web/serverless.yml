@@ -10,7 +10,7 @@ custom:
   distributionPath: ./build
   domains:
     prod: sourcier.uk
-    dev: dev.sourcier.uk
+    dev: staging.sourcier.uk
 
 provider:
   name: aws
