@@ -12,7 +12,7 @@ custom:
   postsTableName: ${self:custom.prefix}-posts
   domains:
     prod: api.sourcier.uk
-    dev: dev-api.sourcier.uk
+    dev: api-staging.sourcier.uk
   customDomain:
     basePath: posts
     domainName: ${self:custom.domains.${self:custom.stage}}
